@@ -9,11 +9,13 @@ public class DatabaseDriver  {
 
     private Connection conn1;
     private Connection conn2;
+    private Connection conn3;
 
     public DatabaseDriver() {
         try {
-            this.conn1 = DriverManager.getConnection("jdbc:sqlite:epletmaster.db");
-            this.conn2 = DriverManager.getConnection("jdbc:sqlite:transplantcandidates.db");
+            this.conn1 = DriverManager.getConnection("jdbc:sqlite:transplantcandidates.db");
+            this.conn2 = DriverManager.getConnection("jdbc:sqlite:organdonors.db");
+            this.conn3 = DriverManager.getConnection("jdbc:sqlite:epletmaster.db");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -83,9 +85,6 @@ public class DatabaseDriver  {
         }
         return resultSet;
     }
-
-
-
 
 
 
