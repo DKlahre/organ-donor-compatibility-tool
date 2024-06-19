@@ -12,6 +12,8 @@ import java.io.IOException;
 
 public class ViewFactory {
 
+
+    private AnchorPane searchCandidateView;
     private AnchorPane showInitialView;
     public Button initial_entry_btn;
 
@@ -41,8 +43,17 @@ public class ViewFactory {
         stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/Images/snakeRod2.png"))));
         stage.show();
 
+    }
 
-
+    public AnchorPane getSearchCandidateView(){
+        if (searchCandidateView == null) {
+            try {
+                searchCandidateView = new FXMLLoader(getClass().getResource("/Fxml/SearchCandidate.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return searchCandidateView;
     }
 
 
