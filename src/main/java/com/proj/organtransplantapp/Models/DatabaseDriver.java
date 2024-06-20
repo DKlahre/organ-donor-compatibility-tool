@@ -87,6 +87,6 @@ public class DatabaseDriver  {
     }
 
 
-
-
+    public ResultSet searchCandEmail(String email) {
+    }
 }
