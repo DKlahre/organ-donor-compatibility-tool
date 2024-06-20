@@ -1,5 +1,7 @@
 package com.proj.organtransplantapp.Controllers;
 
+import com.proj.organtransplantapp.Models.Candidate;
+import com.proj.organtransplantapp.Models.Model;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -11,6 +13,12 @@ import java.util.ResourceBundle;
 public class SearchCandidateController implements Initializable {
 
     public Button emailSearch_btn;
+    public ListView<Candidate> candidate_listview;
+    private Candidate candidate;
+
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         emailSearch_btn.setOnAction(event -> onEmailSearch());
@@ -18,10 +26,12 @@ public class SearchCandidateController implements Initializable {
 
     private void onEmailSearch() {
         try {
-            ObservableList
-
+            ObservableList<Candidate> searchResults = Model.getInstance().searchCandEmail(email_fld.getText());
+            candidate_listview.setItems(searchResults);
+            candidate_listview.setCellFactory(e -> new CandidateCellFactory());
+            candidate = searchResults.get(0);
         } catch (Exception e) {
-
+            System.out.println("Candidate not found");
         }
     }
 
