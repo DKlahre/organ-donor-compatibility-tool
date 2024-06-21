@@ -2,6 +2,7 @@ package com.proj.organtransplantapp.Controllers;
 
 import com.proj.organtransplantapp.Models.Candidate;
 import com.proj.organtransplantapp.Models.Model;
+import com.proj.organtransplantapp.Views.CandidateCellFactory;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -14,9 +15,8 @@ public class SearchCandidateController implements Initializable {
 
     public Button emailSearch_btn;
     public ListView<Candidate> candidate_listview;
+    public TextField email_fld;
     private Candidate candidate;
-
-
 
 
     @Override
