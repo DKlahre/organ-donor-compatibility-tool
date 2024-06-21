@@ -1,5 +1,6 @@
 package com.proj.organtransplantapp.Views;
 
+import com.proj.organtransplantapp.Controllers.CandidateCellController;
 import com.proj.organtransplantapp.Models.Candidate;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListCell;

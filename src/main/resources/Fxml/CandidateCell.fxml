@@ -5,80 +5,83 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="562.0" prefWidth="516.0" stylesheets="@../Styles/CandidateCell.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Fxml.CandidateCell">
-   <children>
-      <VBox prefHeight="250.0" prefWidth="114.0" styleClass="vbox">
-         <children>
-            <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="42.0" prefWidth="98.0" styleClass="bold_font" text="First name" />
-            <Label alignment="TOP_LEFT" text="Mary" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="70.0" styleClass="bold_font" text="Last name" />
-            <Label alignment="TOP_LEFT" prefHeight="24.0" prefWidth="47.0" text="Nealy" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="50.0" styleClass="bold_font" text="Gender" />
-            <Label alignment="TOP_LEFT" prefHeight="28.0" prefWidth="43.0" text="female" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="Age" />
-            <Label alignment="TOP_LEFT" text="39" />
-         </children>
-      </VBox>
-      <VBox layoutX="105.0" prefHeight="250.0" prefWidth="174.0" styleClass="vbox">
-         <children>
-            <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="42.0" prefWidth="98.0" styleClass="bold_font" text="Weight (lbs)" />
-            <Label alignment="TOP_LEFT" text="235" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="70.0" styleClass="bold_font" text="Email" />
-            <Label alignment="TOP_LEFT" prefHeight="24.0" prefWidth="138.0" text="MNealy@gmail.com" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="89.0" styleClass="bold_font" text="Organ" />
-            <Label alignment="TOP_LEFT" prefHeight="28.0" prefWidth="62.0" text="kidney" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="88.0" styleClass="bold_font" text="Blood Type" />
-            <Label alignment="TOP_LEFT" prefHeight="22.0" prefWidth="30.0" text="AB" />
-         </children>
-      </VBox>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d1516e" height="273.0" layoutX="281.0" layoutY="51.0" stroke="BLACK" strokeType="INSIDE" width="218.0" />
-      <VBox layoutX="267.0" prefHeight="394.0" prefWidth="90.0" styleClass="vbox">
-         <children>
-            <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="79.0" prefWidth="66.0" styleClass="bold_font" text="DP1" />
-            <Label alignment="TOP_LEFT" text="Mary" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="70.0" styleClass="bold_font" text="ABC1" />
-            <Label alignment="TOP_LEFT" prefHeight="24.0" prefWidth="47.0" text="Nealy" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="50.0" styleClass="bold_font" text="DRB1" />
-            <Label alignment="TOP_LEFT" prefHeight="28.0" prefWidth="43.0" text="female" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="DQ1" />
-            <Label alignment="TOP_LEFT" text="39" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="MICA1" />
-            <Label alignment="TOP_LEFT" text="39" />
-         </children>
-      </VBox>
-      <VBox layoutX="339.0" prefHeight="394.0" prefWidth="74.0" styleClass="vbox">
-         <children>
-            <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="79.0" prefWidth="50.0" styleClass="bold_font" text="DP2" />
-            <Label alignment="TOP_LEFT" text="Mary" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="70.0" styleClass="bold_font" text="ABC2" />
-            <Label alignment="TOP_LEFT" prefHeight="24.0" prefWidth="47.0" text="Nealy" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="50.0" styleClass="bold_font" text="DRB2" />
-            <Label alignment="TOP_LEFT" prefHeight="28.0" prefWidth="43.0" text="female" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="DQ2" />
-            <Label alignment="TOP_LEFT" text="39" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="65.0" styleClass="bold_font" text="MICA2" />
-            <Label alignment="TOP_LEFT" text="39" />
-         </children>
-      </VBox>
-      <VBox layoutX="413.0" prefHeight="384.0" prefWidth="88.0" styleClass="vbox">
-         <children>
-            <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="79.0" prefWidth="63.0" styleClass="bold_font" text="DP2" />
-            <Label alignment="TOP_LEFT" text="Mary" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="70.0" styleClass="bold_font" text="ABC2" />
-            <Label alignment="TOP_LEFT" prefHeight="24.0" prefWidth="47.0" text="Nealy" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="50.0" styleClass="bold_font" text="DRB2" />
-            <Label alignment="TOP_LEFT" prefHeight="28.0" prefWidth="43.0" text="female" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="DQ2" />
-            <Label alignment="TOP_LEFT" text="39" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="65.0" styleClass="bold_font" text="MICA2" />
-            <Label alignment="TOP_LEFT" text="39" />
-         </children>
-      </VBox>
-      <HBox layoutX="301.0" layoutY="20.0" prefHeight="22.0" prefWidth="199.0" styleClass="vbox">
-         <children>
-            <Label prefHeight="22.0" prefWidth="238.0" styleClass="bold_font" text="Antigen/Eplet Table" />
-         </children>
-      </HBox>
-   </children>
+<AnchorPane prefHeight="398.0" prefWidth="527.0" stylesheets="@../Styles/CandidateCell.css"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.proj.organtransplantapp.Controllers.CandidateCellController">
+   <VBox prefHeight="333.0" prefWidth="114.0" styleClass="vbox">
+      <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="87.0" prefWidth="90.0"
+             styleClass="bold_font" text="First name"/>
+      <Label fx:id="fName_lbl" alignment="TOP_LEFT" text="Mary"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="86.0" styleClass="bold_font" text="Weight (lbs)"/>
+      <Label fx:id="weight_lbl" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="47.0" text="235"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="50.0" styleClass="bold_font" text="Gender"/>
+      <Label fx:id="gender_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="43.0" text="female"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="Age"/>
+      <Label fx:id="age_lbl" alignment="TOP_LEFT" text="39"/>
+   </VBox>
+   <VBox layoutX="105.0" prefHeight="309.0" prefWidth="174.0" styleClass="vbox">
+      <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="88.0" prefWidth="98.0"
+             styleClass="bold_font" text="Last name"/>
+      <Label fx:id="lName_lbl" alignment="TOP_LEFT" text="Nealy"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="70.0" styleClass="bold_font" text="Email"/>
+      <Label fx:id="email_lbl" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="138.0" text="MNealy@gmail.com"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="89.0" styleClass="bold_font" text="Organ"/>
+      <Label fx:id="organ_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="62.0" text="kidney"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="88.0" styleClass="bold_font" text="Blood Type"/>
+      <Label fx:id="bloodType_lbl" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="30.0" text="AB"/>
+   </VBox>
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d1516e" height="277.0" layoutX="281.0" layoutY="95.0"
+              stroke="BLACK" strokeType="INSIDE" width="220.0"/>
+   <VBox layoutX="271.0" prefHeight="394.0" prefWidth="86.0" styleClass="vbox">
+      <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="125.0" prefWidth="66.0"
+             styleClass="bold_font" text="DP1"/>
+      <Label fx:id="DP1_lbl" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="42.0" text="35YA"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="70.0" styleClass="bold_font" text="ABC1"/>
+      <Label fx:id="ABC1_lbl" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="47.0" text="62QE"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="50.0" styleClass="bold_font" text="DRB1"/>
+      <Label fx:id="DRB1_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="43.0" text="13SE"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="DQ1"/>
+      <Label fx:id="DQ1_lbl" alignment="TOP_LEFT" text="40GR"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="MICA1"/>
+      <Label fx:id="MICA1_lbl" alignment="TOP_LEFT" text="206GWS"/>
+   </VBox>
+   <VBox layoutX="342.0" prefHeight="394.0" prefWidth="79.0" styleClass="vbox">
+      <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="126.0" prefWidth="50.0"
+             styleClass="bold_font" text="DP2"/>
+      <Label fx:id="DP2_lbl" alignment="TOP_LEFT" text="9YL"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="70.0" styleClass="bold_font" text="ABC2"/>
+      <Label fx:id="ABC2_lbl" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="47.0" text="19K"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="50.0" styleClass="bold_font" text="DRB2"/>
+      <Label fx:id="DRB2_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="43.0" text="33N"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="DQ2"/>
+      <Label fx:id="DQ2_lbl" alignment="TOP_LEFT" text="30H"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="65.0" styleClass="bold_font" text="MICA2"/>
+      <Label fx:id="MICA2_lbl" alignment="TOP_LEFT" text="24A"/>
+   </VBox>
+   <VBox layoutX="415.0" prefHeight="384.0" prefWidth="86.0" styleClass="vbox">
+      <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="126.0" prefWidth="63.0"
+             styleClass="bold_font" text="DP3"/>
+      <Label fx:id="DP3_lbl" alignment="TOP_LEFT" text="63Q"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="70.0" styleClass="bold_font" text="ABC3"/>
+      <Label fx:id="ABC3_lbl" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="47.0" text="45KE"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="50.0" styleClass="bold_font" text="DRB3"/>
+      <Label fx:id="DRB3_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="43.0" text="11STS"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="DQ3"/>
+      <Label fx:id="DQ3_lbl" alignment="TOP_LEFT" text="26L"/>
+      <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="65.0" styleClass="bold_font" text="MICA3"/>
+      <Label fx:id="MICA3_lbl" alignment="TOP_LEFT" text="36Y"/>
+   </VBox>
+   <HBox layoutX="301.0" layoutY="62.0" prefHeight="28.0" prefWidth="199.0" styleClass="vbox">
+      <Label prefHeight="28.0" prefWidth="166.0" styleClass="bold_font" text="Antigen/Eplet Table"/>
+   </HBox>
+   <HBox alignment="CENTER" layoutY="7.0" prefHeight="31.0" prefWidth="516.0" styleClass="vbox">
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="466.0" styleClass="bold_font"
+             text="Transplant Candidate Profile">
+         <font>
+            <Font size="20.0"/>
+         </font>
+      </Label>
+   </HBox>
 </AnchorPane>

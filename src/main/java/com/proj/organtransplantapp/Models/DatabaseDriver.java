@@ -3,6 +3,7 @@ package com.proj.organtransplantapp.Models;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 
 public class DatabaseDriver  {
@@ -86,7 +87,18 @@ public class DatabaseDriver  {
         return resultSet;
     }
 
-
     public ResultSet searchCandEmail(String email) {
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn1.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM Candidates Where Email = '"+email+"';");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
     }
+
+
+
 }
