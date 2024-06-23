@@ -15,8 +15,8 @@ public class DatabaseDriver  {
     public DatabaseDriver() {
         try {
             this.conn1 = DriverManager.getConnection("jdbc:sqlite:transplantcandidates.db");
-            this.conn2 = DriverManager.getConnection("jdbc:sqlite:organdonors.db");
-            this.conn3 = DriverManager.getConnection("jdbc:sqlite:epletmaster.db");
+//            this.conn2 = DriverManager.getConnection("jdbc:sqlite:organdonors.db");
+//            this.conn3 = DriverManager.getConnection("jdbc:sqlite:epletmaster.db");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -93,6 +93,7 @@ public class DatabaseDriver  {
         try {
             statement = this.conn1.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM Candidates Where Email = '"+email+"';");
+            System.out.println("Inside searchCandEmail - Hello");
         } catch (SQLException e) {
             e.printStackTrace();
         }

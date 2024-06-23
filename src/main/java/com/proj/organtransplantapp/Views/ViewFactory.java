@@ -1,6 +1,7 @@
 package com.proj.organtransplantapp.Views;
 
 import com.proj.organtransplantapp.Controllers.InitialController;
+import com.proj.organtransplantapp.Controllers.SearchCandidateController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -27,6 +28,15 @@ public class ViewFactory {
 //        loader.setController(controller);
          createStage(loader);
     }
+
+
+    public void showSearchCandidateWindow(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/SearchCandidate.fxml"));
+//        SearchCandidateController controller = new SearchCandidateController();
+//        loader.setController(controller);
+        createStage(loader);
+    }
+
 
     private void createStage(FXMLLoader loader) {
         Scene scene = null;
@@ -56,5 +66,8 @@ public class ViewFactory {
         return searchCandidateView;
     }
 
+    public void closeStage (Stage stage) {
+        stage.close();
+    }
 
 }

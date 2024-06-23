@@ -13,13 +13,17 @@ public class InitialController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Model.getInstance().getViewFactory().showInitialWindow();
+
         initial_entry_btn.setOnAction(event -> onInitial());
     }
 
     private void onInitial() {
-      //  Stage stage = (Stage) initial_entry_btn.getScene().getWindow();
-       // Model.getInstance().getViewFactory().showCandidateWindow();
+        Stage stage = (Stage) initial_entry_btn.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showSearchCandidateWindow();
+
+
+
         System.out.println("Hey");
     }
 }

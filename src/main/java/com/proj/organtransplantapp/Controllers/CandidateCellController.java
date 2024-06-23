@@ -43,27 +43,27 @@ public class CandidateCellController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle){
 
         fName_lbl.textProperty().bind(candidate.firstNameProperty());
-        weight_lbl.textProperty().bind(candidate.weightProperty());
+        lName_lbl.textProperty().bind(candidate.lastNameProperty());
         gender_lbl.textProperty().bind(candidate.genderProperty());
         age_lbl.textProperty().bind(candidate.ageProperty());
-        lName_lbl.textProperty().bind(candidate.lastNameProperty());
+        weight_lbl.textProperty().bind(candidate.weightProperty());
         email_lbl.textProperty().bind(candidate.emailProperty());
         organ_lbl.textProperty().bind(candidate.organProperty());
         bloodType_lbl.textProperty().bind(candidate.bloodTypeProperty());
         DP1_lbl.textProperty().bind(candidate.DP1Property());
-        ABC1_lbl.textProperty().bind(candidate.ABC1Property());
-        DRB1_lbl.textProperty().bind(candidate.DRB1Property());
-        DQ1_lbl.textProperty().bind(candidate.DQ1Property());
-        MICA1_lbl.textProperty().bind(candidate.MICA1Property());
         DP2_lbl.textProperty().bind(candidate.DP2Property());
-        ABC2_lbl.textProperty().bind(candidate.ABC2Property());
-        DRB2_lbl.textProperty().bind(candidate.DRB2Property());
-        DQ2_lbl.textProperty().bind(candidate.DQ2Property());
-        MICA2_lbl.textProperty().bind(candidate.MICA2Property());
         DP3_lbl.textProperty().bind(candidate.DP3Property());
+        ABC1_lbl.textProperty().bind(candidate.ABC1Property());
+        ABC2_lbl.textProperty().bind(candidate.ABC2Property());
         ABC3_lbl.textProperty().bind(candidate.ABC3Property());
+        DRB1_lbl.textProperty().bind(candidate.DRB1Property());
+        DRB2_lbl.textProperty().bind(candidate.DRB2Property());
         DRB3_lbl.textProperty().bind(candidate.DRB3Property());
+        DQ1_lbl.textProperty().bind(candidate.DQ1Property());
+        DQ2_lbl.textProperty().bind(candidate.DQ2Property());
         DQ3_lbl.textProperty().bind(candidate.DQ3Property());
+        MICA1_lbl.textProperty().bind(candidate.MICA1Property());
+        MICA2_lbl.textProperty().bind(candidate.MICA2Property());
         MICA3_lbl.textProperty().bind(candidate.MICA3Property());
     }
 

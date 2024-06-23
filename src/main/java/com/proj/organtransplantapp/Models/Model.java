@@ -14,6 +14,7 @@ public class Model {
     private final DatabaseDriver databaseDriver;
     private final ViewFactory viewFactory;
 
+
     public Model() {
         this.viewFactory = new ViewFactory();
         this.databaseDriver = new DatabaseDriver();
@@ -56,6 +57,8 @@ public class Model {
             searchResult.add(new Candidate(candFirstName, candLastName, candGender, candAge, candWeight,
                     candEmail, candOrgan, candBloodType, candDP1, candDP2, candDP3, candABC1, candABC2,
                     candABC3, candDRB1, candDRB2, candDRB3, candDQ1, candDQ2, candDQ3, candMICA1, candMICA2, candMICA3));
+
+       // System.out.println("searchResult.get(0).ABC1Property() " + searchResult.get(0).ABC1Property());
         } catch (Exception e) {
             e.printStackTrace();
         }
