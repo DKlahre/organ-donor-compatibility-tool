@@ -5,10 +5,13 @@ import com.proj.organtransplantapp.Controllers.SearchCandidateController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class ViewFactory {
@@ -47,12 +50,12 @@ public class ViewFactory {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         Stage stage = new Stage();
         stage.setScene(scene);
+       // stage.addEventFilter(MouseEvent.MOUSE_CLICKED, mouseEvent -> mouseEvent.consume());
+
         stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/Images/snakeRod2.png"))));
         stage.show();
-
     }
 
     public AnchorPane getSearchCandidateView(){

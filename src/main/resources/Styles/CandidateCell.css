@@ -46,6 +46,11 @@
     -fx-background-color: #FF0000;
 }
 
+.choose_btn {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #F5AF0C;
+}
+
 .delete_btn FontAwesomeIconView {
     -fx-fill: #FFFFFF;
 }
