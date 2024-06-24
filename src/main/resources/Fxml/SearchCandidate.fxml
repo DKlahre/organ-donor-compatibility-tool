@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="615.0" prefWidth="800.0" stylesheets="@../Styles/SearchCandidate.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proj.organtransplantapp.Controllers.SearchCandidateController">
+<AnchorPane prefHeight="637.0" prefWidth="800.0" stylesheets="@../Styles/SearchCandidate.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proj.organtransplantapp.Controllers.SearchCandidateController">
    <children>
       <VBox id="title_box" alignment="CENTER" layoutY="13.0" prefHeight="51.0" prefWidth="800.0">
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transplant Candidate Search Panel">
@@ -34,6 +34,9 @@
             </HBox>
          </children>
       </VBox>
-      <ListView fx:id="candidate_listview" layoutY="210.0" prefHeight="403.0" prefWidth="800.0" />
+      <ListView fx:id="candidate_listview" layoutX="15.2" layoutY="162.4" prefHeight="399.0" prefWidth="770.0" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="162.0" />
+      <VBox alignment="CENTER" layoutY="560.0" prefHeight="78.0" prefWidth="800.0">
+         <Button fx:id="findDonor_btn" alignment="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="622.0" text="Button" />
+      </VBox>
    </children>
 </AnchorPane>

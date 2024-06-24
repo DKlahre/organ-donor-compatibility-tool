@@ -1,10 +1,14 @@
 package com.proj.organtransplantapp.Controllers;
 
 import com.proj.organtransplantapp.Models.Candidate;
+import com.proj.organtransplantapp.Models.Model;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.net.URL;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class CandidateCellController implements Initializable {
@@ -32,6 +36,7 @@ public class CandidateCellController implements Initializable {
     public Label DRB3_lbl;
     public Label DQ3_lbl;
     public Label MICA3_lbl;
+    public Button confirmCandidate_btn;
     public final Candidate candidate;
 
 
@@ -65,6 +70,13 @@ public class CandidateCellController implements Initializable {
         MICA1_lbl.textProperty().bind(candidate.MICA1Property());
         MICA2_lbl.textProperty().bind(candidate.MICA2Property());
         MICA3_lbl.textProperty().bind(candidate.MICA3Property());
+        confirmCandidate_btn.setOnAction(even -> confirmCandidate());
+    }
+
+    private void confirmCandidate() {
+        String email = candidate.emailProperty().getValue();
+        Model.getInstance().emailStore(email);
+
     }
 
 }

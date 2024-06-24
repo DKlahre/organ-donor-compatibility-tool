@@ -21,9 +21,5 @@ public class InitialController implements Initializable {
         Stage stage = (Stage) initial_entry_btn.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showSearchCandidateWindow();
-
-
-
-        System.out.println("Hey");
     }
 }

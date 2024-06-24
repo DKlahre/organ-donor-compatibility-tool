@@ -5,14 +5,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
-import java.time.LocalDate;
-import java.util.List;
 
 public class Model {
 
     private static Model model;
     private final DatabaseDriver databaseDriver;
     private final ViewFactory viewFactory;
+
+    public String emailStore;
 
 
     public Model() {
@@ -65,8 +65,18 @@ public class Model {
         return searchResult;
     }
 
+    public String emailStore (String emailStore) {
+        this.emailStore = emailStore;
+      //  Model.getInstance().getViewFactory().closeStage();
+      //  Model.getInstance().getViewFactory().showInitialWindow();
+        return emailStore;
+    }
+
     public ViewFactory getViewFactory() {
         return viewFactory;
     }
 
-}
+    public DatabaseDriver getDatabaseDriver() { return databaseDriver;}
+
+    }
+
