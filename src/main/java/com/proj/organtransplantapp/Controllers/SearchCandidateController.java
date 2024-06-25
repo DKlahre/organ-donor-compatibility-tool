@@ -34,21 +34,11 @@ public class SearchCandidateController implements Initializable {
     private void onEmailSearch() {
         ObservableList<Candidate> searchResults = Model.getInstance().searchCandEmail(email_fld.getText());
          candidate_listview.setItems(searchResults);
-         ////////
         // candidate_listview.setMouseTransparent(true);
         candidate_listview.setFocusTraversable(false);
         candidate_listview.setCellFactory(e -> new CandidateCellFactory());
-
-       // candidate_listview.addEventFilter(MouseEvent.MOUSE_CLICKED, mouseEvent -> mouseEvent.consume());
-
-
-         /////////
-
-         candidate = searchResults.get(0);
+        candidate = searchResults.get(0);
     }
-
-
-
 
     private void onFindDonor() {
         Stage stage = (Stage) emailSearch_btn.getScene().getWindow();
