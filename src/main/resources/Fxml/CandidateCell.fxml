@@ -76,7 +76,7 @@
          </font>
       </Label>
    </HBox>
-   <Button fx:id="confirmCandidate_btn" layoutX="23.0" layoutY="321.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="154.0" styleClass="choose_btn" text="Choose Candidate">
+   <Button fx:id="confirmCandidate_btn" layoutX="23.0" layoutY="321.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="189.0" styleClass="choose_btn" text="Choose Candidate">
       <font>
          <Font size="16.0" />
       </font></Button>

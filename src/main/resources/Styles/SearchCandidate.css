@@ -27,12 +27,22 @@ TextField {
     -fx-effect: dropshadow(three-pass-box, #AAAAAA, 3, 0, 0, 3);
 }
 
-Button {
-    -fx-background-color: #cb19f7;
+
+.regular_btn {
+    -fx-background-color: #6AA1E7;
     -fx-effect: dropshadow(three-pass-box, #AAAAAA, 3, 0, 0, 3);
-    -fx-font-size: 1.6em;
+    -fx-font-size: 1.4em;
     -fx-text-fill: #FFFFFF;
-    -fx-font-family: "Calibri Light";
+    -fx-font-family: "Arial Black";
+    -fx-pref-width: 180;
+}
+
+.choose_btn {
+    -fx-background-color: #6AA1E7;
+    -fx-effect: dropshadow(three-pass-box, #AAAAAA, 3, 0, 0, 3);
+    -fx-font-size: 1.3em;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Arial Black";
     -fx-pref-width: 180;
 }
 

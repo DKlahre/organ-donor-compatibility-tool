@@ -22,7 +22,7 @@
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="728.0" styleClass="search_box">
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Search by email: " wrappingWidth="130.66876220703125" />
          <TextField fx:id="email_fld" prefWidth="202.0" />
-         <Button fx:id="emailSearch_btn" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" text="Search">
+         <Button fx:id="emailSearch_btn" mnemonicParsing="false" prefHeight="35.0" prefWidth="206.0" styleClass="regular_btn" text="Search">
             <graphic>
                <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="20" text="" />
             </graphic>
@@ -34,11 +34,28 @@
          <HBox prefHeight="438.0" prefWidth="800.0">
             <children>
                <ListView fx:id="candidate_listview" prefHeight="400.0" prefWidth="532.0" />
+               <VBox alignment="CENTER" prefHeight="201.0" prefWidth="268.0">
+                  <children>
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 31;" text="Possible Choices" textAlignment="CENTER" wrappingWidth="221.66858673095703">
+                        <font>
+                           <Font size="26.0" />
+                        </font>
+                     </Text>
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="JKnox@gmail.com" />
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MOberman@gmail.com" />
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="JVenz@gmail.com" />
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SMiller@yahoo.com" />
+                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MFarrah@gmail.com" />
+                  </children>
+               </VBox>
             </children>
          </HBox>
       </children>
    </VBox>
-   <VBox alignment="CENTER" layoutY="635.0" prefHeight="51.0" prefWidth="800.0">
-      <Button fx:id="findDonor_btn" alignment="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="622.0" text="Button" />
+   <VBox alignment="CENTER" layoutY="609.0" prefHeight="58.0" prefWidth="800.0">
+      <Button fx:id="findDonor_btn" alignment="CENTER" mnemonicParsing="false" prefHeight="35.0" prefWidth="622.0" styleClass="regular_btn" text="Donor Search">
+         <font>
+            <Font name="Arial" size="19.0" />
+         </font></Button>
    </VBox>
 </AnchorPane>
