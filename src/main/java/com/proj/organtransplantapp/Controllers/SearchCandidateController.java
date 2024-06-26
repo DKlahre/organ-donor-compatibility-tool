@@ -24,6 +24,7 @@ public class SearchCandidateController implements Initializable {
     public Button lastName_btn;
     public TextField lastName_fld;
     private Candidate candidate;
+    private ObservableList<Candidate> candidates;
 
 
     @Override
@@ -40,7 +41,7 @@ public class SearchCandidateController implements Initializable {
         // candidate_listview.setMouseTransparent(true);
         candidate_listview.setFocusTraversable(false);
         candidate_listview.setCellFactory(e -> new CandidateCellFactory());
-        candidate = searchResults.get(0);
+        candidates = searchResults;
     }
 
     private void onLastNameSearch() {
@@ -49,7 +50,7 @@ public class SearchCandidateController implements Initializable {
         // candidate_listview.setMouseTransparent(true);
         candidate_listview.setFocusTraversable(false);
         candidate_listview.setCellFactory(e -> new CandidateCellFactory());
-        candidate = searchResults.get(0);
+        candidates = searchResults;
     }
 
     private void onFindDonor() {

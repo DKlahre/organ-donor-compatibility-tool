@@ -113,6 +113,19 @@ public class DatabaseDriver  {
         return resultSet;
     }
 
+    public ResultSet getAllCandidatesData() {
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn1.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM Candidates;");
+        } catch (SQLException e) {
+            System.out.println("We got a problem here - getAllCandidatesData()");
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
 
 
 }
