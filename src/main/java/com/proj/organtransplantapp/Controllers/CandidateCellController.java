@@ -2,9 +2,12 @@ package com.proj.organtransplantapp.Controllers;
 
 import com.proj.organtransplantapp.Models.Candidate;
 import com.proj.organtransplantapp.Models.Model;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -37,6 +40,9 @@ public class CandidateCellController implements Initializable {
     public Label DQ3_lbl;
     public Label MICA3_lbl;
     public Button confirmCandidate_btn;
+    public CheckBox myCheckBox;
+    public int checkInt = 0;
+    public int cbInt = 0;
     public final Candidate candidate;
 
 
@@ -70,13 +76,37 @@ public class CandidateCellController implements Initializable {
         MICA1_lbl.textProperty().bind(candidate.MICA1Property());
         MICA2_lbl.textProperty().bind(candidate.MICA2Property());
         MICA3_lbl.textProperty().bind(candidate.MICA3Property());
-        confirmCandidate_btn.setOnAction(even -> confirmCandidate());
+        confirmCandidate_btn.setOnAction(e -> confirmCandidate());
+       // myCheckBox.setOnAction(e -> chooseCB());
     }
 
     private void confirmCandidate() {
         String email = candidate.emailProperty().getValue();
         Model.getInstance().emailStore(email);
+        chooseCB(cbInt);
+        cbInt++;
+    }
 
+    private void chooseCB(int checkInt) {
+      //  checkInt++;
+        if (checkInt % 2 == 1){
+            System.out.println("First condition");
+            System.out.println("checkInt First condition " +checkInt);
+//            myCheckBox.setOnMouseClicked(new EventHandler<MouseEvent>() {
+//                @Override
+//                public void handle(MouseEvent event) {
+//                    System.out.println("Inside Handle");
+//                }
+//            });
+           // myCheckBox.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {});
+
+        } else {
+            System.out.println("Second condition");
+            System.out.println("checkInt Second condition " +checkInt);
+
+        }
+//        public void handleButtonAction(ActionEvent event){
+//        }
     }
 
 }

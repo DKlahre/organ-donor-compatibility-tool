@@ -49,7 +49,12 @@
 .choose_btn {
     -fx-text-fill: #FFFFFF;
     -fx-background-color: #F5AF0C;
+    -fx-font-family: "Arial Black";
+    -fx-pref-width: 195;
+    -fx-font-size: 1.2em;
 }
+
+
 
 .delete_btn FontAwesomeIconView {
     -fx-fill: #FFFFFF;
