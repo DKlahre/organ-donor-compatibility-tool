@@ -21,12 +21,15 @@ public class SearchCandidateController implements Initializable {
     public ListView<Candidate> candidate_listview;
     public TextField email_fld;
     public Button findDonor_btn;
+    public Button lastName_btn;
+    public TextField lastName_fld;
     private Candidate candidate;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
 
+        lastName_btn.setOnAction(event -> onLastNameSearch());
         emailSearch_btn.setOnAction(event -> onEmailSearch());
         findDonor_btn.setOnAction(event -> onFindDonor());
     }
@@ -34,6 +37,15 @@ public class SearchCandidateController implements Initializable {
     private void onEmailSearch() {
         ObservableList<Candidate> searchResults = Model.getInstance().searchCandEmail(email_fld.getText());
          candidate_listview.setItems(searchResults);
+        // candidate_listview.setMouseTransparent(true);
+        candidate_listview.setFocusTraversable(false);
+        candidate_listview.setCellFactory(e -> new CandidateCellFactory());
+        candidate = searchResults.get(0);
+    }
+
+    private void onLastNameSearch() {
+        ObservableList<Candidate> searchResults = Model.getInstance().searchCandLastName(lastName_fld.getText());
+        candidate_listview.setItems(searchResults);
         // candidate_listview.setMouseTransparent(true);
         candidate_listview.setFocusTraversable(false);
         candidate_listview.setCellFactory(e -> new CandidateCellFactory());

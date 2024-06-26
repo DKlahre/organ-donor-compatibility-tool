@@ -100,6 +100,19 @@ public class DatabaseDriver  {
         return resultSet;
     }
 
+    public ResultSet searchCandLastName(String lastName) {
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn1.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM Candidates Where LastName = '"+lastName+"';");
+            System.out.println("Inside searchCandLastName - Hello");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
 
 
 }
