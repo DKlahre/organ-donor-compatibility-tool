@@ -33,39 +33,39 @@
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f5d1516e" height="282.0" layoutX="281.0" layoutY="95.0" stroke="BLACK" strokeType="INSIDE" width="219.0" />
    <VBox layoutX="271.0" prefHeight="394.0" prefWidth="86.0" styleClass="vbox">
       <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="125.0" prefWidth="66.0" styleClass="bold_font" text="DP1" />
-      <Label fx:id="DP1_lbl" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="42.0" text="35YA" />
+      <Label fx:id="DP1_lbl" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="62.0" text="35YA" />
       <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="70.0" styleClass="bold_font" text="ABC1" />
-      <Label fx:id="ABC1_lbl" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="47.0" text="62QE" />
+      <Label fx:id="ABC1_lbl" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="61.0" text="62QE" />
       <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="50.0" styleClass="bold_font" text="DRB1" />
-      <Label fx:id="DRB1_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="43.0" text="13SE" />
+      <Label fx:id="DRB1_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="62.0" text="13SE" />
       <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="DQ1" />
-      <Label fx:id="DQ1_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="34.0" text="40GR" />
+      <Label fx:id="DQ1_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="62.0" text="40GR" />
       <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="MICA1" />
-      <Label fx:id="MICA1_lbl" alignment="TOP_LEFT" text="206GWS" />
+      <Label fx:id="MICA1_lbl" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="62.0" text="206GWS" />
    </VBox>
    <VBox layoutX="342.0" prefHeight="394.0" prefWidth="79.0" styleClass="vbox">
       <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="126.0" prefWidth="50.0" styleClass="bold_font" text="DP2" />
-      <Label fx:id="DP2_lbl" alignment="TOP_LEFT" text="9YL" />
+      <Label fx:id="DP2_lbl" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="54.0" text="9YL" />
       <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="70.0" styleClass="bold_font" text="ABC2" />
-      <Label fx:id="ABC2_lbl" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="47.0" text="19K" />
+      <Label fx:id="ABC2_lbl" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="53.0" text="19K" />
       <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="50.0" styleClass="bold_font" text="DRB2" />
-      <Label fx:id="DRB2_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="43.0" text="33N" />
+      <Label fx:id="DRB2_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="54.0" text="33N" />
       <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="DQ2" />
-      <Label fx:id="DQ2_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="26.0" text="30H" />
+      <Label fx:id="DQ2_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="60.0" text="30H" />
       <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="65.0" styleClass="bold_font" text="MICA2" />
-      <Label fx:id="MICA2_lbl" alignment="TOP_LEFT" text="24A" />
+      <Label fx:id="MICA2_lbl" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="54.0" text="24A" />
    </VBox>
    <VBox layoutX="415.0" prefHeight="384.0" prefWidth="86.0" styleClass="vbox">
       <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="126.0" prefWidth="63.0" styleClass="bold_font" text="DP3" />
-      <Label fx:id="DP3_lbl" alignment="TOP_LEFT" text="63Q" />
+      <Label fx:id="DP3_lbl" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="54.0" text="63Q" />
       <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="70.0" styleClass="bold_font" text="ABC3" />
-      <Label fx:id="ABC3_lbl" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="47.0" text="45KE" />
+      <Label fx:id="ABC3_lbl" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="54.0" text="45KE" />
       <Label alignment="BOTTOM_LEFT" prefHeight="31.0" prefWidth="50.0" styleClass="bold_font" text="DRB3" />
-      <Label fx:id="DRB3_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="43.0" text="11STS" />
+      <Label fx:id="DRB3_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="54.0" text="11STS" />
       <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="46.0" styleClass="bold_font" text="DQ3" />
-      <Label fx:id="DQ3_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="22.0" text="26L" />
+      <Label fx:id="DQ3_lbl" alignment="TOP_LEFT" prefHeight="28.0" prefWidth="54.0" text="26L" />
       <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="65.0" styleClass="bold_font" text="MICA3" />
-      <Label fx:id="MICA3_lbl" alignment="TOP_LEFT" text="36Y" />
+      <Label fx:id="MICA3_lbl" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="55.0" text="36Y" />
    </VBox>
    <HBox layoutX="301.0" layoutY="62.0" prefHeight="28.0" prefWidth="199.0" styleClass="vbox">
       <Label prefHeight="28.0" prefWidth="166.0" styleClass="bold_font" text="Antigen/Eplet Table" />
