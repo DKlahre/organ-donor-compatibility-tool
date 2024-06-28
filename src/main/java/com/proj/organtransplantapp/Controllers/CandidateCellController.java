@@ -7,11 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-
 import java.net.URL;
-import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class CandidateCellController implements Initializable {
@@ -77,36 +73,22 @@ public class CandidateCellController implements Initializable {
         MICA2_lbl.textProperty().bind(candidate.MICA2Property());
         MICA3_lbl.textProperty().bind(candidate.MICA3Property());
         confirmCandidate_btn.setOnAction(e -> confirmCandidate());
-       // myCheckBox.setOnAction(e -> chooseCB());
     }
 
     private void confirmCandidate() {
-        String email = candidate.emailProperty().getValue();
-        Model.getInstance().emailStore(email);
+
         chooseCB(cbInt);
         cbInt++;
     }
 
     private void chooseCB(int checkInt) {
-      //  checkInt++;
-        if (checkInt % 2 == 1){
-            System.out.println("First condition");
-            System.out.println("checkInt First condition " +checkInt);
-//            myCheckBox.setOnMouseClicked(new EventHandler<MouseEvent>() {
-//                @Override
-//                public void handle(MouseEvent event) {
-//                    System.out.println("Inside Handle");
-//                }
-//            });
-           // myCheckBox.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {});
-
+        if (checkInt % 2 == 0){
+            String email = candidate.emailProperty().getValue();
+            Model.getInstance().emailStore(email);
         } else {
-            System.out.println("Second condition");
-            System.out.println("checkInt Second condition " +checkInt);
-
+            Model.getInstance().emailStore("");
         }
-//        public void handleButtonAction(ActionEvent event){
-//        }
+
     }
 
 }

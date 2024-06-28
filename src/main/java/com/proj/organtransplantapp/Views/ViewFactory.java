@@ -16,10 +16,9 @@ import java.io.IOException;
 
 public class ViewFactory {
 
-
     private AnchorPane searchCandidateView;
-    private AnchorPane showInitialView;
-    public Button initial_entry_btn;
+//    private AnchorPane showInitialView;
+//    public Button initial_entry_btn;
 
     public ViewFactory(){
 
@@ -40,12 +39,17 @@ public class ViewFactory {
         createStage(loader);
     }
 
+    public void showSearchDonorController() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Fxml/SearchDonor.fxml"));
+        createStage(loader);
+    }
+
 
     private void createStage(FXMLLoader loader) {
         Scene scene = null;
         try {
             scene = new Scene(loader.load());
-            System.out.println("Inside createStage try");
+//            System.out.println("Inside createStage try");
 
         } catch (Exception e) {
             e.printStackTrace();

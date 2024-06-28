@@ -3,15 +3,10 @@ package com.proj.organtransplantapp.Controllers;
 import com.proj.organtransplantapp.Models.Candidate;
 import com.proj.organtransplantapp.Models.Model;
 import com.proj.organtransplantapp.Views.CandidateCellFactory;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -29,7 +24,6 @@ public class SearchCandidateController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-
         lastName_btn.setOnAction(event -> onLastNameSearch());
         emailSearch_btn.setOnAction(event -> onEmailSearch());
         findDonor_btn.setOnAction(event -> onFindDonor());
@@ -56,7 +50,7 @@ public class SearchCandidateController implements Initializable {
     private void onFindDonor() {
         Stage stage = (Stage) emailSearch_btn.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showInitialWindow();
+        Model.getInstance().getViewFactory().showSearchDonorController();
     }
 
 }

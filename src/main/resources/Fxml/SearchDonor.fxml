@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="604.0" prefWidth="1096.0" stylesheets="@../Styles/SearchDonor.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proj.organtransplantapp.Controllers.SearchDonorController">
+   <VBox id="title_box" alignment="CENTER" prefHeight="59.0" prefWidth="1096.0">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Organ Donor Search Panel" textAlignment="CENTER" wrappingWidth="367.71812915802">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
+   </VBox>
+   <VBox layoutY="76.0" prefHeight="400.0" prefWidth="1096.0">
+      <HBox prefHeight="400.0" prefWidth="1071.0">
+         <ListView fx:id="candidate_listview" prefHeight="400.0" prefWidth="532.0" />
+         <ListView prefHeight="400.0" prefWidth="33.0" />
+         <ListView fx:id="donor_listview" prefHeight="400.0" prefWidth="530.0" />
+      </HBox>
+   </VBox>
+</AnchorPane>

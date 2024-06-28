@@ -93,7 +93,7 @@ public class DatabaseDriver  {
         try {
             statement = this.conn1.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM Candidates Where Email = '"+email+"';");
-            System.out.println("Inside searchCandEmail - Hello");
+//            System.out.println("Inside searchCandEmail - Hello");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -106,25 +106,25 @@ public class DatabaseDriver  {
         try {
             statement = this.conn1.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM Candidates Where LastName = '"+lastName+"';");
-            System.out.println("Inside searchCandLastName - Hello");
+//            System.out.println("Inside searchCandLastName - Hello");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return resultSet;
     }
 
-    public ResultSet getAllCandidatesData() {
-        Statement statement;
-        ResultSet resultSet = null;
-        try {
-            statement = this.conn1.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Candidates;");
-        } catch (SQLException e) {
-            System.out.println("We got a problem here - getAllCandidatesData()");
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
+//    public ResultSet getAllCandidatesData() {
+//        Statement statement;
+//        ResultSet resultSet = null;
+//        try {
+//            statement = this.conn1.createStatement();
+//            resultSet = statement.executeQuery("SELECT * FROM Candidates;");
+//        } catch (SQLException e) {
+//            System.out.println("We got a problem here - getAllCandidatesData()");
+//            e.printStackTrace();
+//        }
+//        return resultSet;
+//    }
 
 
 
