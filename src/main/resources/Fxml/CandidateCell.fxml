@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="cand_anchor_pane" prefHeight="394.0" prefWidth="521.0" stylesheets="@../Styles/CandidateCell.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <VBox prefHeight="333.0" prefWidth="114.0" styleClass="vbox">
-      <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="87.0" prefWidth="90.0" styleClass="bold_font" text="First name" />
+      <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="115.0" prefWidth="90.0" styleClass="bold_font" text="First name" />
       <Label fx:id="fName_lbl" alignment="TOP_LEFT" text="Mary" />
       <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="86.0" styleClass="bold_font" text="Weight (lbs)" />
       <Label fx:id="weight_lbl" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="47.0" text="235" />
@@ -21,7 +21,7 @@
       <Label fx:id="age_lbl" alignment="TOP_LEFT" text="39" />
    </VBox>
    <VBox layoutX="103.0" prefHeight="310.0" prefWidth="176.0" styleClass="vbox">
-      <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="88.0" prefWidth="98.0" styleClass="bold_font" text="Last name" />
+      <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="116.0" prefWidth="98.0" styleClass="bold_font" text="Last name" />
       <Label fx:id="lName_lbl" alignment="TOP_LEFT" text="Nealy" />
       <Label alignment="BOTTOM_LEFT" prefHeight="32.0" prefWidth="70.0" styleClass="bold_font" text="Email" />
       <Label fx:id="email_lbl" alignment="TOP_LEFT" prefHeight="24.0" prefWidth="138.0" text="MNealy@gmail.com" />
@@ -67,8 +67,16 @@
       <Label alignment="BOTTOM_LEFT" prefHeight="28.0" prefWidth="65.0" styleClass="bold_font" text="MICA3" />
       <Label fx:id="MICA3_lbl" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="55.0" text="36Y" />
    </VBox>
-   <HBox layoutX="301.0" layoutY="62.0" prefHeight="28.0" prefWidth="199.0" styleClass="vbox">
-      <Label prefHeight="28.0" prefWidth="166.0" styleClass="bold_font" text="Antigen/Eplet Table" />
+   <HBox layoutX="22.0" layoutY="62.0" prefHeight="28.0" prefWidth="478.0" styleClass="vbox">
+      <Label alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="135.0" styleClass="bold_font" text="Vital Statistics">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" prefHeight="28.0" prefWidth="296.0" styleClass="bold_font" text="Antigen/Eplet Table">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
    </HBox>
    <HBox alignment="CENTER" layoutY="7.0" prefHeight="38.0" prefWidth="516.0" styleClass="vbox">
       <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="477.0" styleClass="bold_font" text="Transplant Candidate Profile">
@@ -77,7 +85,7 @@
          </font>
       </Label>
    </HBox>
-   <Button fx:id="confirmCandidate_btn" layoutX="23.0" layoutY="321.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="189.0" styleClass="choose_btn">
+   <Button fx:id="confirmCandidate_btn" layoutX="22.0" layoutY="326.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="189.0" styleClass="choose_btn">
       <graphic>
          <CheckBox mnemonicParsing="false" text="Select Candidate" textFill="WHITE" />
       </graphic>

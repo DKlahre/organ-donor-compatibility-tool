@@ -76,7 +76,6 @@ public class CandidateCellController implements Initializable {
     }
 
     private void confirmCandidate() {
-
         chooseCB(cbInt);
         cbInt++;
     }
