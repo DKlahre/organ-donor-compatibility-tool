@@ -39,31 +39,31 @@
       <HBox prefHeight="160.0" prefWidth="830.0">
          <VBox prefHeight="122.0" prefWidth="30.0" />
          <VBox prefHeight="160.0" prefWidth="94.0">
-            <Label prefHeight="18.0" prefWidth="42.0" text="DP" />
+            <Label prefHeight="18.0" prefWidth="42.0" text="DP %" />
             <Spinner fx:id="dp_spinner" prefHeight="26.0" prefWidth="70.0" />
             <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="22.0" text="APR" />
             <Spinner prefHeight="26.0" prefWidth="70.0" />
          </VBox>
          <VBox prefHeight="160.0" prefWidth="94.0">
-            <Label prefHeight="18.0" prefWidth="38.0" text="ABC" />
+            <Label prefHeight="18.0" prefWidth="44.0" text="ABC %" />
             <Spinner fx:id="abc_spinner" prefHeight="26.0" prefWidth="70.0" />
             <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="22.0" text="APR" />
             <Spinner prefHeight="26.0" prefWidth="70.0" />
          </VBox>
          <VBox prefHeight="160.0" prefWidth="94.0">
-            <Label prefHeight="18.0" prefWidth="37.0" text="DRB" />
+            <Label prefHeight="18.0" prefWidth="42.0" text="DRB %" />
             <Spinner fx:id="drb_spinner" prefHeight="26.0" prefWidth="69.0" />
             <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="22.0" text="APR" />
             <Spinner prefHeight="26.0" prefWidth="70.0" />
          </VBox>
          <VBox prefHeight="160.0" prefWidth="94.0">
-            <Label prefHeight="18.0" prefWidth="34.0" text="DQ" />
+            <Label prefHeight="18.0" prefWidth="41.0" text="DQ %" />
             <Spinner fx:id="dq_spinner" prefHeight="26.0" prefWidth="70.0" />
             <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="22.0" text="APR" />
             <Spinner prefHeight="26.0" prefWidth="70.0" />
          </VBox>
          <VBox prefHeight="160.0" prefWidth="94.0">
-            <Label prefHeight="18.0" prefWidth="42.0" text="MICA" />
+            <Label prefHeight="18.0" prefWidth="49.0" text="MICA %" />
             <Spinner fx:id="mica_spinner" prefHeight="26.0" prefWidth="70.0" />
             <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="22.0" text="APR" />
             <Spinner prefHeight="26.0" prefWidth="70.0" />

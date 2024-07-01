@@ -19,10 +19,10 @@ public class SearchDonorController implements Initializable {
    // public ListView candidate_listview;
     public ListView donor_listview;
     public Spinner<Double> dp_spinner;
-    public Spinner<Integer> abc_spinner;
-    public Spinner<Integer> drb_spinner;
-    public Spinner<Integer> dq_spinner;
-    public Spinner<Integer> mica_spinner;
+    public Spinner<Double> abc_spinner;
+    public Spinner<Double> drb_spinner;
+    public Spinner<Double> dq_spinner;
+    public Spinner<Double> mica_spinner;
     private ObservableList<Candidate> candidates;
     public ListView<Candidate> candidate_listview;
 //    HashMap<String,Integer> myMap.ObservableList=new HashMap<String,Integer>();
@@ -31,32 +31,18 @@ public class SearchDonorController implements Initializable {
     public Double currentDoubValue;
     int selectionVal;
 
-    private static final double MIN = 0;
-    private static final double MAX = 1;
-    private static final double INITIAL_VALUE = 0.5;
-    private static final double STEP_INCREMENT = 0.1;
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-//        myMap.put("Texas",1);
-//        myMap.put("Florida", 2);
-//        myMap.put("Maryland", 3);
-
-       // strMap.set(myMap);
-
                 SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory =
                 new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
-               // valueFactory.setValue(33.33);
                 valueFactory.setMin(0.0);
                 valueFactory.setMax(100.00);
                 valueFactory.setAmountToStepBy(33.332);
                 valueFactory.increment(1);
                 dp_spinner.setValueFactory(valueFactory);
                 currentDoubValue = dp_spinner.getValue();
-
                 dp_spinner.valueProperty().addListener(new ChangeListener<Double>() {
                     @Override
                     public void changed(ObservableValue<? extends Double> observable, Double oldValue, Double newValue) {
@@ -69,6 +55,106 @@ public class SearchDonorController implements Initializable {
                         }
                     }
                 });
+
+                //////////////////
+
+                SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory2 =
+                        new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
+                valueFactory2.setMin(0.0);
+                valueFactory2.setMax(100.00);
+                valueFactory2.setAmountToStepBy(33.332);
+                valueFactory2.increment(1);
+                abc_spinner.setValueFactory(valueFactory2);
+                currentDoubValue = abc_spinner.getValue();
+                abc_spinner.valueProperty().addListener(new ChangeListener<Double>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Double> observable, Double oldValue, Double newValue) {
+                        currentDoubValue = abc_spinner.getValue();
+                        if (valueFactory2.getValue() == 100.0) {
+                            valueFactory2.setAmountToStepBy(33.336);
+                        }
+                        if (valueFactory2.getValue() == 0.0) {
+                            valueFactory2.setAmountToStepBy(33.332);
+                        }
+                    }
+                });
+
+                /////////////
+
+                SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory3 =
+                        new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
+                valueFactory3.setMin(0.0);
+                valueFactory3.setMax(100.00);
+                valueFactory3.setAmountToStepBy(33.332);
+                valueFactory3.increment(1);
+                drb_spinner.setValueFactory(valueFactory3);
+                currentDoubValue = drb_spinner.getValue();
+                drb_spinner.valueProperty().addListener(new ChangeListener<Double>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Double> observable, Double oldValue, Double newValue) {
+                        currentDoubValue = drb_spinner.getValue();
+                        if (valueFactory3.getValue() == 100.0) {
+                            valueFactory3.setAmountToStepBy(33.336);
+                        }
+                        if (valueFactory3.getValue() == 0.0) {
+                            valueFactory3.setAmountToStepBy(33.332);
+                        }
+                    }
+                });
+
+                ///////////////
+
+                SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory4 =
+                        new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
+                valueFactory4.setMin(0.0);
+                valueFactory4.setMax(100.00);
+                valueFactory4.setAmountToStepBy(33.332);
+                valueFactory4.increment(1);
+                dq_spinner.setValueFactory(valueFactory4);
+                currentDoubValue = dq_spinner.getValue();
+                dq_spinner.valueProperty().addListener(new ChangeListener<Double>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Double> observable, Double oldValue, Double newValue) {
+                        currentDoubValue = dq_spinner.getValue();
+                        if (valueFactory4.getValue() == 100.0) {
+                            valueFactory4.setAmountToStepBy(33.336);
+                        }
+                        if (valueFactory4.getValue() == 0.0) {
+                            valueFactory4.setAmountToStepBy(33.332);
+                        }
+                    }
+                });
+
+                ////////
+
+                SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory5 =
+                        new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
+                valueFactory5.setMin(0.0);
+                valueFactory5.setMax(100.00);
+                valueFactory5.setAmountToStepBy(33.332);
+                valueFactory5.increment(1);
+                mica_spinner.setValueFactory(valueFactory5);
+                currentDoubValue = mica_spinner.getValue();
+                mica_spinner.valueProperty().addListener(new ChangeListener<Double>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Double> observable, Double oldValue, Double newValue) {
+                        currentDoubValue = mica_spinner.getValue();
+                        if (valueFactory5.getValue() == 100.0) {
+                            valueFactory5.setAmountToStepBy(33.336);
+                        }
+                        if (valueFactory5.getValue() == 0.0) {
+                            valueFactory5.setAmountToStepBy(33.332);
+                        }
+                    }
+                });
+
+
+
+
+
+
+
+
 
 //        SpinnerValueFactory<Integer> valueFactory =
 //                new SpinnerValueFactory.IntegerSpinnerValueFactory(0,4);
