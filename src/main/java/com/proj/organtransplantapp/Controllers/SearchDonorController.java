@@ -23,6 +23,11 @@ public class SearchDonorController implements Initializable {
     public Spinner<Double> drb_spinner;
     public Spinner<Double> dq_spinner;
     public Spinner<Double> mica_spinner;
+    public Spinner<Integer> micaapr_spinner;
+    public Spinner<Integer> dqapr_spinner;
+    public Spinner<Integer> drbapr_spinner;
+    public Spinner<Integer> abcapr_spinner;
+    public Spinner<Integer> dpapr_spinner;
     private ObservableList<Candidate> candidates;
     public ListView<Candidate> candidate_listview;
 //    HashMap<String,Integer> myMap.ObservableList=new HashMap<String,Integer>();
@@ -35,6 +40,7 @@ public class SearchDonorController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+                ////////// Eplet1 spinner
                 SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory =
                 new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
                 valueFactory.setMin(0.0);
@@ -56,7 +62,7 @@ public class SearchDonorController implements Initializable {
                     }
                 });
 
-                //////////////////
+                /////// Eplet2 spinner
 
                 SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory2 =
                         new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
@@ -79,7 +85,7 @@ public class SearchDonorController implements Initializable {
                     }
                 });
 
-                /////////////
+                //////// Eplet3 spinner
 
                 SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory3 =
                         new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
@@ -102,7 +108,7 @@ public class SearchDonorController implements Initializable {
                     }
                 });
 
-                ///////////////
+                //////// Eplet4 spinner
 
                 SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory4 =
                         new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
@@ -125,7 +131,7 @@ public class SearchDonorController implements Initializable {
                     }
                 });
 
-                ////////
+                ////////// Eplet5 spinner
 
                 SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory5 =
                         new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
@@ -148,26 +154,71 @@ public class SearchDonorController implements Initializable {
                     }
                 });
 
+                ////////// DPAPR spinner
+                SpinnerValueFactory<Integer> valFactory1 =
+                        new SpinnerValueFactory.IntegerSpinnerValueFactory(0,3);
+                valFactory1.setValue(1);
+                dpapr_spinner.setValueFactory(valFactory1);
+                currentValue = dpapr_spinner.getValue();
+                dpapr_spinner.valueProperty().addListener(new ChangeListener<Integer>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer t1) {
+                        currentValue = dpapr_spinner.getValue();
+                    }
+                });
 
+                ////////// ABCAPR spinner
+                SpinnerValueFactory<Integer> valFactory2 =
+                        new SpinnerValueFactory.IntegerSpinnerValueFactory(0,3);
+                valFactory2.setValue(1);
+                abcapr_spinner.setValueFactory(valFactory2);
+                currentValue = abcapr_spinner.getValue();
+                abcapr_spinner.valueProperty().addListener(new ChangeListener<Integer>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer t1) {
+                        currentValue = abcapr_spinner.getValue();
+                    }
+                });
 
+                ////////// DRBAPR spinner
+                SpinnerValueFactory<Integer> valFactory3 =
+                        new SpinnerValueFactory.IntegerSpinnerValueFactory(0,3);
+                valFactory3.setValue(1);
+                drbapr_spinner.setValueFactory(valFactory3);
+                currentValue = drbapr_spinner.getValue();
 
+                drbapr_spinner.valueProperty().addListener(new ChangeListener<Integer>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer t1) {
+                        currentValue = drbapr_spinner.getValue();
+                    }
+                });
 
+                ////////// DQAPR spinner
+                SpinnerValueFactory<Integer> valFactory4 =
+                        new SpinnerValueFactory.IntegerSpinnerValueFactory(0,3);
+                valFactory4.setValue(1);
+                dqapr_spinner.setValueFactory(valFactory4);
+                currentValue = dqapr_spinner.getValue();
+                dqapr_spinner.valueProperty().addListener(new ChangeListener<Integer>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer t1) {
+                        currentValue = dqapr_spinner.getValue();
+                    }
+                });
 
-
-
-
-//        SpinnerValueFactory<Integer> valueFactory =
-//                new SpinnerValueFactory.IntegerSpinnerValueFactory(0,4);
-//        valueFactory.setValue(1);
-//        dp_spinner.setValueFactory(valueFactory);
-//        currentValue = dp_spinner.getValue();
-//
-//        dp_spinner.valueProperty().addListener(new ChangeListener<Integer>() {
-//            @Override
-//            public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer t1) {
-//                currentValue = dp_spinner.getValue();
-//            }
-//        });
+                ////////// MICAAPR spinner
+                SpinnerValueFactory<Integer> valFactory5 =
+                        new SpinnerValueFactory.IntegerSpinnerValueFactory(0,3);
+                valFactory5.setValue(1);
+                micaapr_spinner.setValueFactory(valFactory5);
+                currentValue = micaapr_spinner.getValue();
+                micaapr_spinner.valueProperty().addListener(new ChangeListener<Integer>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer t1) {
+                        currentValue = micaapr_spinner.getValue();
+                    }
+                });
 
 
 
