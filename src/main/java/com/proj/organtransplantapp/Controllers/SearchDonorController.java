@@ -6,11 +6,11 @@ import com.proj.organtransplantapp.Views.CandidateCellFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.control.*;
 
+import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -28,17 +28,31 @@ public class SearchDonorController implements Initializable {
     public Spinner<Integer> drbapr_spinner;
     public Spinner<Integer> abcapr_spinner;
     public Spinner<Integer> dpapr_spinner;
+    public ChoiceBox organ_cb;
+    public ChoiceBox bloodType_cb;
+    public Button processSearch_btn;
     private ObservableList<Candidate> candidates;
     public ListView<Candidate> candidate_listview;
 //    HashMap<String,Integer> myMap.ObservableList=new HashMap<String,Integer>();
     ObservableList strMap;
     public Integer currentValue;
     public Double currentDoubValue;
+    private String[] bloodTypeArray = {"A", "AB", "B", "O"};
+    private String[] organArray = {"pancreas", "lung", "heart", "kidney", "liver"};
     int selectionVal;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+        String email = Model.getInstance().getEmailStore();
+        ObservableList<Candidate> searchResults = Model.getInstance().searchCandEmail(email);
+        candidate_listview.setItems(searchResults);
+        // candidate_listview.setMouseTransparent(true);
+        candidate_listview.setFocusTraversable(false);
+        candidate_listview.setCellFactory(e -> new CandidateCellFactory());
+        candidates = searchResults;
 
                 ////////// Eplet1 spinner
                 SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory =
@@ -63,7 +77,6 @@ public class SearchDonorController implements Initializable {
                 });
 
                 /////// Eplet2 spinner
-
                 SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory2 =
                         new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
                 valueFactory2.setMin(0.0);
@@ -220,15 +233,28 @@ public class SearchDonorController implements Initializable {
                     }
                 });
 
+                organ_cb.getItems().addAll(organArray);
+                organ_cb.setOnAction(this::getOrgan);
 
+                bloodType_cb.getItems().addAll(bloodTypeArray);
+                bloodType_cb.setOnAction(this::getBloodType);
 
-        String email = Model.getInstance().getEmailStore();
-        ObservableList<Candidate> searchResults = Model.getInstance().searchCandEmail(email);
-        candidate_listview.setItems(searchResults);
-        // candidate_listview.setMouseTransparent(true);
-        candidate_listview.setFocusTraversable(false);
-        candidate_listview.setCellFactory(e -> new CandidateCellFactory());
-        candidates = searchResults;
+                processSearch_btn.setOnAction(this::processSearch);
     }
+
+    private void getOrgan(Event event) {
+       String organ = (String) organ_cb.getValue();
+       System.out.println("organ: " + organ);
+    }
+
+    private void getBloodType(Event event) {
+        String bloodType = (String) bloodType_cb.getValue();
+        System.out.println("bloodType: " + bloodType);
+    }
+
+    private void processSearch(Event event) {
+        System.out.println("process button pressed");
+    }
+
 
 }

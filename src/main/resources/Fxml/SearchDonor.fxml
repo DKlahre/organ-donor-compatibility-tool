@@ -71,22 +71,18 @@
             <Spinner fx:id="micaapr_spinner" prefHeight="26.0" prefWidth="70.0" />
          </VBox>
          <VBox prefHeight="122.0" prefWidth="133.0">
-            <children>
-               <Label prefHeight="18.0" prefWidth="50.0" text="Organ" />
-               <ChoiceBox fx:id="organ_cb" prefHeight="26.0" prefWidth="96.0" />
-               <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="67.0" text="Blood Type" />
-               <ChoiceBox fx:id="bloodType_cb" prefHeight="26.0" prefWidth="67.0" />
-            </children>
+            <Label prefHeight="18.0" prefWidth="50.0" text="Organ" />
+            <ChoiceBox fx:id="organ_cb" prefHeight="26.0" prefWidth="96.0" />
+            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="67.0" text="Blood Type" />
+            <ChoiceBox fx:id="bloodType_cb" prefHeight="26.0" prefWidth="67.0" />
          </VBox>
          <VBox prefHeight="122.0" prefWidth="127.0">
-            <children>
-               <Label prefHeight="28.0" prefWidth="75.0" />
-               <Button fx:id="donorSearch_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="57.0" prefWidth="122.0" text="Process">
-                  <font>
-                     <Font size="25.0" />
-                  </font>
-               </Button>
-            </children>
+            <Label prefHeight="28.0" prefWidth="75.0" />
+            <Button fx:id="processSearch_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="57.0" prefWidth="122.0" text="Process">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
          </VBox>
       </HBox>
    </HBox>
