@@ -3,6 +3,7 @@ package com.proj.organtransplantapp.Controllers;
 import com.proj.organtransplantapp.Models.Candidate;
 import com.proj.organtransplantapp.Models.Model;
 import com.proj.organtransplantapp.Views.CandidateCellFactory;
+import com.proj.organtransplantapp.Views.CandidatePickedCellFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -51,7 +52,7 @@ public class SearchDonorController implements Initializable {
         candidate_listview.setItems(searchResults);
         // candidate_listview.setMouseTransparent(true);
         candidate_listview.setFocusTraversable(false);
-        candidate_listview.setCellFactory(e -> new CandidateCellFactory());
+        candidate_listview.setCellFactory(e -> new CandidatePickedCellFactory());
         candidates = searchResults;
 
                 ////////// Eplet1 spinner
