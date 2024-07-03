@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 import javax.xml.transform.Result;
 import java.sql.*;
 
-public class DatabaseDriver  {
+public class DatabaseDriver {
 
     private Connection conn1;
     private Connection conn2;
@@ -93,7 +93,7 @@ public class DatabaseDriver  {
         ResultSet resultSet = null;
         try {
             statement = this.conn1.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Candidates Where Email = '"+email+"';");
+            resultSet = statement.executeQuery("SELECT * FROM Candidates Where Email = '" + email + "';");
 //            System.out.println("Inside searchCandEmail - Hello");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -106,16 +106,17 @@ public class DatabaseDriver  {
         ResultSet resultSet = null;
         try {
             statement = this.conn1.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Candidates Where LastName = '"+lastName+"';");
+            resultSet = statement.executeQuery("SELECT * FROM Candidates Where LastName = '" + lastName + "';");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return resultSet;
     }
 
-    public ResultSet searchDonorsDB(String organParam, String bloodType ) throws SQLException {
+    public ResultSet searchDonorsDB(String organParam, String bloodType, String micaApr) throws SQLException {
         Statement statement2;
         Statement statement3;
+        Statement statement4;
         Statement statement10;
         ResultSet resultSet = null;
 
@@ -153,12 +154,24 @@ public class DatabaseDriver  {
                 statement3 = this.conn2.createStatement();
                 statement3.executeUpdate("INSERT INTO TempTable(FirstName, LastName, Gender, Age, Weight, Email, Organ, BloodType, " +
                         "DP1, DP2, DP3, ABC1, ABC2, ABC3, DRB1, DRB2, DRB3, DQ1, DQ2, DQ3, MICA1, MICA2, MICA3)" +
-                        "VALUES ('"+fName +"', '"+ lName+"', '"+ gender+"', '"+ age+"', '"+ weight+"', '"+ email+"', '"+ organ+"', '"+ bloodtype+
-                        "', '"+ dp1+"', '"+ dp2+"', '"+ dp3+"', '"+ abc1+"', '"+ abc2+"', '"+ abc3+"', '"+ drb1+"', '"+ drp2+"', '"+ drb3+
-                        "','" +dq1+"', '"+ dq2+"', '"+ dq3+"', '"+mica1+"', '"+ mica2+"', '"+ mica3+"');");
+                        "VALUES ('" + fName + "', '" + lName + "', '" + gender + "', '" + age + "', '" + weight + "', '" + email + "', '" + organ + "', '" + bloodtype +
+                        "', '" + dp1 + "', '" + dp2 + "', '" + dp3 + "', '" + abc1 + "', '" + abc2 + "', '" + abc3 + "', '" + drb1 + "', '" + drp2 + "', '" + drb3 +
+                        "','" + dq1 + "', '" + dq2 + "', '" + dq3 + "', '" + mica1 + "', '" + mica2 + "', '" + mica3 + "');");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+
+
+        ResultSet resultSetPickedCandidate = null;
+        try {
+            statement4 = this.conn1.createStatement();
+            resultSetPickedCandidate = statement4.executeQuery("SELECT * FROM Candidates Where Email = '" + Model.getInstance().getEmailStore() + "';");
+            System.out.println("picked candidate firstname" + resultSetPickedCandidate.getString(1));
+            System.out.println("picked candidate lastname" + resultSetPickedCandidate.getString(2));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
 //        statement10 = this.conn2.createStatement();
@@ -166,7 +179,8 @@ public class DatabaseDriver  {
 
         return resultSet;
     }
-
-
-
 }
+
+
+
+

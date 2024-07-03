@@ -5,7 +5,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class Model {
 
@@ -106,11 +105,11 @@ public class Model {
         return searchResult;
     }
 
-    public ObservableList<Donor> searchDonors(String organ, String bloodType)  {
+    public ObservableList<Donor> searchDonors(String organ, String bloodType, String micaApr)  {
         ObservableList<Donor> searchResult = FXCollections.observableArrayList();
 
         try {
-            ResultSet resultSet = databaseDriver.searchDonorsDB(organ, bloodType);
+            ResultSet resultSet = databaseDriver.searchDonorsDB(organ, bloodType, micaApr);
             while (resultSet.next()) {
                 String donFirstName = resultSet.getString("FirstName");
                 String donLastName = resultSet.getString("LastName");
@@ -155,7 +154,7 @@ public class Model {
        // return emailStore;
     }
 
-    public String getEmailStore () {
+    public String getEmailStore() {
         return emailStore;
     }
 

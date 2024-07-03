@@ -231,6 +231,7 @@ public class SearchDonorController implements Initializable {
                 valFactory5.setValue(1);
                 micaapr_spinner.setValueFactory(valFactory5);
                 currentValue = micaapr_spinner.getValue();
+                micaapr_spinner.setOnTouchReleased(this::getMicaApr);
                 micaapr_spinner.valueProperty().addListener(new ChangeListener<Integer>() {
                     @Override
                     public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer t1) {
@@ -257,9 +258,13 @@ public class SearchDonorController implements Initializable {
         System.out.println("bloodType: " + bloodType);
     }
 
+    private void getMicaApr(Event event) {
+        String micaApr = String.valueOf(micaapr_spinner.getValue());
+    }
+
     private void processSearch(Event event)  {
 
-        ObservableList<Donor> searchResults = Model.getInstance().searchDonors(organ, bloodType);
+        ObservableList<Donor> searchResults = Model.getInstance().searchDonors(organ, bloodType, String.valueOf(micaapr_spinner.getValue()));
 
         System.out.println("process button pressed");
     }
