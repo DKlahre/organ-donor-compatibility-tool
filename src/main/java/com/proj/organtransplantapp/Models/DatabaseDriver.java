@@ -8,16 +8,20 @@ import java.sql.*;
 
 public class DatabaseDriver {
 
+
     private Connection conn1;
     private Connection conn2;
     private Connection conn3;
+    private Connection conn4;
+
+   // String [] micaSourceArray = new String[100];
 
     public DatabaseDriver() {
         try {
             this.conn1 = DriverManager.getConnection("jdbc:sqlite:transplantcandidates.db");
             this.conn2 = DriverManager.getConnection("jdbc:sqlite:organdonors.db");
             this.conn3 = DriverManager.getConnection("jdbc:sqlite:organdonors.db");
-//            this.conn4 = DriverManager.getConnection("jdbc:sqlite:epletmaster.db");
+            this.conn4 = DriverManager.getConnection("jdbc:sqlite:epletmaster.db");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -117,6 +121,11 @@ public class DatabaseDriver {
         Statement statement2;
         Statement statement3;
         Statement statement4;
+        Statement statement5;
+        Statement statement6;
+        Statement statement7;
+        Statement statement8;
+        Statement statement9;
         Statement statement10;
         ResultSet resultSet = null;
 
@@ -162,7 +171,6 @@ public class DatabaseDriver {
             }
         }
 
-
         ResultSet resultSetPickedCandidate = null;
         try {
             statement4 = this.conn1.createStatement();
@@ -173,6 +181,28 @@ public class DatabaseDriver {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        ResultSet resultSetEplets = null;
+        try{
+            statement5 = this.conn4.createStatement();
+            resultSetEplets = statement5.executeQuery("SELECT * FROM Eplets");
+          //  System.out.println("mica: " + resultSetEplets.getString(5));
+           // System.out.println("picked candidate lastname" + resultSetEplets.getString(2));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+//        int j = 0;
+//        while (resultSetEplets.next()) {
+//            try {
+//                micaSourceArray[j] = resultSetEplets.getString(5);
+//                System.out.println("micaSourceArray: " + micaSourceArray[j]);
+//                j++;
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+
 
 //        statement10 = this.conn2.createStatement();
 //        int deletedRows = statement10.executeUpdate("DELETE FROM TempTable;");
