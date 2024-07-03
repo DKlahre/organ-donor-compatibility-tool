@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Model {
 
@@ -104,6 +105,49 @@ public class Model {
 
         return searchResult;
     }
+
+    public ObservableList<Donor> searchDonors(String organ, String bloodType)  {
+        ObservableList<Donor> searchResult = FXCollections.observableArrayList();
+
+        try {
+            ResultSet resultSet = databaseDriver.searchDonorsDB(organ, bloodType);
+            while (resultSet.next()) {
+                String donFirstName = resultSet.getString("FirstName");
+                String donLastName = resultSet.getString("LastName");
+                String donGender = resultSet.getString("Gender");
+                String donAge = resultSet.getString("Age");
+                String donWeight = resultSet.getString("Weight");
+                String donEmail = resultSet.getString("Email");
+                String donOrgan = resultSet.getString("Organ");
+                String donBloodType = resultSet.getString("BloodType");
+                String donDP1 = resultSet.getString("DP1");
+                String donDP2 = resultSet.getString("DP2");
+                String donDP3 = resultSet.getString("DP3");
+                String donABC1 = resultSet.getString("ABC1");
+                String donABC2 = resultSet.getString("ABC2");
+                String donABC3 = resultSet.getString("ABC3");
+                String donDRB1 = resultSet.getString("DRB1");
+                String donDRB2 = resultSet.getString("DRB2");
+                String donDRB3 = resultSet.getString("DRB3");
+                String donDQ1 = resultSet.getString("DQ1");
+                String donDQ2 = resultSet.getString("DQ2");
+                String donDQ3 = resultSet.getString("DQ3");
+                String donMICA1 = resultSet.getString("MICA1");
+                String donMICA2 = resultSet.getString("MICA2");
+                String donMICA3 = resultSet.getString("MICA3");
+                searchResult.add(new Donor(donFirstName, donLastName, donGender, donAge, donWeight,
+                        donEmail, donOrgan, donBloodType, donDP1, donDP2, donDP3, donABC1, donABC2,
+                        donABC3, donDRB1, donDRB2, donDRB3, donDQ1, donDQ2, donDQ3, donMICA1, donMICA2, donMICA3));
+            }
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return searchResult;
+    }
+
+
+
 
     public void emailStore (String emailStore) {
         this.emailStore = emailStore;

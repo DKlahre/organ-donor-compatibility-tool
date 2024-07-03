@@ -1,6 +1,7 @@
 package com.proj.organtransplantapp.Controllers;
 
 import com.proj.organtransplantapp.Models.Candidate;
+import com.proj.organtransplantapp.Models.Donor;
 import com.proj.organtransplantapp.Models.Model;
 import com.proj.organtransplantapp.Views.CandidateCellFactory;
 import com.proj.organtransplantapp.Views.CandidatePickedCellFactory;
@@ -13,6 +14,7 @@ import javafx.scene.control.*;
 
 import java.awt.event.ActionEvent;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
@@ -39,8 +41,10 @@ public class SearchDonorController implements Initializable {
     public Integer currentValue;
     public Double currentDoubValue;
     private String[] bloodTypeArray = {"A", "AB", "B", "O"};
-    private String[] organArray = {"pancreas", "lung", "heart", "kidney", "liver"};
+    private String[] organArray = {"Pancreas", "Lung", "Heart", "Kidney", "Liver"};
     int selectionVal;
+    String organ;
+    String bloodType;
 
 
     @Override
@@ -244,16 +248,19 @@ public class SearchDonorController implements Initializable {
     }
 
     private void getOrgan(Event event) {
-       String organ = (String) organ_cb.getValue();
+       organ = (String) organ_cb.getValue();
        System.out.println("organ: " + organ);
     }
 
     private void getBloodType(Event event) {
-        String bloodType = (String) bloodType_cb.getValue();
+        bloodType = (String) bloodType_cb.getValue();
         System.out.println("bloodType: " + bloodType);
     }
 
-    private void processSearch(Event event) {
+    private void processSearch(Event event)  {
+
+        ObservableList<Donor> searchResults = Model.getInstance().searchDonors(organ, bloodType);
+
         System.out.println("process button pressed");
     }
 

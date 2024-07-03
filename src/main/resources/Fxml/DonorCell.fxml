@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="cand_anchor_pane" prefHeight="394.0" prefWidth="521.0" stylesheets="@../Styles/CandidateCell.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="cand_anchor_pane" prefHeight="394.0" prefWidth="521.0" stylesheets="@../Styles/CandidateCell.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <VBox prefHeight="333.0" prefWidth="114.0" styleClass="vbox">
         <Label alignment="BOTTOM_LEFT" contentDisplay="TEXT_ONLY" prefHeight="115.0" prefWidth="90.0" styleClass="bold_font" text="First name" />
         <Label fx:id="fName_lbl" alignment="TOP_LEFT" text="Mary" />
@@ -83,19 +83,20 @@
             </font>
         </Label>
     </HBox>
-   <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="314.0" prefHeight="24.0" prefWidth="219.0" text="Transplant candidate picked. Set " textFill="#4429c9">
-      <font>
-         <Font size="15.0" />
-      </font>
-   </Label>
-   <Label alignment="TOP_LEFT" layoutX="28.0" layoutY="337.0" prefHeight="28.0" prefWidth="226.0" text="controls below before initiating" textFill="#4429c9">
-      <font>
-         <Font size="15.0" />
-      </font>
-   </Label>
-   <Label alignment="TOP_LEFT" layoutX="28.0" layoutY="360.0" prefHeight="28.0" prefWidth="214.0" text="organ donor search." textFill="#4429c9">
-      <font>
-         <Font size="15.0" />
-      </font>
-   </Label>
+    <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="314.0" prefHeight="24.0" prefWidth="219.0" text="Transplant candidate picked. Set " textFill="#4429c9">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Label>
+    <Label alignment="TOP_LEFT" layoutX="28.0" layoutY="337.0" prefHeight="28.0" prefWidth="226.0" text="controls below before initiating" textFill="#4429c9">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Label>
+    <Label alignment="TOP_LEFT" layoutX="28.0" layoutY="360.0" prefHeight="28.0" prefWidth="214.0" text="organ donor search." textFill="#4429c9">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Label>
 </AnchorPane>
+
