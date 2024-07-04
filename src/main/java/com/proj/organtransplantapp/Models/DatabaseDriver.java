@@ -16,6 +16,7 @@ public class DatabaseDriver {
     private Connection conn4;
 
      String [] micaSourceArray = new String[100];
+     String [] dqSourceArray = new String[100];
 
     public DatabaseDriver() {
         try {
@@ -118,7 +119,7 @@ public class DatabaseDriver {
         return resultSet;
     }
 
-    public ResultSet searchDonorsDB(String organParam, String bloodType, String micaApr) throws SQLException {
+    public ResultSet searchDonorsDB(String organParam, String bloodType, String micaApr, String dqApr) throws SQLException {
         Statement statement2;
         Statement statement3;
         Statement statement4;
@@ -130,62 +131,75 @@ public class DatabaseDriver {
         Statement statement10;
         ResultSet resultSet = null;
 
+        ///////// Selects from specific organ list all donors having specific blood type
         try {
             statement2 = this.conn2.createStatement();
             resultSet = statement2.executeQuery("SELECT * FROM '" + organParam + "' Where BloodType = '" + bloodType + "';");
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        while (resultSet.next()) {
-            try {
-                String fName = resultSet.getString(1);
-                String lName = resultSet.getString(2);
-                String gender = resultSet.getString(3);
-                String age = resultSet.getString(4);
-                String weight = resultSet.getString(5);
-                String email = resultSet.getString(6);
-                String organ = resultSet.getString(7);
-                String bloodtype = resultSet.getString(8);
-                String dp1 = resultSet.getString(9);
-                String dp2 = resultSet.getString(10);
-                String dp3 = resultSet.getString(11);
-                String abc1 = resultSet.getString(12);
-                String abc2 = resultSet.getString(13);
-                String abc3 = resultSet.getString(14);
-                String drb1 = resultSet.getString(15);
-                String drp2 = resultSet.getString(16);
-                String drb3 = resultSet.getString(17);
-                String dq1 = resultSet.getString(18);
-                String dq2 = resultSet.getString(19);
-                String dq3 = resultSet.getString(20);
-                String mica1 = resultSet.getString(21);
-                String mica2 = resultSet.getString(22);
-                String mica3 = resultSet.getString(23);
-                statement3 = this.conn2.createStatement();
-                statement3.executeUpdate("INSERT INTO TempTable(FirstName, LastName, Gender, Age, Weight, Email, Organ, BloodType, " +
-                        "DP1, DP2, DP3, ABC1, ABC2, ABC3, DRB1, DRB2, DRB3, DQ1, DQ2, DQ3, MICA1, MICA2, MICA3)" +
-                        "VALUES ('" + fName + "', '" + lName + "', '" + gender + "', '" + age + "', '" + weight + "', '" + email + "', '" + organ + "', '" + bloodtype +
-                        "', '" + dp1 + "', '" + dp2 + "', '" + dp3 + "', '" + abc1 + "', '" + abc2 + "', '" + abc3 + "', '" + drb1 + "', '" + drp2 + "', '" + drb3 +
-                        "','" + dq1 + "', '" + dq2 + "', '" + dq3 + "', '" + mica1 + "', '" + mica2 + "', '" + mica3 + "');");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
 
+        //////////////////////
+
+
+
+//        while (resultSet.next()) {
+//            try {
+//                String fName = resultSet.getString(1);
+//                String lName = resultSet.getString(2);
+//                String gender = resultSet.getString(3);
+//                String age = resultSet.getString(4);
+//                String weight = resultSet.getString(5);
+//                String email = resultSet.getString(6);
+//                String organ = resultSet.getString(7);
+//                String bloodtype = resultSet.getString(8);
+//                String dp1 = resultSet.getString(9);
+//                String dp2 = resultSet.getString(10);
+//                String dp3 = resultSet.getString(11);
+//                String abc1 = resultSet.getString(12);
+//                String abc2 = resultSet.getString(13);
+//                String abc3 = resultSet.getString(14);
+//                String drb1 = resultSet.getString(15);
+//                String drp2 = resultSet.getString(16);
+//                String drb3 = resultSet.getString(17);
+//                String dq1 = resultSet.getString(18);
+//                String dq2 = resultSet.getString(19);
+//                String dq3 = resultSet.getString(20);
+//                String mica1 = resultSet.getString(21);
+//                String mica2 = resultSet.getString(22);
+//                String mica3 = resultSet.getString(23);
+//                statement3 = this.conn2.createStatement();
+//                statement3.executeUpdate("INSERT INTO TempTable(FirstName, LastName, Gender, Age, Weight, Email, Organ, BloodType, " +
+//                        "DP1, DP2, DP3, ABC1, ABC2, ABC3, DRB1, DRB2, DRB3, DQ1, DQ2, DQ3, MICA1, MICA2, MICA3)" +
+//                        "VALUES ('" + fName + "', '" + lName + "', '" + gender + "', '" + age + "', '" + weight + "', '" + email + "', '" + organ + "', '" + bloodtype +
+//                        "', '" + dp1 + "', '" + dp2 + "', '" + dp3 + "', '" + abc1 + "', '" + abc2 + "', '" + abc3 + "', '" + drb1 + "', '" + drp2 + "', '" + drb3 +
+//                        "','" + dq1 + "', '" + dq2 + "', '" + dq3 + "', '" + mica1 + "', '" + mica2 + "', '" + mica3 + "');");
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//       }
+
+        ////////////// Selects all possible eplets
         ResultSet resultSetPickedCandidate = null;
         ResultSet resultSetEplets = null;
         try{
-
             statement5 = this.conn4.createStatement();
             resultSetEplets = statement5.executeQuery("SELECT * FROM Eplets");
-            //  System.out.println("mica: " + resultSetEplets.getString(5));
-            // System.out.println("picked candidate lastname" + resultSetEplets.getString(2));
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        /////////////////////////////
 
+
+
+
+        ///////// Picks row of information representing the picked candidate
         int j = 0;
-        int epletMatchCount = 0;
+        int micaMatchCount = 0;
+        int dqMatchCount = 0;
+        boolean micaRequisiteSatisfied = false;
+        boolean dqRequisiteSatisfied = false;
+
         while (resultSetEplets.next()) {
             try {
                 statement4 = this.conn1.createStatement();
@@ -193,22 +207,45 @@ public class DatabaseDriver {
                 String candMica1 = resultSetPickedCandidate.getString(21);
                 String candMica2 = resultSetPickedCandidate.getString(22);
                 String candMica3 = resultSetPickedCandidate.getString(23);
+                String candDq1 = resultSetPickedCandidate.getString(18);
+                String candDq2 = resultSetPickedCandidate.getString(19);
+                String candDq3 = resultSetPickedCandidate.getString(20);
 
                 micaSourceArray[j] = resultSetEplets.getString(5);
+                dqSourceArray[j] = resultSetEplets.getString(4);
 
                 if (Objects.equals(micaSourceArray[j], candMica1) || Objects.equals(micaSourceArray[j], candMica2) || Objects.equals(micaSourceArray[j], candMica3)) {
-                    epletMatchCount++;
+                    micaMatchCount++;
+                    if (micaMatchCount >= (Integer.parseInt(micaApr))) {
+                        micaRequisiteSatisfied = true;
+                    };
                 }
-                System.out.println("micaSourceArray: " + micaSourceArray[j]);
-                System.out.println("candMica1: "+ candMica1);
-                System.out.println("candMica2: "+ candMica2);
-                System.out.println("candMica3: "+ candMica3);
+                if (Objects.equals(dqSourceArray[j], candDq1 ) || Objects.equals(dqSourceArray[j], candDq2) || Objects.equals(dqSourceArray[j], candDq3)) {
+                    dqMatchCount++;
+                    if (dqMatchCount >= (Integer.parseInt(dqApr))) {
+                        dqRequisiteSatisfied = true;
+                    }
+
+                }
+
+//                System.out.println("micaSourceArray: " + micaSourceArray[j]);
+//                System.out.println("candMica1: "+ candMica1);
+//                System.out.println("candMica2: "+ candMica2);
+//                System.out.println("candMica3: "+ candMica3);
                 j++;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-        System.out.println("epletMatchCount " + epletMatchCount);
+
+        System.out.println("micaMatchCount " + micaMatchCount);
+        System.out.println("dqMatchCount " + dqMatchCount);
+       // String micaApr1 = micaApr;
+        System.out.println("micaApr " + micaApr);
+        System.out.println("dqApr " + dqApr);
+//        if (micaMatchCount => micaApr1) {
+//
+//        }
 
 
 //        statement10 = this.conn2.createStatement();
