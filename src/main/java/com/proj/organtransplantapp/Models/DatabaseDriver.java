@@ -5,6 +5,7 @@ import javafx.stage.Stage;
 
 import javax.xml.transform.Result;
 import java.sql.*;
+import java.util.Objects;
 
 public class DatabaseDriver {
 
@@ -14,7 +15,7 @@ public class DatabaseDriver {
     private Connection conn3;
     private Connection conn4;
 
-   // String [] micaSourceArray = new String[100];
+     String [] micaSourceArray = new String[100];
 
     public DatabaseDriver() {
         try {
@@ -172,36 +173,42 @@ public class DatabaseDriver {
         }
 
         ResultSet resultSetPickedCandidate = null;
-        try {
-            statement4 = this.conn1.createStatement();
-            resultSetPickedCandidate = statement4.executeQuery("SELECT * FROM Candidates Where Email = '" + Model.getInstance().getEmailStore() + "';");
-            System.out.println("picked candidate firstname" + resultSetPickedCandidate.getString(1));
-            System.out.println("picked candidate lastname" + resultSetPickedCandidate.getString(2));
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
         ResultSet resultSetEplets = null;
         try{
+
             statement5 = this.conn4.createStatement();
             resultSetEplets = statement5.executeQuery("SELECT * FROM Eplets");
-          //  System.out.println("mica: " + resultSetEplets.getString(5));
-           // System.out.println("picked candidate lastname" + resultSetEplets.getString(2));
+            //  System.out.println("mica: " + resultSetEplets.getString(5));
+            // System.out.println("picked candidate lastname" + resultSetEplets.getString(2));
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-//        int j = 0;
-//        while (resultSetEplets.next()) {
-//            try {
-//                micaSourceArray[j] = resultSetEplets.getString(5);
-//                System.out.println("micaSourceArray: " + micaSourceArray[j]);
-//                j++;
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        int j = 0;
+        int epletMatchCount = 0;
+        while (resultSetEplets.next()) {
+            try {
+                statement4 = this.conn1.createStatement();
+                resultSetPickedCandidate = statement4.executeQuery("SELECT * FROM Candidates Where Email = '" + Model.getInstance().getEmailStore() + "';");
+                String candMica1 = resultSetPickedCandidate.getString(21);
+                String candMica2 = resultSetPickedCandidate.getString(22);
+                String candMica3 = resultSetPickedCandidate.getString(23);
+
+                micaSourceArray[j] = resultSetEplets.getString(5);
+
+                if (Objects.equals(micaSourceArray[j], candMica1) || Objects.equals(micaSourceArray[j], candMica2) || Objects.equals(micaSourceArray[j], candMica3)) {
+                    epletMatchCount++;
+                }
+                System.out.println("micaSourceArray: " + micaSourceArray[j]);
+                System.out.println("candMica1: "+ candMica1);
+                System.out.println("candMica2: "+ candMica2);
+                System.out.println("candMica3: "+ candMica3);
+                j++;
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("epletMatchCount " + epletMatchCount);
 
 
 //        statement10 = this.conn2.createStatement();
@@ -210,7 +217,3 @@ public class DatabaseDriver {
         return resultSet;
     }
 }
-
-
-
-
