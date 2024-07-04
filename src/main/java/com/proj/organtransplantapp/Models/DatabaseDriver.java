@@ -17,6 +17,9 @@ public class DatabaseDriver {
 
      String [] micaSourceArray = new String[100];
      String [] dqSourceArray = new String[100];
+     String [] drbSourceArray = new String[100];
+     String [] abcSourceArray = new String[100];
+     String [] dpSourceArray = new String[100];
 
     public DatabaseDriver() {
         try {
@@ -119,7 +122,7 @@ public class DatabaseDriver {
         return resultSet;
     }
 
-    public ResultSet searchDonorsDB(String organParam, String bloodType, String micaApr, String dqApr) throws SQLException {
+    public ResultSet searchDonorsDB(String organParam, String bloodType, String micaApr, String dqApr, String drbApr, String abcApr, String dpApr) throws SQLException {
         Statement statement2;
         Statement statement3;
         Statement statement4;
@@ -197,8 +200,14 @@ public class DatabaseDriver {
         int j = 0;
         int micaMatchCount = 0;
         int dqMatchCount = 0;
+        int drbMatchCount = 0;
+        int abcMatchCount = 0;
+        int dpMatchCount = 0;
         boolean micaRequisiteSatisfied = false;
         boolean dqRequisiteSatisfied = false;
+        boolean drbRequisiteSatisfied = false;
+        boolean abcRequisiteSatisfied = false;
+        boolean dpRequisiteSatisfied = false;
 
         while (resultSetEplets.next()) {
             try {
@@ -210,9 +219,21 @@ public class DatabaseDriver {
                 String candDq1 = resultSetPickedCandidate.getString(18);
                 String candDq2 = resultSetPickedCandidate.getString(19);
                 String candDq3 = resultSetPickedCandidate.getString(20);
+                String candDrb1 = resultSetPickedCandidate.getString(15);
+                String candDrb2 = resultSetPickedCandidate.getString(16);
+                String candDrb3 = resultSetPickedCandidate.getString(17);
+                String candAbc1 = resultSetPickedCandidate.getString(14);
+                String candAbc2 = resultSetPickedCandidate.getString(15);
+                String candAbc3 = resultSetPickedCandidate.getString(16);
+                String candDp1 = resultSetPickedCandidate.getString(10);
+                String candDp2 = resultSetPickedCandidate.getString(11);
+                String candDp3 = resultSetPickedCandidate.getString(12);
 
                 micaSourceArray[j] = resultSetEplets.getString(5);
                 dqSourceArray[j] = resultSetEplets.getString(4);
+                drbSourceArray[j] = resultSetEplets.getString(3);
+                abcSourceArray[j] = resultSetEplets.getString(2);
+                dpSourceArray[j] = resultSetEplets.getString(1);
 
                 if (Objects.equals(micaSourceArray[j], candMica1) || Objects.equals(micaSourceArray[j], candMica2) || Objects.equals(micaSourceArray[j], candMica3)) {
                     micaMatchCount++;
@@ -225,14 +246,28 @@ public class DatabaseDriver {
                     if (dqMatchCount >= (Integer.parseInt(dqApr))) {
                         dqRequisiteSatisfied = true;
                     }
-
+                }
+                if (Objects.equals(drbSourceArray[j], candDrb1 ) || Objects.equals(drbSourceArray[j], candDrb2) || Objects.equals(drbSourceArray[j], candDrb3)) {
+                    drbMatchCount ++;
+                    if (drbMatchCount >= (Integer.parseInt(drbApr))) {
+                        drbRequisiteSatisfied = true;
+                    }
+                }
+                if (Objects.equals(abcSourceArray[j], candAbc1 ) || Objects.equals(abcSourceArray[j], candAbc2) || Objects.equals(abcSourceArray[j], candAbc3)) {
+                    abcMatchCount ++;
+                    if (abcMatchCount >= (Integer.parseInt(abcApr))) {
+                        abcRequisiteSatisfied = true;
+                    }
+                }
+                if (Objects.equals(dpSourceArray[j], candDp1 ) || Objects.equals(dpSourceArray[j], candDp2) || Objects.equals(dpSourceArray[j], candDp3)) {
+                    dpMatchCount ++;
+                    if (dpMatchCount >= (Integer.parseInt(dpApr))) {
+                        dpRequisiteSatisfied = true;
+                    }
                 }
 
-//                System.out.println("micaSourceArray: " + micaSourceArray[j]);
-//                System.out.println("candMica1: "+ candMica1);
-//                System.out.println("candMica2: "+ candMica2);
-//                System.out.println("candMica3: "+ candMica3);
                 j++;
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -240,12 +275,15 @@ public class DatabaseDriver {
 
         System.out.println("micaMatchCount " + micaMatchCount);
         System.out.println("dqMatchCount " + dqMatchCount);
+        System.out.println("drbMatchAccount " + drbMatchCount);
+        System.out.println("abcMatchAccount " + abcMatchCount);
+        System.out.println("dpMatchAccount " + dpMatchCount);
        // String micaApr1 = micaApr;
         System.out.println("micaApr " + micaApr);
         System.out.println("dqApr " + dqApr);
-//        if (micaMatchCount => micaApr1) {
-//
-//        }
+        System.out.println("drbApr " + drbApr);
+        System.out.println("abcApr " + abcApr);
+        System.out.println("dpApr " + dpApr);
 
 
 //        statement10 = this.conn2.createStatement();
