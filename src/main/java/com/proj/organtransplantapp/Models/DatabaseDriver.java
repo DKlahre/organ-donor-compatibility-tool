@@ -32,70 +32,6 @@ public class DatabaseDriver {
         }
     }
 
-    public ResultSet searchHeartList(int ageLower, int ageHigher) {
-
-        Statement statement;
-        ResultSet resultSet = null;
-        try {
-            statement = this.conn2.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Heart WHERE Age BETWEEN '" + ageLower + "' AND '" + ageHigher + "';");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
-
-    public ResultSet searchKidneyList(int ageLower, int ageHigher) {
-
-        Statement statement;
-        ResultSet resultSet = null;
-        try {
-            statement = this.conn2.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Kidney WHERE Age BETWEEN '" + ageLower + "' AND '" + ageHigher + "';");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
-
-    public ResultSet searchLiverList(int ageLower, int ageHigher) {
-
-        Statement statement;
-        ResultSet resultSet = null;
-        try {
-            statement = this.conn2.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Liver WHERE Age BETWEEN '" + ageLower + "' AND '" + ageHigher + "';");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
-
-    public ResultSet searchLungList(int ageLower, int ageHigher) {
-
-        Statement statement;
-        ResultSet resultSet = null;
-        try {
-            statement = this.conn2.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Lung WHERE Age BETWEEN '" + ageLower + "' AND '" + ageHigher + "';");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
-
-    public ResultSet searchPancreasList(int ageLower, int ageHigher) {
-
-        Statement statement;
-        ResultSet resultSet = null;
-        try {
-            statement = this.conn2.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Pancreas WHERE Age BETWEEN '" + ageLower + "' AND '" + ageHigher + "';");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
 
     public ResultSet searchCandEmail(String email) {
         Statement statement;
@@ -122,7 +58,7 @@ public class DatabaseDriver {
         return resultSet;
     }
 
-    public ResultSet searchDonorsDB(String organParam, String bloodType, String micaApr, String dqApr, String drbApr, String abcApr, String dpApr) throws SQLException {
+    public ResultSet searchDonorsDB(String organParam, String bloodType, String micaApr, String dqApr, String drbApr, String abcApr, String dpApr, String dp, String abc, String drb, String dq, String mica) throws SQLException {
         Statement statement2;
         Statement statement3;
         Statement statement4;
@@ -132,15 +68,16 @@ public class DatabaseDriver {
         Statement statement8;
         Statement statement9;
         Statement statement10;
-        ResultSet resultSet = null;
+
 
         ///////// Selects from specific organ list all donors having specific blood type
-        try {
-            statement2 = this.conn2.createStatement();
-            resultSet = statement2.executeQuery("SELECT * FROM '" + organParam + "' Where BloodType = '" + bloodType + "';");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        ResultSet resultSet = null;
+//        try {
+//            statement2 = this.conn2.createStatement();
+//            resultSet = statement2.executeQuery("SELECT * FROM '" + organParam + "' Where BloodType = '" + bloodType + "';");
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
         //////////////////////
 
@@ -284,6 +221,22 @@ public class DatabaseDriver {
         System.out.println("drbApr " + drbApr);
         System.out.println("abcApr " + abcApr);
         System.out.println("dpApr " + dpApr);
+
+        //////////////////////////////////////
+
+
+
+        ResultSet resultSet = null;
+        try {
+            statement2 = this.conn2.createStatement();
+            resultSet = statement2.executeQuery("SELECT * FROM '" + organParam + "' Where BloodType = '" + bloodType + "';");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+
 
 
 //        statement10 = this.conn2.createStatement();

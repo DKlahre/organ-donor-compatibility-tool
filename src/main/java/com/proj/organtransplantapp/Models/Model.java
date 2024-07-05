@@ -105,11 +105,11 @@ public class Model {
         return searchResult;
     }
 
-    public ObservableList<Donor> searchDonors(String organ, String bloodType, String micaApr, String dqApr, String drbApr, String abcApr, String dpApr)  {
+    public ObservableList<Donor> searchDonors(String organ, String bloodType, String micaApr, String dqApr, String drbApr, String abcApr, String dpApr, String dp, String abc, String drb, String dq, String mica)  {
         ObservableList<Donor> searchResult = FXCollections.observableArrayList();
 
         try {
-            ResultSet resultSet = databaseDriver.searchDonorsDB(organ, bloodType, micaApr, dqApr, drbApr, abcApr, dpApr);
+            ResultSet resultSet = databaseDriver.searchDonorsDB(organ, bloodType, micaApr, dqApr, drbApr, abcApr, dpApr, dp, abc, drb, dq, mica);
             while (resultSet.next()) {
                 String donFirstName = resultSet.getString("FirstName");
                 String donLastName = resultSet.getString("LastName");
