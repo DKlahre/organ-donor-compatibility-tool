@@ -265,7 +265,6 @@ public class SearchDonorController implements Initializable {
 
     private void processSearch(Event event)  {
 
-
         String strDp = String.valueOf(dp_spinner.getValue());
         String strAbc = String.valueOf(abc_spinner.getValue());
         String strDrb = String.valueOf(drb_spinner.getValue());
