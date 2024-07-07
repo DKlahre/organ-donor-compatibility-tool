@@ -163,7 +163,7 @@ public class DatabaseDriver {
         boolean drbRequisiteSatisfied = false;
         boolean abcRequisiteSatisfied = false;
         boolean dpRequisiteSatisfied = false;
-
+//
 
                 statement4 = this.conn1.createStatement();
                 resultSetPickedCandidate = statement4.executeQuery("SELECT * FROM Candidates Where Email = '" + Model.getInstance().getEmailStore() + "';");
@@ -202,24 +202,24 @@ public class DatabaseDriver {
                 }
                 if (Objects.equals(drbSourceArray[j], candDrb1 ) || Objects.equals(drbSourceArray[j], candDrb2) || Objects.equals(drbSourceArray[j], candDrb3)) {
                     drbMatchCount ++;
-                    System.out.println("candDrb1 " + candDrb1);
-                    System.out.println("candDrb2 " + candDrb2);
-                    System.out.println("candDrb3 " + candDrb3);
-                    System.out.println("(drbSourceArray[j] " + (drbSourceArray[j]));
+//                    System.out.println("candDrb1 " + candDrb1);
+//                    System.out.println("candDrb2 " + candDrb2);
+//                    System.out.println("candDrb3 " + candDrb3);
+//                    System.out.println("(drbSourceArray[j] " + (drbSourceArray[j]));
                 }
-                if (abcSourceArray[j].equals(candAbc1) || abcSourceArray[j].equals(candAbc2) || abcSourceArray[j].equals(candAbc3)) {
+                if (Objects.equals(abcSourceArray[j], candAbc1 ) || Objects.equals(abcSourceArray[j], candAbc2 ) || Objects.equals(abcSourceArray[j], candAbc3 )) {
                     abcMatchCount ++;
-                    System.out.println("candAbc1 " + candAbc1);
-                    System.out.println("candAbc2 " + candAbc2);
-                    System.out.println("candAbc3 " + candAbc3);
-                    System.out.println("(abcSourceArray[j] " + (abcSourceArray[j]));
+//                    System.out.println("candAbc1 " + candAbc1);
+//                    System.out.println("candAbc2 " + candAbc2);
+//                    System.out.println("candAbc3 " + candAbc3);
+//                    System.out.println("(abcSourceArray[j] " + (abcSourceArray[j]));
                 }
                 if (Objects.equals(dpSourceArray[j], candDp1 ) || Objects.equals(dpSourceArray[j], candDp2) || Objects.equals(dpSourceArray[j], candDp3)) {
                     dpMatchCount ++;
-                    System.out.println("candDp1 " + candDp1);
-                    System.out.println("candDp2 " + candDp2);
-                    System.out.println("candDp3 " + candDp3);
-                    System.out.println("(dpSourceArray[j] " + (dpSourceArray[j]));
+//                    System.out.println("candDp1 " + candDp1);
+//                    System.out.println("candDp2 " + candDp2);
+//                    System.out.println("candDp3 " + candDp3);
+//                    System.out.println("(dpSourceArray[j] " + (dpSourceArray[j]));
                 }
 
             } catch (SQLException e) {
@@ -280,8 +280,6 @@ public class DatabaseDriver {
                 e.printStackTrace();
             }
        }
-
-
 
 //        statement10 = this.conn2.createStatement();
 //        int deletedRows = statement10.executeUpdate("DELETE FROM TempTable;");
