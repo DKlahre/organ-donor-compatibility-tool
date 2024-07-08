@@ -354,9 +354,11 @@ public class DatabaseDriver {
             k++;
         }
 
+        int donorSetSize = k;
+        int epletSetSize = j;
 
-        for (int p = 0; p < 64; p++) {
-        for (int n = 0; n < 64; n++) {
+        for (int p = 0; p < donorSetSize; p++) {
+            for (int n = 0; n < epletSetSize; n++) {
 
                 if (Objects.equals(micaSourceArray[n], donMica1Array[p]) || Objects.equals(micaSourceArray[n], donMica2Array[p]) || Objects.equals(micaSourceArray[n], donMica3Array[p])) {
                     micaMatchCount++;
@@ -375,12 +377,43 @@ public class DatabaseDriver {
                 }
 
             }
+
+
+          //  System.out.println("donorSetSize = " + donorSetSize);
+          //  System.out.println("epletSetSize = " + epletSetSize);
             System.out.println("==============================");
             System.out.println("micaMatchCount " + micaMatchCount);
+            System.out.println("candMicaRequisite " + candMicaRequisite );
+            if (micaMatchCount <= candMicaRequisite) {
+                System.out.println("micaRequisite met");
+            }
+           // candMicaAprRequisite
+
             System.out.println("dqMatchCount " + dqMatchCount);
+            System.out.println("candDqRequisite " + candDqRequisite);
+            if (dqMatchCount <= candDqRequisite) {
+                System.out.println("dqRequisite met");
+            }
+           // candDqAprRequisite
             System.out.println("drbMatchAccount " + drbMatchCount);
+            System.out.println("candDrbRequisite " + candDrbRequisite);
+            if (drbMatchCount <= candDrbRequisite) {
+                System.out.println("drbRequisite met");
+            }
+           // candDrbAprRequisite
             System.out.println("abcMatchAccount " + abcMatchCount);
+            System.out.println("candAbcRequisite " + candAbcRequisite);
+            if (abcMatchCount <= candAbcRequisite) {
+                System.out.println("abcRequisite met");
+            }
+           // candAbcAprRequisite
             System.out.println("dpMatchAccount " + dpMatchCount);
+            System.out.println("candDpRequisite " + candDpRequisite);
+            if (dpMatchCount <= candDpRequisite) {
+                System.out.println("dpRequisite met");
+            }
+           // candDpAprRequisite
+
             System.out.println("==============================");
             micaMatchCount = 0;
             dqMatchCount = 0;
