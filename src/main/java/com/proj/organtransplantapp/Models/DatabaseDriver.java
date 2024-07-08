@@ -6,7 +6,9 @@ import javafx.stage.Stage;
 import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
 
 public class DatabaseDriver {
 
@@ -26,6 +28,10 @@ public class DatabaseDriver {
      String [] drbDonorArray = new String[64];
      String [] abcDonorArray = new String[64];
      String [] dpDonorArray = new String[64];
+
+    List <ResultSet> resultSetEpletList = new ArrayList<>();
+
+
 
     public DatabaseDriver() {
         try {
@@ -64,6 +70,7 @@ public class DatabaseDriver {
         return resultSet;
     }
 
+    //// Parameters are from the chosen transplant candidate
     public ResultSet searchDonorsDB(String organParam, String bloodType, String micaApr, String dqApr, String drbApr, String abcApr, String dpApr, String dp, String abc, String drb, String dq, String mica) throws SQLException {
         Statement statement2;
         Statement statement3;
@@ -81,6 +88,22 @@ public class DatabaseDriver {
         int candDqRequisite = (int) Double.parseDouble(dq);
         int candMicaRequisite = (int) Double.parseDouble(mica);
 
+        int candDpAprRequisite = (int) Double.parseDouble(dpApr);
+        int candAbcAprRequisite = (int) Double.parseDouble(abcApr);
+        int candDrbAprRequisite = (int) Double.parseDouble(drbApr);
+        int candDqAprRequisite = (int) Double.parseDouble(dqApr);
+        int candMicaAprRequisite = (int) Double.parseDouble(micaApr);
+
+        System.out.println("candDpRequisite " + candDpRequisite);
+        System.out.println("candAbcRequisite " + candAbcRequisite);
+        System.out.println("candDrbRequisite " + candDrbRequisite);
+        System.out.println("candDqRequisite " + candDqRequisite);
+        System.out.println("candMicaRequisite " + candMicaRequisite);
+        System.out.println("candDpAprRequisite " + candDpAprRequisite);
+        System.out.println("candAbcAprRequisite " + candAbcAprRequisite);
+        System.out.println("candDrbAprRequisite " + candDrbAprRequisite);
+        System.out.println("candDqAprRequisite " + candDqAprRequisite);
+        System.out.println("candMicaAprRequisite " + candMicaAprRequisite);
 
         ResultSet donResultSet = null;
         try {
@@ -117,12 +140,12 @@ public class DatabaseDriver {
                 String donMica1 = donResultSet.getString(21);
                 String donMica2 = donResultSet.getString(22);
                 String donMica3 = donResultSet.getString(23);
-                statement3 = this.conn2.createStatement();
-                statement3.executeUpdate("INSERT INTO TempTable(FirstName, LastName, Gender, Age, Weight, Email, Organ, BloodType, " +
-                        "DP1, DP2, DP3, ABC1, ABC2, ABC3, DRB1, DRB2, DRB3, DQ1, DQ2, DQ3, MICA1, MICA2, MICA3)" +
-                        "VALUES ('" + donFirstName + "', '" + donLastName + "', '" + donGender + "', '" + donAge + "', '" + donWeight + "', '" + donEmail + "', '" + donOrgan + "', '" + donBloodType +
-                        "', '" + donDp1 + "', '" + donDp2 + "', '" + donDp3 + "', '" + donAbc1 + "', '" + donAbc2 + "', '" + donAbc3 + "', '" + donDrb1 + "', '" + donDrp2 + "', '" + donDrb3 +
-                        "','" + donDq1 + "', '" + donDq2 + "', '" + donDq3 + "', '" + donMica1 + "', '" + donMica2 + "', '" + donMica3 + "');");
+//                statement3 = this.conn2.createStatement();
+//                statement3.executeUpdate("INSERT INTO TempTable(FirstName, LastName, Gender, Age, Weight, Email, Organ, BloodType, " +
+//                        "DP1, DP2, DP3, ABC1, ABC2, ABC3, DRB1, DRB2, DRB3, DQ1, DQ2, DQ3, MICA1, MICA2, MICA3)" +
+//                        "VALUES ('" + donFirstName + "', '" + donLastName + "', '" + donGender + "', '" + donAge + "', '" + donWeight + "', '" + donEmail + "', '" + donOrgan + "', '" + donBloodType +
+//                        "', '" + donDp1 + "', '" + donDp2 + "', '" + donDp3 + "', '" + donAbc1 + "', '" + donAbc2 + "', '" + donAbc3 + "', '" + donDrb1 + "', '" + donDrp2 + "', '" + donDrb3 +
+//                        "','" + donDq1 + "', '" + donDq2 + "', '" + donDq3 + "', '" + donMica1 + "', '" + donMica2 + "', '" + donMica3 + "');");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -138,7 +161,15 @@ public class DatabaseDriver {
             e.printStackTrace();
         }
 
+        statement9 = this.conn4.createStatement();
+        for (int m = 0 ; m < 6 ; m++){
+               resultSetEpletList.add(resultSetEplets = statement9.executeQuery("SELECT * FROM Eplets"));}
+
+
+
         int j = 0;
+        int q = 0;
+
         int micaMatchCount = 0;
         int dqMatchCount = 0;
         int drbMatchCount = 0;
@@ -177,26 +208,91 @@ public class DatabaseDriver {
             e.printStackTrace();
         }
 
-        while (donorResultSet.next()) {
-            System.out.println("Under first while");
-            String donMica1 = donorResultSet.getString(21);
-            String donMica2 = donorResultSet.getString(22);
-            String donMica3 = donorResultSet.getString(23);
-            String donDq1 = donorResultSet.getString(18);
-            String donDq2 = donorResultSet.getString(19);
-            String donDq3 = donorResultSet.getString(20);
-            String donDrb1 = donorResultSet.getString(15);
-            String donDrb2 = donorResultSet.getString(16);
-            String donDrb3 = donorResultSet.getString(17);
-            String donAbc1 = donorResultSet.getString(12);
-            String donAbc2 = donorResultSet.getString(13);
-            String donAbc3 = donorResultSet.getString(14);
-            String donDp1 = donorResultSet.getString(9);
-            String donDp2 = donorResultSet.getString(10);
-            String donDp3 = donorResultSet.getString(11);
+//        while (donorResultSet.next()) {
+//            System.out.println("Under first while");
+//            String donMica1 = donorResultSet.getString(21);
+//            String donMica2 = donorResultSet.getString(22);
+//            String donMica3 = donorResultSet.getString(23);
+//            String donDq1 = donorResultSet.getString(18);
+//            String donDq2 = donorResultSet.getString(19);
+//            String donDq3 = donorResultSet.getString(20);
+//            String donDrb1 = donorResultSet.getString(15);
+//            String donDrb2 = donorResultSet.getString(16);
+//            String donDrb3 = donorResultSet.getString(17);
+//            String donAbc1 = donorResultSet.getString(12);
+//            String donAbc2 = donorResultSet.getString(13);
+//            String donAbc3 = donorResultSet.getString(14);
+//            String donDp1 = donorResultSet.getString(9);
+//            String donDp2 = donorResultSet.getString(10);
+//            String donDp3 = donorResultSet.getString(11);
+
+//        while (resultSetEplets.next()) {
+//            System.out.println("Under second while");
+//            try {
+//
+//                micaSourceArray[j] = resultSetEplets.getString(5);
+//                dqSourceArray[j] = resultSetEplets.getString(4);
+//                drbSourceArray[j] = resultSetEplets.getString(3);
+//                abcSourceArray[j] = resultSetEplets.getString(2);
+//                dpSourceArray[j] = resultSetEplets.getString(1);
+//                //micaDonorArray[j] = donResultSet.getString(5);
+//                System.out.println("micaSourceArray[j] " + micaSourceArray[j]);
+//                System.out.println("dqSourceArray[j] " + dqSourceArray[j]);
+//                System.out.println("drbSourceArray[j] " + drbSourceArray[j]);
+//                System.out.println("abcSourceArray[j] " + abcSourceArray[j]);
+//                System.out.println("dpSourceArray[j] " + dpSourceArray[j]);
+//
+////                if (Objects.equals(micaSourceArray[j], donMica1) || Objects.equals(micaSourceArray[j], donMica2) || Objects.equals(micaSourceArray[j], donMica3)) {
+////                    micaMatchCount++;
+////                }
+////                if (Objects.equals(dqSourceArray[j], donDq1) || Objects.equals(dqSourceArray[j], donDq2) || Objects.equals(dqSourceArray[j], donDq3)) {
+////                    dqMatchCount++;
+////                }
+////                if (Objects.equals(drbSourceArray[j], donDrb1) || Objects.equals(drbSourceArray[j], donDrb2) || Objects.equals(drbSourceArray[j], donDrb3)) {
+////                    drbMatchCount++;
+////                }
+////                if (Objects.equals(abcSourceArray[j], donAbc1) || Objects.equals(abcSourceArray[j], donAbc2) || Objects.equals(abcSourceArray[j], donAbc3)) {
+////                    abcMatchCount++;
+////                }
+////                if (Objects.equals(dpSourceArray[j], donDp1) || Objects.equals(dpSourceArray[j], donDp2) || Objects.equals(dpSourceArray[j], donDp3)) {
+////                    dpMatchCount++;
+////                }
+//
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//            j++;
+//            //q++;
+//
+//            System.out.println("micaMatchCount " + micaMatchCount);
+//            System.out.println("dqMatchCount " + dqMatchCount);
+//            System.out.println("drbMatchAccount " + drbMatchCount);
+//            System.out.println("abcMatchAccount " + abcMatchCount);
+//            System.out.println("dpMatchAccount " + dpMatchCount);
+//
+//
+//        } // middle while
+          //  resultSetEplets.beforeFirst();
+
+     //   }
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////
+        /////////////////////////////////////////
+        ///////////////////////////////////////
+        ////////////////////////////////////
 
         while (resultSetEplets.next()) {
             System.out.println("Under second while");
+
             try {
                 micaSourceArray[j] = resultSetEplets.getString(5);
                 dqSourceArray[j] = resultSetEplets.getString(4);
@@ -210,36 +306,97 @@ public class DatabaseDriver {
                 System.out.println("abcSourceArray[j] " + abcSourceArray[j]);
                 System.out.println("dpSourceArray[j] " + dpSourceArray[j]);
 
-                if (Objects.equals(micaSourceArray[j], donMica1) || Objects.equals(micaSourceArray[j], donMica2) || Objects.equals(micaSourceArray[j], donMica3)) {
-                    micaMatchCount++;
-                }
-                if (Objects.equals(dqSourceArray[j], donDq1) || Objects.equals(dqSourceArray[j], donDq2) || Objects.equals(dqSourceArray[j], donDq3)) {
-                    dqMatchCount++;
-                }
-                if (Objects.equals(drbSourceArray[j], donDrb1) || Objects.equals(drbSourceArray[j], donDrb2) || Objects.equals(drbSourceArray[j], donDrb3)) {
-                    drbMatchCount++;
-                }
-                if (Objects.equals(abcSourceArray[j], donAbc1) || Objects.equals(abcSourceArray[j], donAbc2) || Objects.equals(abcSourceArray[j], donAbc3)) {
-                    abcMatchCount++;
-                }
-                if (Objects.equals(dpSourceArray[j], donDp1) || Objects.equals(dpSourceArray[j], donDp2) || Objects.equals(dpSourceArray[j], donDp3)) {
-                    dpMatchCount++;
-                }
-
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            j++;
 
+            j++;
+        }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+        int k = 0;
+        String [] donMica1Array = new String[64];
+        String [] donMica2Array = new String[64];
+        String [] donMica3Array = new String[64];
+        String [] donDq1Array = new String[64];
+        String [] donDq2Array = new String[64];
+        String [] donDq3Array = new String[64];
+        String [] donDrb1Array = new String[64];
+        String [] donDrb2Array = new String[64];
+        String [] donDrb3Array = new String[64];
+        String [] donAbc1Array = new String[64];
+        String [] donAbc2Array = new String[64];
+        String [] donAbc3Array = new String[64];
+        String [] donDp1Array = new String[64];
+        String [] donDp2Array = new String[64];
+        String [] donDp3Array = new String[64];
+
+
+        while (donorResultSet.next()) {
+            System.out.println("Under first while");
+            donMica1Array[k] = donorResultSet.getString(21);
+            donMica2Array[k] = donorResultSet.getString(22);
+            donMica3Array[k] = donorResultSet.getString(23);
+            donDq1Array[k] = donorResultSet.getString(18);
+            donDq2Array[k] = donorResultSet.getString(19);
+            donDq3Array[k] = donorResultSet.getString(20);
+            donDrb1Array[k] = donorResultSet.getString(15);
+            donDrb2Array[k] = donorResultSet.getString(16);
+            donDrb3Array[k] = donorResultSet.getString(17);
+            donAbc1Array[k] = donorResultSet.getString(12);
+            donAbc2Array[k] = donorResultSet.getString(13);
+            donAbc3Array[k] = donorResultSet.getString(14);
+            donDp1Array[k] = donorResultSet.getString(9);
+            donDp2Array[k] = donorResultSet.getString(10);
+            donDp3Array[k] = donorResultSet.getString(11);
+
+            k++;
+        }
+
+
+        for (int p = 0; p < 64; p++) {
+        for (int n = 0; n < 64; n++) {
+
+                if (Objects.equals(micaSourceArray[n], donMica1Array[p]) || Objects.equals(micaSourceArray[n], donMica2Array[p]) || Objects.equals(micaSourceArray[n], donMica3Array[p])) {
+                    micaMatchCount++;
+                }
+                if (Objects.equals(dqSourceArray[n], donDq1Array[p]) || Objects.equals(dqSourceArray[n], donDq2Array[p]) || Objects.equals(dqSourceArray[n], donDq3Array[p])) {
+                    dqMatchCount++;
+                }
+                if (Objects.equals(drbSourceArray[n], donDrb1Array[p]) || Objects.equals(drbSourceArray[n], donDrb2Array[p]) || Objects.equals(drbSourceArray[n], donDrb3Array[p])) {
+                    drbMatchCount++;
+                }
+                if (Objects.equals(abcSourceArray[n], donAbc1Array[p]) || Objects.equals(abcSourceArray[n], donAbc2Array[p]) || Objects.equals(abcSourceArray[n], donAbc3Array[p])) {
+                    abcMatchCount++;
+                }
+                if (Objects.equals(dpSourceArray[n], donDp1Array[p]) || Objects.equals(dpSourceArray[n], donDp2Array[p]) || Objects.equals(dpSourceArray[n], donDp3Array[p])) {
+                    dpMatchCount++;
+                }
+
+            }
+            System.out.println("==============================");
             System.out.println("micaMatchCount " + micaMatchCount);
             System.out.println("dqMatchCount " + dqMatchCount);
             System.out.println("drbMatchAccount " + drbMatchCount);
             System.out.println("abcMatchAccount " + abcMatchCount);
             System.out.println("dpMatchAccount " + dpMatchCount);
-
-
-        } // top while
+            System.out.println("==============================");
+            micaMatchCount = 0;
+            dqMatchCount = 0;
+            drbMatchCount = 0;
+            abcMatchCount = 0;
+            dpMatchCount = 0;
         }
+
+
+
+
+
+
+
+
+
 
 
 //
