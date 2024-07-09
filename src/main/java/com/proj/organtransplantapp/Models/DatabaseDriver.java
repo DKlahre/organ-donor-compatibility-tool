@@ -220,6 +220,15 @@ public class DatabaseDriver {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
         int k = 0;
+
+        String [] donOrganArray = new String[64];
+        String [] donBloodTypeArray = new String[64];
+        String [] donEmailArray = new String[64];
+        String [] donWeightArray = new String[64];
+        String [] donAgeArray = new String[64];
+        String [] donGenderArray = new String[64];
+        String [] donLastNameArray = new String[64];
+        String [] donFirstNameArray = new String[64];
         String [] donMica1Array = new String[64];
         String [] donMica2Array = new String[64];
         String [] donMica3Array = new String[64];
@@ -254,6 +263,14 @@ public class DatabaseDriver {
             donDp1Array[k] = donorResultSet.getString(9);
             donDp2Array[k] = donorResultSet.getString(10);
             donDp3Array[k] = donorResultSet.getString(11);
+            donBloodTypeArray[k] = donorResultSet.getString(8);
+            donOrganArray[k] = donorResultSet.getString(7);
+            donEmailArray[k] = donorResultSet.getString(6);
+            donWeightArray[k] = donorResultSet.getString(5);
+            donAgeArray[k] = donorResultSet.getString(4);
+            donGenderArray[k] = donorResultSet.getString(3);
+            donLastNameArray[k] = donorResultSet.getString(2);
+            donFirstNameArray[k] = donorResultSet.getString(1);
 
             k++;
         }
@@ -372,18 +389,31 @@ public class DatabaseDriver {
                 System.out.println("dpAprRequisiteSatisfied  = false");}
             System.out.println("=====================");
 
-            if ((dpAprRequisiteSatisfied && abcAprRequisiteSatisfied && drbAprRequisiteSatisfied && dqAprRequisiteSatisfied && micaAprRequisiteSatisfied)) {
+            if (((dpAprRequisiteSatisfied) && (abcAprRequisiteSatisfied) && (drbAprRequisiteSatisfied) && (dqAprRequisiteSatisfied) && (micaAprRequisiteSatisfied))) {
                 System.out.println("All five conditions met ");
+
+                statement9 = this.conn2.createStatement();
+                statement9.executeUpdate("INSERT INTO TempTable(FirstName, LastName, Gender, Age, Weight, Email, Organ, BloodType, " +
+                        "DP1, DP2, DP3, ABC1, ABC2, ABC3, DRB1, DRB2, DRB3, DQ1, DQ2, DQ3, MICA1, MICA2, MICA3)" +
+                        "VALUES ('" + donFirstNameArray[p] + "', '" + donLastNameArray[p] + "', '" + donGenderArray[p] + "', '" + donAgeArray[p] + "', '" + donWeightArray[p] + "', '" + donEmailArray[p] + "', '" + donOrganArray[p] + "', '" + donBloodTypeArray[p] +
+                        "', '" + donDp1Array[p] + "', '" + donDp2Array[p] + "', '" + donDp3Array[p] + "', '" + donAbc1Array[p] + "', '" + donAbc2Array[p] + "', '" + donAbc3Array[p] + "', '" + donDrb1Array[p] + "', '" + donDrb2Array[p] + "', '" + donDrb3Array[p] +
+                        "','" + donDq1Array[p] + "', '" + donDq2Array[p] + "', '" + donDq3Array[p] + "', '" + donMica1Array[p] + "', '" + donMica2Array[p] + "', '" + donMica3Array[p] + "');");
+
             } else {
                 System.out.println("All five conditions not met ");
             }
-
 
             micaMatchCount = 0;
             dqMatchCount = 0;
             drbMatchCount = 0;
             abcMatchCount = 0;
             dpMatchCount = 0;
+            dpAprRequisiteSatisfied = false;
+            abcAprRequisiteSatisfied = false;
+            drbAprRequisiteSatisfied = false;
+            dqAprRequisiteSatisfied = false;
+            micaAprRequisiteSatisfied = false;
+
         }
 
 
@@ -396,11 +426,11 @@ public class DatabaseDriver {
         // candAbcRequisite
         // candDpRequisite
 
-        for (int w = 0; w < donorSetSize; w++) {
-            for (int x = 0; x < epletSetSize; x++) {
-
-            }
-        }
+//        for (int w = 0; w < donorSetSize; w++) {
+//            for (int x = 0; x < epletSetSize; x++) {
+//
+//            }
+//        }
 
 
 
