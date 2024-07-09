@@ -379,37 +379,74 @@ public class DatabaseDriver {
             }
 
 
+            if (candMicaRequisite >= 99) {
+                candMicaRequisite = 3;
+            } else if (candMicaRequisite == 66) {
+                candMicaRequisite = 2;
+            } else if (candMicaRequisite == 33) {
+                candMicaRequisite = 1; }
+
+            if (candDqRequisite >= 99) {
+                candDqRequisite  = 3;
+            } else if (candDqRequisite  == 66) {
+                candDqRequisite  = 2;
+            } else if (candDqRequisite  == 33) {
+                candDqRequisite  = 1; }
+
+            if (candDrbRequisite >= 99) {
+                candDrbRequisite = 3;
+            } else if (candDrbRequisite == 66) {
+                candDrbRequisite = 2;
+            } else if (candDrbRequisite == 33) {
+                candDrbRequisite = 1; }
+
+            if (candAbcRequisite >= 99) {
+                candAbcRequisite = 3;
+            } else if (candAbcRequisite == 66) {
+                candAbcRequisite = 2;
+            } else if (candAbcRequisite == 33) {
+                candAbcRequisite = 1; }
+
+            if (candDpRequisite >= 99) {
+                candDpRequisite = 3;
+            } else if (candDpRequisite == 66) {
+                candDpRequisite = 2;
+            } else if (candDpRequisite == 33) {
+                candDpRequisite = 1; }
+
+
           //  System.out.println("donorSetSize = " + donorSetSize);
           //  System.out.println("epletSetSize = " + epletSetSize);
             System.out.println("==============================");
             System.out.println("micaMatchCount " + micaMatchCount);
             System.out.println("candMicaRequisite " + candMicaRequisite );
-            if (micaMatchCount <= candMicaRequisite) {
+            System.out.println("micaMatchCount + candMicaRequisite " + (micaMatchCount + candMicaRequisite));
+            if (micaMatchCount >= candMicaRequisite) {
                 System.out.println("micaRequisite met");
             }
            // candMicaAprRequisite
 
             System.out.println("dqMatchCount " + dqMatchCount);
             System.out.println("candDqRequisite " + candDqRequisite);
-            if (dqMatchCount <= candDqRequisite) {
+            if (dqMatchCount >= candDqRequisite) {
                 System.out.println("dqRequisite met");
             }
            // candDqAprRequisite
             System.out.println("drbMatchAccount " + drbMatchCount);
             System.out.println("candDrbRequisite " + candDrbRequisite);
-            if (drbMatchCount <= candDrbRequisite) {
+            if (drbMatchCount >= candDrbRequisite) {
                 System.out.println("drbRequisite met");
             }
            // candDrbAprRequisite
             System.out.println("abcMatchAccount " + abcMatchCount);
             System.out.println("candAbcRequisite " + candAbcRequisite);
-            if (abcMatchCount <= candAbcRequisite) {
+            if (abcMatchCount >= candAbcRequisite) {
                 System.out.println("abcRequisite met");
             }
            // candAbcAprRequisite
             System.out.println("dpMatchAccount " + dpMatchCount);
             System.out.println("candDpRequisite " + candDpRequisite);
-            if (dpMatchCount <= candDpRequisite) {
+            if (dpMatchCount >= candDpRequisite) {
                 System.out.println("dpRequisite met");
             }
            // candDpAprRequisite
