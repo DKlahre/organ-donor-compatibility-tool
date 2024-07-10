@@ -29,6 +29,7 @@ public class DatabaseDriver {
      String [] abcDonorArray = new String[64];
      String [] dpDonorArray = new String[64];
 
+
     List <ResultSet> resultSetEpletList = new ArrayList<>();
 
 
@@ -49,7 +50,6 @@ public class DatabaseDriver {
         try {
             statement = this.conn1.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM Candidates Where Email = '" + email + "';");
-//            System.out.println("Inside searchCandEmail - Hello");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -76,7 +76,7 @@ public class DatabaseDriver {
         Statement statement5;
         Statement statement6;
         Statement statement7;
-        Statement statement8;
+       // Statement statement8;
         Statement statement9;
         Statement statement10;
 
@@ -100,6 +100,19 @@ public class DatabaseDriver {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        ///////////////////////////////
+
+//        Statement statement;
+//        ResultSet resultSet = null;
+//        try {
+//            statement = this.conn1.createStatement();
+//            resultSet = statement.executeQuery("SELECT * FROM Candidates Where Email = '" + email + "';");
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+
+        ///////////////////////////////////
 
         while (donResultSet.next()) {
             try {
@@ -191,6 +204,14 @@ public class DatabaseDriver {
                 String candDp1 = resultSetPickedCandidate.getString(9);
                 String candDp2 = resultSetPickedCandidate.getString(10);
                 String candDp3 = resultSetPickedCandidate.getString(11);
+                String candBloodType = resultSetPickedCandidate.getString(8);
+                String candOrgan = resultSetPickedCandidate.getString(7);
+                String candEmail = resultSetPickedCandidate.getString(6);
+                String candWeight = resultSetPickedCandidate.getString(5);
+                String candAge = resultSetPickedCandidate.getString(4);
+                String candGender = resultSetPickedCandidate.getString(3);
+                String candLastName = resultSetPickedCandidate.getString(2);
+                String candFirstName = resultSetPickedCandidate.getString(1);
 
         ResultSet donorResultSet = null;
         try {
@@ -392,6 +413,13 @@ public class DatabaseDriver {
             if (((dpAprRequisiteSatisfied) && (abcAprRequisiteSatisfied) && (drbAprRequisiteSatisfied) && (dqAprRequisiteSatisfied) && (micaAprRequisiteSatisfied))) {
                 System.out.println("All five conditions met ");
 
+                candDonorCheck(resultSetPickedCandidate);
+
+//                 if () {
+                // compare the candidate with the donors
+                // Put the candidate conditions here
+//                 }
+
                 statement9 = this.conn2.createStatement();
                 statement9.executeUpdate("INSERT INTO TempTable(FirstName, LastName, Gender, Age, Weight, Email, Organ, BloodType, " +
                         "DP1, DP2, DP3, ABC1, ABC2, ABC3, DRB1, DRB2, DRB3, DQ1, DQ2, DQ3, MICA1, MICA2, MICA3)" +
@@ -417,26 +445,117 @@ public class DatabaseDriver {
         }
 
 
-        /////////////////
-
-
-        // candMicaRequisite
-        // candDqRequisite
-        // candDrbRequisite
-        // candAbcRequisite
-        // candDpRequisite
-
-//        for (int w = 0; w < donorSetSize; w++) {
-//            for (int x = 0; x < epletSetSize; x++) {
-//
-//            }
-//        }
-
-
-
 //        statement10 = this.conn2.createStatement();
 //        int deletedRows = statement10.executeUpdate("DELETE FROM TempTable;");
 
         return donResultSet;
+    }
+
+    private ResultSet candDonorCheck(ResultSet resultSetPickedCandidate) throws SQLException {
+
+
+        int micaMatchCount = 0;
+        int dqMatchCount = 0;
+        int drbMatchCount = 0;
+        int abcMatchCount = 0;
+        int dpMatchCount = 0;
+        int k = 0;
+
+        String [] candMica1Array = new String[64];
+        String [] candMica2Array = new String[64];
+        String [] candMica3Array = new String[64];
+        String [] candDq1Array = new String[64];
+        String [] candDq2Array = new String[64];
+        String [] candDq3Array = new String[64];
+        String [] candDrb1Array = new String[64];
+        String [] candDrb2Array = new String[64];
+        String [] candDrb3Array = new String[64];
+        String [] candAbc1Array = new String[64];
+        String [] candAbc2Array = new String[64];
+        String [] candAbc3Array = new String[64];
+        String [] candDp1Array = new String[64];
+        String [] candDp2Array = new String[64];
+        String [] candDp3Array = new String[64];
+        String [] candBloodTypeArray = new String[64];
+        String [] candOrganArray = new String[64];
+        String [] candEmailArray = new String[64];
+        String [] candWeightArray = new String[64];
+        String [] candAgeArray = new String[64];
+        String [] candGenderArray = new String[64];
+        String [] candLastNameArray = new String[64];
+        String [] candFirstNameArray = new String[64];
+
+        Statement statement8;
+        ResultSet tempResultSet = null;
+        try {
+            statement8 = this.conn2.createStatement();
+            tempResultSet = statement8.executeQuery("SELECT * FROM TempTable;");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        ResultSet rpc = resultSetPickedCandidate;
+
+        while (rpc.next()) {
+
+            String candMica1 = rpc.getString(21);
+            String candMica2 = rpc.getString(22);
+            String candMica3 = rpc.getString(23);
+            String candDq1 = rpc.getString(18);
+            String candDq2 = rpc.getString(19);
+            String candDq3 = rpc.getString(20);
+            String candDrb1 = rpc.getString(15);
+            String candDrb2 = rpc.getString(16);
+            String candDrb3 = rpc.getString(17);
+            String candAbc1 = rpc.getString(12);
+            String candAbc2 = rpc.getString(13);
+            String candAbc3 = rpc.getString(14);
+            String candDp1 = rpc.getString(9);
+            String candDp2 = rpc.getString(10);
+            String candDp3 = rpc.getString(11);
+            String candBloodType = rpc.getString(8);
+            String candOrgan = rpc.getString(7);
+            String candEmail = rpc.getString(6);
+            String candWeight = rpc.getString(5);
+            String candAge = rpc.getString(4);
+            String candGender = rpc.getString(3);
+            String candLastName = rpc.getString(2);
+            String candFirstName = rpc.getString(1);
+
+
+        while (tempResultSet.next()) {
+
+            candMica1Array[k] = tempResultSet.getString(21);
+            candMica2Array[k] = tempResultSet.getString(22);
+            candMica3Array[k] = tempResultSet.getString(23);
+            candDq1Array[k] = tempResultSet.getString(18);
+            candDq2Array[k] = tempResultSet.getString(19);
+            candDq3Array[k] = tempResultSet.getString(20);
+            candDrb1Array[k] = tempResultSet.getString(15);
+            candDrb2Array[k] = tempResultSet.getString(16);
+            candDrb3Array[k] = tempResultSet.getString(17);
+            candAbc1Array[k] = tempResultSet.getString(12);
+            candAbc2Array[k] = tempResultSet.getString(13);
+            candAbc3Array[k] = tempResultSet.getString(14);
+            candDp1Array[k] = tempResultSet.getString(9);
+            candDp2Array[k] = tempResultSet.getString(10);
+            candDp3Array[k] = tempResultSet.getString(11);
+            candBloodTypeArray[k] = tempResultSet.getString(8);
+            candOrganArray[k] = tempResultSet.getString(7);
+            candEmailArray[k] = tempResultSet.getString(6);
+            candWeightArray[k] = tempResultSet.getString(5);
+            candAgeArray[k] = tempResultSet.getString(4);
+            candGenderArray[k] = tempResultSet.getString(3);
+            candLastNameArray[k] = tempResultSet.getString(2);
+            candFirstNameArray[k] = tempResultSet.getString(1);
+
+            k++;
+
+        }
+        }
+
+
+
+        return resultSetPickedCandidate;
     }
 }
