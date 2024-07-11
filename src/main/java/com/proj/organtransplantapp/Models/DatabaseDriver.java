@@ -413,13 +413,6 @@ public class DatabaseDriver {
             if (((dpAprRequisiteSatisfied) && (abcAprRequisiteSatisfied) && (drbAprRequisiteSatisfied) && (dqAprRequisiteSatisfied) && (micaAprRequisiteSatisfied))) {
                 System.out.println("All five conditions met ");
 
-                candDonorCheck(resultSetPickedCandidate);
-
-//                 if () {
-                // compare the candidate with the donors
-                // Put the candidate conditions here
-//                 }
-
                 statement9 = this.conn2.createStatement();
                 statement9.executeUpdate("INSERT INTO TempTable(FirstName, LastName, Gender, Age, Weight, Email, Organ, BloodType, " +
                         "DP1, DP2, DP3, ABC1, ABC2, ABC3, DRB1, DRB2, DRB3, DQ1, DQ2, DQ3, MICA1, MICA2, MICA3)" +
@@ -444,6 +437,7 @@ public class DatabaseDriver {
 
         }
 
+        candDonorCheck(resultSetPickedCandidate);
 
 //        statement10 = this.conn2.createStatement();
 //        int deletedRows = statement10.executeUpdate("DELETE FROM TempTable;");
@@ -460,30 +454,56 @@ public class DatabaseDriver {
         int abcMatchCount = 0;
         int dpMatchCount = 0;
         int k = 0;
+        int epletMatchTotal = 0;
 
-        String [] candMica1Array = new String[64];
-        String [] candMica2Array = new String[64];
-        String [] candMica3Array = new String[64];
-        String [] candDq1Array = new String[64];
-        String [] candDq2Array = new String[64];
-        String [] candDq3Array = new String[64];
-        String [] candDrb1Array = new String[64];
-        String [] candDrb2Array = new String[64];
-        String [] candDrb3Array = new String[64];
-        String [] candAbc1Array = new String[64];
-        String [] candAbc2Array = new String[64];
-        String [] candAbc3Array = new String[64];
-        String [] candDp1Array = new String[64];
-        String [] candDp2Array = new String[64];
-        String [] candDp3Array = new String[64];
-        String [] candBloodTypeArray = new String[64];
-        String [] candOrganArray = new String[64];
-        String [] candEmailArray = new String[64];
-        String [] candWeightArray = new String[64];
-        String [] candAgeArray = new String[64];
-        String [] candGenderArray = new String[64];
-        String [] candLastNameArray = new String[64];
-        String [] candFirstNameArray = new String[64];
+        String [] filteredDonMica1Array = new String[64];
+        String [] filteredDonMica2Array = new String[64];
+        String [] filteredDonMica3Array = new String[64];
+        String [] filteredDonDq1Array = new String[64];
+        String [] filteredDonDq2Array = new String[64];
+        String [] filteredDonDq3Array = new String[64];
+        String [] filteredDonDrb1Array = new String[64];
+        String [] filteredDonDrb2Array = new String[64];
+        String [] filteredDonDrb3Array = new String[64];
+        String [] filteredDonAbc1Array = new String[64];
+        String [] filteredDonAbc2Array = new String[64];
+        String [] filteredDonAbc3Array = new String[64];
+        String [] filteredDonDp1Array = new String[64];
+        String [] filteredDonDp2Array = new String[64];
+        String [] filteredDonDp3Array = new String[64];
+        String [] filteredDonBloodTypeArray = new String[64];
+        String [] filteredDonOrganArray = new String[64];
+        String [] filteredDonEmailArray = new String[64];
+        String [] filteredDonWeightArray = new String[64];
+        String [] filteredDonAgeArray = new String[64];
+        String [] filteredDonGenderArray = new String[64];
+        String [] filteredDonLastNameArray = new String[64];
+        String [] filteredDonFirstNameArray = new String[64];
+
+        String [] candMica1Array = new String[1];
+        String [] candMica2Array = new String[1];
+        String [] candMica3Array = new String[1];
+        String [] candDq1Array = new String[1];
+        String [] candDq2Array = new String[1];
+        String [] candDq3Array = new String[1];
+        String [] candDrb1Array = new String[1];
+        String [] candDrb2Array = new String[1];
+        String [] candDrb3Array = new String[1];
+        String [] candAbc1Array = new String[1];
+        String [] candAbc2Array = new String[1];
+        String [] candAbc3Array = new String[1];
+        String [] candDp1Array = new String[1];
+        String [] candDp2Array = new String[1];
+        String [] candDp3Array = new String[1];
+        String [] candBloodTypeArray = new String[1];
+        String [] candOrganArray = new String[1];
+        String [] candEmailArray = new String[1];
+        String [] candWeightArray = new String[1];
+        String [] candAgeArray = new String[1];
+        String [] candGenderArray = new String[1];
+        String [] candLastNameArray = new String[1];
+        String [] candFirstNameArray = new String[1];
+
 
         Statement statement8;
         ResultSet tempResultSet = null;
@@ -498,60 +518,74 @@ public class DatabaseDriver {
 
         while (rpc.next()) {
 
-            String candMica1 = rpc.getString(21);
-            String candMica2 = rpc.getString(22);
-            String candMica3 = rpc.getString(23);
-            String candDq1 = rpc.getString(18);
-            String candDq2 = rpc.getString(19);
-            String candDq3 = rpc.getString(20);
-            String candDrb1 = rpc.getString(15);
-            String candDrb2 = rpc.getString(16);
-            String candDrb3 = rpc.getString(17);
-            String candAbc1 = rpc.getString(12);
-            String candAbc2 = rpc.getString(13);
-            String candAbc3 = rpc.getString(14);
-            String candDp1 = rpc.getString(9);
-            String candDp2 = rpc.getString(10);
-            String candDp3 = rpc.getString(11);
-            String candBloodType = rpc.getString(8);
-            String candOrgan = rpc.getString(7);
-            String candEmail = rpc.getString(6);
-            String candWeight = rpc.getString(5);
-            String candAge = rpc.getString(4);
-            String candGender = rpc.getString(3);
-            String candLastName = rpc.getString(2);
-            String candFirstName = rpc.getString(1);
+            candMica1Array[0] = rpc.getString(21);
+            candMica2Array[0] = rpc.getString(22);
+            candMica3Array[0] = rpc.getString(23);
+            candDq1Array[0] = rpc.getString(18);
+            candDq2Array[0] = rpc.getString(19);
+            candDq3Array[0] = rpc.getString(20);
+            candDrb1Array[0] = rpc.getString(15);
+            candDrb2Array[0] = rpc.getString(16);
+            candDrb3Array[0] = rpc.getString(17);
+            candAbc1Array[0] = rpc.getString(12);
+            candAbc2Array[0] = rpc.getString(13);
+            candAbc3Array[0] = rpc.getString(14);
+            candDp1Array[0] = rpc.getString(9);
+            candDp2Array[0] = rpc.getString(10);
+            candDp3Array[0] = rpc.getString(11);
+            candBloodTypeArray[0] = rpc.getString(8);
+            candOrganArray[0] = rpc.getString(7);
+            candEmailArray[0] = rpc.getString(6);
+            candWeightArray[0] = rpc.getString(5);
+            candAgeArray[0] = rpc.getString(4);
+            candGenderArray[0] = rpc.getString(3);
+            candLastNameArray[0] = rpc.getString(2);
+            candFirstNameArray[0] = rpc.getString(1);
 
+        }
 
         while (tempResultSet.next()) {
 
-            candMica1Array[k] = tempResultSet.getString(21);
-            candMica2Array[k] = tempResultSet.getString(22);
-            candMica3Array[k] = tempResultSet.getString(23);
-            candDq1Array[k] = tempResultSet.getString(18);
-            candDq2Array[k] = tempResultSet.getString(19);
-            candDq3Array[k] = tempResultSet.getString(20);
-            candDrb1Array[k] = tempResultSet.getString(15);
-            candDrb2Array[k] = tempResultSet.getString(16);
-            candDrb3Array[k] = tempResultSet.getString(17);
-            candAbc1Array[k] = tempResultSet.getString(12);
-            candAbc2Array[k] = tempResultSet.getString(13);
-            candAbc3Array[k] = tempResultSet.getString(14);
-            candDp1Array[k] = tempResultSet.getString(9);
-            candDp2Array[k] = tempResultSet.getString(10);
-            candDp3Array[k] = tempResultSet.getString(11);
-            candBloodTypeArray[k] = tempResultSet.getString(8);
-            candOrganArray[k] = tempResultSet.getString(7);
-            candEmailArray[k] = tempResultSet.getString(6);
-            candWeightArray[k] = tempResultSet.getString(5);
-            candAgeArray[k] = tempResultSet.getString(4);
-            candGenderArray[k] = tempResultSet.getString(3);
-            candLastNameArray[k] = tempResultSet.getString(2);
-            candFirstNameArray[k] = tempResultSet.getString(1);
+            filteredDonMica1Array[k] = tempResultSet.getString(21);
+            filteredDonMica2Array[k] = tempResultSet.getString(22);
+            filteredDonMica3Array[k] = tempResultSet.getString(23);
+            filteredDonDq1Array[k] = tempResultSet.getString(18);
+            filteredDonDq2Array[k] = tempResultSet.getString(19);
+            filteredDonDq3Array[k] = tempResultSet.getString(20);
+            filteredDonDrb1Array[k] = tempResultSet.getString(15);
+            filteredDonDrb2Array[k] = tempResultSet.getString(16);
+            filteredDonDrb3Array[k] = tempResultSet.getString(17);
+            filteredDonAbc1Array[k] = tempResultSet.getString(12);
+            filteredDonAbc2Array[k] = tempResultSet.getString(13);
+            filteredDonAbc3Array[k] = tempResultSet.getString(14);
+            filteredDonDp1Array[k] = tempResultSet.getString(9);
+            filteredDonDp2Array[k] = tempResultSet.getString(10);
+            filteredDonDp3Array[k] = tempResultSet.getString(11);
+            filteredDonBloodTypeArray[k] = tempResultSet.getString(8);
+            filteredDonOrganArray[k] = tempResultSet.getString(7);
+            filteredDonEmailArray[k] = tempResultSet.getString(6);
+            filteredDonWeightArray[k] = tempResultSet.getString(5);
+            filteredDonAgeArray[k] = tempResultSet.getString(4);
+            filteredDonGenderArray[k] = tempResultSet.getString(3);
+            filteredDonLastNameArray[k] = tempResultSet.getString(2);
+            filteredDonFirstNameArray[k] = tempResultSet.getString(1);
 
             k++;
 
         }
+
+        int filteredDonArraysize = k;
+        System.out.println("donorArraysize " + filteredDonArraysize);
+
+        for (int i = 0; i < filteredDonArraysize; i++) {
+                if (filteredDonMica1Array[i].equals(candMica1Array[0])) {epletMatchTotal++;}
+                if (filteredDonMica2Array[i].equals(candMica2Array[0])) {epletMatchTotal++;}
+                if (filteredDonMica3Array[i].equals(candMica3Array[0])) {epletMatchTotal++;}
+                if (filteredDonDq1Array[i].equals(candDq1Array[0])) {epletMatchTotal++;}
+                if (filteredDonDq2Array[i].equals(candDq2Array[0])) {epletMatchTotal++;}
+                ////// rest of the remaining lines here
+
+
         }
 
 
