@@ -608,12 +608,12 @@ public class DatabaseDriver {
                 if (filteredDonDp3Array[i].equals(candDp3Array[0])) {filteredDpMatchTotal++;}
                 ////// rest of the remaining lines here
 
+            System.out.println("");
             System.out.println("filteredMicaMatchTotal " + filteredMicaMatchTotal);
             System.out.println("filteredDqMatchTotal " + filteredDqMatchTotal);
             System.out.println("filteredDrbMatchTotal " + filteredDrbMatchTotal);
             System.out.println("filteredAbcMatchTotal " + filteredAbcMatchTotal);
             System.out.println("filteredDpMatchTotal " + filteredDpMatchTotal);
-
 
             if (filteredMicaMatchTotal == candMicaRequisite) {micaRequisiteSatisfied = true;}
             if (filteredDqMatchTotal == candDqRequisite) {dqRequisiteSatisfied = true;}
@@ -631,6 +631,20 @@ public class DatabaseDriver {
                         "', '" + filteredDonDp1Array[i] + "', '" + filteredDonDp2Array[i] + "', '" + filteredDonDp3Array[i] + "', '" + filteredDonAbc1Array[i] + "', '" + filteredDonAbc2Array[i] + "', '" + filteredDonAbc3Array[i] + "', '" + filteredDonDrb1Array[i] + "', '" + filteredDonDrb2Array[i] + "', '" + filteredDonDrb3Array[i] +
                         "','" + filteredDonDq1Array[i] + "', '" + filteredDonDq2Array[i] + "', '" + filteredDonDq3Array[i] + "', '" + filteredDonMica1Array[i] + "', '" + filteredDonMica2Array[i] + "', '" + filteredDonMica3Array[i] + "');");
             }
+
+          micaRequisiteSatisfied = true;
+          dqRequisiteSatisfied = true;
+          drbRequisiteSatisfied = true;
+          abcRequisiteSatisfied = true;
+          dpRequisiteSatisfied = true;
+
+          filteredMicaMatchTotal = 0;
+          filteredDqMatchTotal = 0;
+          filteredDrbMatchTotal = 0;
+          filteredAbcMatchTotal = 0;
+          filteredDpMatchTotal = 0;
+
+
         }
 
 
