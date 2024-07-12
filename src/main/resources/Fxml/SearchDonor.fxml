@@ -29,7 +29,7 @@
    <HBox layoutY="517.0" prefHeight="34.0" prefWidth="1066.0">
       <VBox prefHeight="34.0" prefWidth="161.0" />
       <VBox alignment="BOTTOM_LEFT" prefHeight="53.0" prefWidth="906.0">
-         <Label alignment="BOTTOM_LEFT" prefHeight="46.0" prefWidth="648.0" text="Eplet matching and allowable polymorphic residue(APR)">
+         <Label alignment="BOTTOM_LEFT" prefHeight="46.0" prefWidth="648.0" text="Allowable polymorphic residue(APR) and Eplet matching">
             <font>
                <Font size="20.5" />
             </font>
@@ -41,33 +41,33 @@
       <HBox prefHeight="122.0" prefWidth="1072.0">
          <VBox prefHeight="122.0" prefWidth="144.0" />
          <VBox prefHeight="122.0" prefWidth="108.0">
-            <Label prefHeight="18.0" prefWidth="42.0" text="DP %" />
+            <Label prefHeight="18.0" prefWidth="65.0" text="DP-APR %" />
             <Spinner fx:id="dp_spinner" prefHeight="26.0" prefWidth="70.0" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="57.0" text="DP-APR" />
+            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="70.0" text="DP eplets" />
             <Spinner fx:id="dpapr_spinner" prefHeight="26.0" prefWidth="70.0" />
          </VBox>
          <VBox prefHeight="122.0" prefWidth="108.0">
-            <Label prefHeight="18.0" prefWidth="44.0" text="ABC %" />
+            <Label prefHeight="18.0" prefWidth="67.0" text="ABC-APR %" />
             <Spinner fx:id="abc_spinner" prefHeight="26.0" prefWidth="70.0" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="60.0" text="ABC-APR" />
+            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="78.0" text="ABC eplets" />
             <Spinner fx:id="abcapr_spinner" prefHeight="26.0" prefWidth="70.0" />
          </VBox>
          <VBox prefHeight="122.0" prefWidth="108.0">
-            <Label prefHeight="18.0" prefWidth="42.0" text="DRB %" />
+            <Label prefHeight="18.0" prefWidth="70.0" text="DRB-APR %" />
             <Spinner fx:id="drb_spinner" prefHeight="26.0" prefWidth="69.0" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="61.0" text="DRB-APR" />
+            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="72.0" text="DRB eplets" />
             <Spinner fx:id="drbapr_spinner" prefHeight="26.0" prefWidth="70.0" />
          </VBox>
          <VBox prefHeight="122.0" prefWidth="108.0">
-            <Label prefHeight="18.0" prefWidth="41.0" text="DQ %" />
+            <Label prefHeight="18.0" prefWidth="66.0" text="DQ-APR %" />
             <Spinner fx:id="dq_spinner" prefHeight="26.0" prefWidth="70.0" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="60.0" text="DQ-APR" />
+            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="70.0" text="DQ eplets" />
             <Spinner fx:id="dqapr_spinner" prefHeight="26.0" prefWidth="70.0" />
          </VBox>
          <VBox prefHeight="122.0" prefWidth="108.0">
-            <Label prefHeight="18.0" prefWidth="49.0" text="MICA %" />
+            <Label prefHeight="18.0" prefWidth="73.0" text="MICA-APR %" />
             <Spinner fx:id="mica_spinner" prefHeight="26.0" prefWidth="70.0" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="68.0" text="MICA-APR" />
+            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="74.0" text="MICA eplets" />
             <Spinner fx:id="micaapr_spinner" prefHeight="26.0" prefWidth="70.0" />
          </VBox>
          <VBox prefHeight="122.0" prefWidth="133.0">

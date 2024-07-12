@@ -265,19 +265,19 @@ public class SearchDonorController implements Initializable {
 
     private void processSearch(Event event)  {
 
-        String strDp = String.valueOf(dp_spinner.getValue());
-        String strAbc = String.valueOf(abc_spinner.getValue());
-        String strDrb = String.valueOf(drb_spinner.getValue());
-        String strDq = String.valueOf(dq_spinner.getValue());
-        String strMica = String.valueOf(mica_spinner.getValue());
+        String strDpApr = String.valueOf(dp_spinner.getValue());
+        String strAbcApr = String.valueOf(abc_spinner.getValue());
+        String strDrbApr = String.valueOf(drb_spinner.getValue());
+        String strDqApr = String.valueOf(dq_spinner.getValue());
+        String strMicaApr = String.valueOf(mica_spinner.getValue());
 
-        String strMicaApr = String.valueOf(micaapr_spinner.getValue());
-        String strDqApr = String.valueOf(dqapr_spinner.getValue());
-        String strDrbApr = String.valueOf(drbapr_spinner.getValue());
-        String strAbcApr = String.valueOf(abcapr_spinner.getValue());
-        String strDpApr = String.valueOf(dpapr_spinner.getValue());
+        String strMica = String.valueOf(micaapr_spinner.getValue());
+        String strDq = String.valueOf(dqapr_spinner.getValue());
+        String strDrb = String.valueOf(drbapr_spinner.getValue());
+        String strAbc = String.valueOf(abcapr_spinner.getValue());
+        String strDp = String.valueOf(dpapr_spinner.getValue());
 
-        ObservableList<Donor> searchResults = Model.getInstance().searchDonors(organ, bloodType, strMicaApr, strDqApr, strDrbApr, strAbcApr, strDpApr, strDp, strAbc, strDrb, strDq, strMica);
+        ObservableList<Donor> searchResults = Model.getInstance().searchDonors(organ, bloodType, strMica, strDq, strDrb, strAbc, strDp, strDpApr, strAbcApr, strDrbApr, strDqApr, strMicaApr);
 
         System.out.println("process button pressed");
     }
