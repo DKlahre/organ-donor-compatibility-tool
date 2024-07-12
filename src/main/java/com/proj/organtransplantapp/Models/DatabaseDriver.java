@@ -69,7 +69,7 @@ public class DatabaseDriver {
     }
 
     //// Parameters are from the chosen transplant candidate
-    public ResultSet searchDonorsDB(String organParam, String bloodType, String micaApr, String dqApr, String drbApr, String abcApr, String dpApr, String dp, String abc, String drb, String dq, String mica) throws SQLException {
+    public ResultSet searchDonorsDB(String organParam, String bloodType, String mica, String dq, String drb, String abc, String dp, String dpApr, String abcApr, String drbApr, String dqApr, String micaApr) throws SQLException {
         Statement statement2;
         Statement statement3;
         Statement statement4;
@@ -80,17 +80,17 @@ public class DatabaseDriver {
         Statement statement9;
 //        Statement statement10;
 
-        int candDpAprRequisite = (int) Double.parseDouble(dp);
-        int candAbcAprRequisite = (int) Double.parseDouble(abc);
-        int candDrbAprRequisite = (int) Double.parseDouble(drb);
-        int candDqAprRequisite = (int) Double.parseDouble(dq);
-        int candMicaAprRequisite = (int) Double.parseDouble(mica);
+        int candDpAprRequisite = (int) Double.parseDouble(dpApr);
+        int candAbcAprRequisite = (int) Double.parseDouble(abcApr);
+        int candDrbAprRequisite = (int) Double.parseDouble(drbApr);
+        int candDqAprRequisite = (int) Double.parseDouble(dqApr);
+        int candMicaAprRequisite = (int) Double.parseDouble(micaApr);
 
-        int candDpRequisite = (int) Double.parseDouble(dpApr);
-        int candAbcRequisite = (int) Double.parseDouble(abcApr);
-        int candDrbRequisite = (int) Double.parseDouble(drbApr);
-        int candDqRequisite = (int) Double.parseDouble(dqApr);
-        int candMicaRequisite = (int) Double.parseDouble(micaApr);
+        int candDpRequisite = (int) Double.parseDouble(dp);
+        int candAbcRequisite = (int) Double.parseDouble(abc);
+        int candDrbRequisite = (int) Double.parseDouble(drb);
+        int candDqRequisite = (int) Double.parseDouble(dq);
+        int candMicaRequisite = (int) Double.parseDouble(mica);
 
 
         ResultSet donResultSet = null;
@@ -459,6 +459,7 @@ public class DatabaseDriver {
         Statement statement8;
         Statement statement6;
         Statement statement10;
+        Statement statement11;
 
         String [] filteredDonMica1Array = new String[64];
         String [] filteredDonMica2Array = new String[64];
@@ -508,6 +509,9 @@ public class DatabaseDriver {
         String [] candLastNameArray = new String[1];
         String [] candFirstNameArray = new String[1];
 
+
+        statement10 = this.conn2.createStatement();
+        int deletedRows2 = statement10.executeUpdate("DELETE FROM TempTable2;");
 
        // Statement statement8;
         ResultSet tempResultSet = null;
