@@ -38,8 +38,18 @@
       <VBox prefHeight="66.0" prefWidth="51.0" />
    </HBox>
    <HBox layoutY="559.0" prefHeight="122.0" prefWidth="1096.0">
-      <HBox prefHeight="122.0" prefWidth="1072.0">
-         <VBox prefHeight="122.0" prefWidth="144.0" />
+      <HBox prefHeight="123.0" prefWidth="1054.0">
+         <VBox prefHeight="123.0" prefWidth="58.0" />
+         <VBox prefHeight="123.0" prefWidth="194.0">
+            <children>
+               <Label prefHeight="16.0" prefWidth="164.0" text="APR % represents match ratio" />
+               <Label prefHeight="18.0" prefWidth="178.0" text="between candidate's eplets and" />
+               <Label prefHeight="18.0" prefWidth="158.0" text="HLA epitope registry. Eplet" />
+               <Label prefHeight="18.0" prefWidth="168.0" text="matching is between candidate" />
+               <Label prefHeight="18.0" prefWidth="170.0" text="and donor list. Higher control" />
+               <Label prefHeight="18.0" prefWidth="166.0" text="levels means higher match" />
+               <Label prefHeight="18.0" prefWidth="160.0" text="exclusivity" />
+            </children></VBox>
          <VBox prefHeight="122.0" prefWidth="108.0">
             <Label prefHeight="18.0" prefWidth="65.0" text="DP-APR %" />
             <Spinner fx:id="dp_spinner" prefHeight="26.0" prefWidth="70.0" />
