@@ -74,11 +74,11 @@ public class DatabaseDriver {
         Statement statement3;
         Statement statement4;
         Statement statement5;
-        Statement statement6;
+
         Statement statement7;
-       // Statement statement8;
+
         Statement statement9;
-        Statement statement10;
+//        Statement statement10;
 
         int candDpAprRequisite = (int) Double.parseDouble(dp);
         int candAbcAprRequisite = (int) Double.parseDouble(abc);
@@ -179,12 +179,6 @@ public class DatabaseDriver {
         boolean drbAprRequisiteSatisfied = false;
         boolean abcAprRequisiteSatisfied = false;
         boolean dpAprRequisiteSatisfied = false;
-
-        boolean micaRequisiteSatisfied = false;
-        boolean dqRequisiteSatisfied = false;
-        boolean drbRequisiteSatisfied = false;
-        boolean abcRequisiteSatisfied = false;
-        boolean dpRequisiteSatisfied = false;
 
 
                 statement4 = this.conn1.createStatement();
@@ -437,15 +431,14 @@ public class DatabaseDriver {
 
         }
 
-        candDonorCheck(resultSetPickedCandidate);
+        candDonorCheck(resultSetPickedCandidate, candMicaRequisite, candDqRequisite, candDrbRequisite, candAbcRequisite, candDpRequisite);
 
-//        statement10 = this.conn2.createStatement();
-//        int deletedRows = statement10.executeUpdate("DELETE FROM TempTable;");
+
 
         return donResultSet;
     }
 
-    private ResultSet candDonorCheck(ResultSet resultSetPickedCandidate) throws SQLException {
+    private ResultSet candDonorCheck(ResultSet resultSetPickedCandidate, int candMicaRequisite, int candDqRequisite, int candDrbRequisite, int candAbcRequisite, int candDpRequisite) throws SQLException {
 
 
         int micaMatchCount = 0;
@@ -453,8 +446,19 @@ public class DatabaseDriver {
         int drbMatchCount = 0;
         int abcMatchCount = 0;
         int dpMatchCount = 0;
+        int h = 0;
         int k = 0;
         int epletMatchTotal = 0;
+        boolean micaRequisiteSatisfied = false;
+        boolean dqRequisiteSatisfied = false;
+        boolean drbRequisiteSatisfied = false;
+        boolean abcRequisiteSatisfied = false;
+        boolean dpRequisiteSatisfied = false;
+
+
+        Statement statement8;
+        Statement statement6;
+        Statement statement10;
 
         String [] filteredDonMica1Array = new String[64];
         String [] filteredDonMica2Array = new String[64];
@@ -505,7 +509,7 @@ public class DatabaseDriver {
         String [] candFirstNameArray = new String[1];
 
 
-        Statement statement8;
+       // Statement statement8;
         ResultSet tempResultSet = null;
         try {
             statement8 = this.conn2.createStatement();
@@ -574,20 +578,64 @@ public class DatabaseDriver {
 
         }
 
-        int filteredDonArraysize = k;
-        System.out.println("donorArraysize " + filteredDonArraysize);
+        int filteredDonArraySize = k;
 
-        for (int i = 0; i < filteredDonArraysize; i++) {
-                if (filteredDonMica1Array[i].equals(candMica1Array[0])) {epletMatchTotal++;}
-                if (filteredDonMica2Array[i].equals(candMica2Array[0])) {epletMatchTotal++;}
-                if (filteredDonMica3Array[i].equals(candMica3Array[0])) {epletMatchTotal++;}
-                if (filteredDonDq1Array[i].equals(candDq1Array[0])) {epletMatchTotal++;}
-                if (filteredDonDq2Array[i].equals(candDq2Array[0])) {epletMatchTotal++;}
+        int filteredMicaMatchTotal = 0;
+        int filteredDqMatchTotal = 0;
+        int filteredDrbMatchTotal = 0;
+        int filteredAbcMatchTotal = 0;
+        int filteredDpMatchTotal = 0;
+
+        System.out.println("");
+        System.out.println("donorArraysize " + filteredDonArraySize);
+
+
+        for (int i = 0; i < filteredDonArraySize; i++) {
+                if (filteredDonMica1Array[i].equals(candMica1Array[0])) {filteredMicaMatchTotal++;}
+                if (filteredDonMica2Array[i].equals(candMica2Array[0])) {filteredMicaMatchTotal++;}
+                if (filteredDonMica3Array[i].equals(candMica3Array[0])) {filteredMicaMatchTotal++;}
+                if (filteredDonDq1Array[i].equals(candDq1Array[0])) {filteredDqMatchTotal++;}
+                if (filteredDonDq2Array[i].equals(candDq2Array[0])) {filteredDqMatchTotal++;}
+                if (filteredDonDq3Array[i].equals(candDq3Array[0])) {filteredDqMatchTotal++;}
+                if (filteredDonDrb1Array[i].equals(candDrb1Array[0])) {filteredDrbMatchTotal++;}
+                if (filteredDonDrb2Array[i].equals(candDrb2Array[0])) {filteredDrbMatchTotal++;}
+                if (filteredDonDrb3Array[i].equals(candDrb3Array[0])) {filteredDrbMatchTotal++;}
+                if (filteredDonAbc1Array[i].equals(candAbc1Array[0])) {filteredAbcMatchTotal++;}
+                if (filteredDonAbc2Array[i].equals(candAbc2Array[0])) {filteredAbcMatchTotal++;}
+                if (filteredDonAbc3Array[i].equals(candAbc3Array[0])) {filteredAbcMatchTotal++;}
+                if (filteredDonDp1Array[i].equals(candDp1Array[0])) {filteredDpMatchTotal++;}
+                if (filteredDonDp2Array[i].equals(candDp2Array[0])) {filteredDpMatchTotal++;}
+                if (filteredDonDp3Array[i].equals(candDp3Array[0])) {filteredDpMatchTotal++;}
                 ////// rest of the remaining lines here
 
+            System.out.println("filteredMicaMatchTotal " + filteredMicaMatchTotal);
+            System.out.println("filteredDqMatchTotal " + filteredDqMatchTotal);
+            System.out.println("filteredDrbMatchTotal " + filteredDrbMatchTotal);
+            System.out.println("filteredAbcMatchTotal " + filteredAbcMatchTotal);
+            System.out.println("filteredDpMatchTotal " + filteredDpMatchTotal);
 
+
+            if (filteredMicaMatchTotal == candMicaRequisite) {micaRequisiteSatisfied = true;}
+            if (filteredDqMatchTotal == candDqRequisite) {dqRequisiteSatisfied = true;}
+            if (filteredDrbMatchTotal == candDrbRequisite) {drbRequisiteSatisfied = true;}
+            if (filteredAbcMatchTotal == candAbcRequisite) {abcRequisiteSatisfied = true;}
+            if (filteredDpMatchTotal == candDpRequisite) { dpRequisiteSatisfied = true;}
+
+
+
+            if (micaRequisiteSatisfied && dqRequisiteSatisfied && drbRequisiteSatisfied && abcRequisiteSatisfied && dpRequisiteSatisfied) {
+                statement6 = this.conn2.createStatement();
+                statement6.executeUpdate("INSERT INTO TempTable2(FirstName, LastName, Gender, Age, Weight, Email, Organ, BloodType, " +
+                        "DP1, DP2, DP3, ABC1, ABC2, ABC3, DRB1, DRB2, DRB3, DQ1, DQ2, DQ3, MICA1, MICA2, MICA3)" +
+                        "VALUES ('" + filteredDonFirstNameArray[i] + "', '" + filteredDonLastNameArray[i] + "', '" + filteredDonGenderArray[i] + "', '" + filteredDonAgeArray[i] + "', '" + filteredDonWeightArray[i] + "', '" + filteredDonEmailArray[i] + "', '" + filteredDonOrganArray[i] + "', '" + filteredDonBloodTypeArray[i] +
+                        "', '" + filteredDonDp1Array[i] + "', '" + filteredDonDp2Array[i] + "', '" + filteredDonDp3Array[i] + "', '" + filteredDonAbc1Array[i] + "', '" + filteredDonAbc2Array[i] + "', '" + filteredDonAbc3Array[i] + "', '" + filteredDonDrb1Array[i] + "', '" + filteredDonDrb2Array[i] + "', '" + filteredDonDrb3Array[i] +
+                        "','" + filteredDonDq1Array[i] + "', '" + filteredDonDq2Array[i] + "', '" + filteredDonDq3Array[i] + "', '" + filteredDonMica1Array[i] + "', '" + filteredDonMica2Array[i] + "', '" + filteredDonMica3Array[i] + "');");
+            }
         }
 
+
+            statement10 = this.conn2.createStatement();
+            int deletedRows = statement10.executeUpdate("DELETE FROM TempTable;");
 
 
         return resultSetPickedCandidate;
