@@ -5,6 +5,7 @@ import com.proj.organtransplantapp.Models.Donor;
 import com.proj.organtransplantapp.Models.Model;
 import com.proj.organtransplantapp.Views.CandidateCellFactory;
 import com.proj.organtransplantapp.Views.CandidatePickedCellFactory;
+import com.proj.organtransplantapp.Views.DonorOptionsCellFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -35,6 +36,7 @@ public class SearchDonorController implements Initializable {
     public ChoiceBox bloodType_cb;
     public Button processSearch_btn;
     private ObservableList<Candidate> candidates;
+    private ObservableList<Donor> donors;
     public ListView<Candidate> candidate_listview;
     //    HashMap<String,Integer> myMap.ObservableList=new HashMap<String,Integer>();
     ObservableList strMap;
@@ -278,6 +280,10 @@ public class SearchDonorController implements Initializable {
         String strDpApr = String.valueOf(dpapr_spinner.getValue());
 
         ObservableList<Donor> searchResults = Model.getInstance().searchDonors(organ, bloodType, strMicaApr, strDqApr, strDrbApr, strAbcApr, strDpApr, strDp, strAbc, strDrb, strDq, strMica);
+        donor_listview.setItems(searchResults);
+        donor_listview.setFocusTraversable(false);
+        donor_listview.setCellFactory(e -> new DonorOptionsCellFactory());
+        donors = searchResults;
 
         System.out.println("process button pressed");
     }

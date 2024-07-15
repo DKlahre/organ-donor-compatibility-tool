@@ -327,7 +327,7 @@ public class DatabaseDriver {
             System.out.println("=====================");
 
             if (((dpAprRequisiteSatisfied) && (abcAprRequisiteSatisfied) && (drbAprRequisiteSatisfied) && (dqAprRequisiteSatisfied) && (micaAprRequisiteSatisfied))) {
-                System.out.println("All five conditions met ");
+                System.out.println("All five Apr requisites met ");
 
                 statement9 = this.conn2.createStatement();
                 statement9.executeUpdate("INSERT INTO TempTable(FirstName, LastName, Gender, Age, Weight, Email, Organ, BloodType, " +
@@ -353,11 +353,9 @@ public class DatabaseDriver {
 
         }
 
-        candDonorCheck(resultSetPickedCandidate, candMicaRequisite, candDqRequisite, candDrbRequisite, candAbcRequisite, candDpRequisite);
+          return candDonorCheck(resultSetPickedCandidate, candMicaRequisite, candDqRequisite, candDrbRequisite, candAbcRequisite, candDpRequisite);
 
-
-
-        return donResultSet;
+       // return donResultSet;
     }
 
     private ResultSet candDonorCheck(ResultSet resultSetPickedCandidate, int candMicaRequisite, int candDqRequisite, int candDrbRequisite, int candAbcRequisite, int candDpRequisite) throws SQLException {
@@ -547,7 +545,6 @@ public class DatabaseDriver {
             if (filteredDpMatchTotal == candDpRequisite) { dpRequisiteSatisfied = true;}
 
 
-
             if (micaRequisiteSatisfied && dqRequisiteSatisfied && drbRequisiteSatisfied && abcRequisiteSatisfied && dpRequisiteSatisfied) {
                 statement6 = this.conn2.createStatement();
                 statement6.executeUpdate("INSERT INTO TempTable2(FirstName, LastName, Gender, Age, Weight, Email, Organ, BloodType, " +
@@ -569,17 +566,14 @@ public class DatabaseDriver {
             filteredAbcMatchTotal = 0;
             filteredDpMatchTotal = 0;
 
-
         }
 
 
         statement10 = this.conn2.createStatement();
         int deletedRows = statement10.executeUpdate("DELETE FROM TempTable;");
 
-        return resultSetPickedCandidate;
-    }
 
-    public ResultSet getDonors() {
+        //////////
         Statement statement13;
         ResultSet tempResultSet2 = null;
         try {
@@ -588,7 +582,24 @@ public class DatabaseDriver {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        //////////
+
+      //  return resultSetPickedCandidate;
         return tempResultSet2;
     }
+
+//    public ResultSet getDonors() {
+//        Statement statement13;
+//        ResultSet tempResultSet2 = null;
+//        try {
+//            statement13 = this.conn2.createStatement();
+//            tempResultSet2 = statement13.executeQuery("SELECT * FROM TempTable2;");
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return tempResultSet2;
+//    }
+
+
 
 }
