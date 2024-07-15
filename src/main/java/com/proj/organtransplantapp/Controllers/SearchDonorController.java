@@ -277,7 +277,7 @@ public class SearchDonorController implements Initializable {
         String strAbcApr = String.valueOf(abcapr_spinner.getValue());
         String strDpApr = String.valueOf(dpapr_spinner.getValue());
 
-     //   ObservableList<Donor> searchResults = Model.getInstance().searchDonors(organ, bloodType, strMicaApr, strDqApr, strDrbApr, strAbcApr, strDpApr, strDp, strAbc, strDrb, strDq, strMica);
+        ObservableList<Donor> searchResults = Model.getInstance().searchDonors(organ, bloodType, strMicaApr, strDqApr, strDrbApr, strAbcApr, strDpApr, strDp, strAbc, strDrb, strDq, strMica);
 
         System.out.println("process button pressed");
     }

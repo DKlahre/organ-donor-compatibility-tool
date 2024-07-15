@@ -23,11 +23,6 @@ public class DatabaseDriver {
     String [] drbSourceArray = new String[64];
     String [] abcSourceArray = new String[64];
     String [] dpSourceArray = new String[64];
-    String [] micaDonorArray = new String[64];
-    String [] dqDonorArray = new String[64];
-    String [] drbDonorArray = new String[64];
-    String [] abcDonorArray = new String[64];
-    String [] dpDonorArray = new String[64];
 
 
     List <ResultSet> resultSetEpletList = new ArrayList<>();
@@ -101,57 +96,6 @@ public class DatabaseDriver {
             e.printStackTrace();
         }
 
-        ///////////////////////////////
-
-//        Statement statement;
-//        ResultSet resultSet = null;
-//        try {
-//            statement = this.conn1.createStatement();
-//            resultSet = statement.executeQuery("SELECT * FROM Candidates Where Email = '" + email + "';");
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-
-        ///////////////////////////////////
-
-        while (donResultSet.next()) {
-            try {
-                String donFirstName = donResultSet.getString(1);
-                String donLastName = donResultSet.getString(2);
-                String donGender = donResultSet.getString(3);
-                String donAge = donResultSet.getString(4);
-                String donWeight = donResultSet.getString(5);
-                System.out.println("donWeight " + donWeight);
-                String donEmail = donResultSet.getString(6);
-                System.out.println("donEmail " + donEmail);
-                String donOrgan = donResultSet.getString(7);
-                String donBloodType = donResultSet.getString(8);
-                String donDp1 = donResultSet.getString(9);
-                String donDp2 = donResultSet.getString(10);
-                String donDp3 = donResultSet.getString(11);
-                String donAbc1 = donResultSet.getString(12);
-                String donAbc2 = donResultSet.getString(13);
-                String donAbc3 = donResultSet.getString(14);
-                String donDrb1 = donResultSet.getString(15);
-                String donDrp2 = donResultSet.getString(16);
-                String donDrb3 = donResultSet.getString(17);
-                String donDq1 = donResultSet.getString(18);
-                String donDq2 = donResultSet.getString(19);
-                String donDq3 = donResultSet.getString(20);
-                String donMica1 = donResultSet.getString(21);
-                String donMica2 = donResultSet.getString(22);
-                String donMica3 = donResultSet.getString(23);
-//                statement3 = this.conn2.createStatement();
-//                statement3.executeUpdate("INSERT INTO TempTable(FirstName, LastName, Gender, Age, Weight, Email, Organ, BloodType, " +
-//                        "DP1, DP2, DP3, ABC1, ABC2, ABC3, DRB1, DRB2, DRB3, DQ1, DQ2, DQ3, MICA1, MICA2, MICA3)" +
-//                        "VALUES ('" + donFirstName + "', '" + donLastName + "', '" + donGender + "', '" + donAge + "', '" + donWeight + "', '" + donEmail + "', '" + donOrgan + "', '" + donBloodType +
-//                        "', '" + donDp1 + "', '" + donDp2 + "', '" + donDp3 + "', '" + donAbc1 + "', '" + donAbc2 + "', '" + donAbc3 + "', '" + donDrb1 + "', '" + donDrp2 + "', '" + donDrb3 +
-//                        "','" + donDq1 + "', '" + donDq2 + "', '" + donDq3 + "', '" + donMica1 + "', '" + donMica2 + "', '" + donMica3 + "');");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
 
         ResultSet resultSetPickedCandidate = null;
         ResultSet resultSetEplets = null;
@@ -183,29 +127,7 @@ public class DatabaseDriver {
 
         statement4 = this.conn1.createStatement();
         resultSetPickedCandidate = statement4.executeQuery("SELECT * FROM Candidates Where Email = '" + Model.getInstance().getEmailStore() + "';");
-        String candMica1 = resultSetPickedCandidate.getString(21);
-        String candMica2 = resultSetPickedCandidate.getString(22);
-        String candMica3 = resultSetPickedCandidate.getString(23);
-        String candDq1 = resultSetPickedCandidate.getString(18);
-        String candDq2 = resultSetPickedCandidate.getString(19);
-        String candDq3 = resultSetPickedCandidate.getString(20);
-        String candDrb1 = resultSetPickedCandidate.getString(15);
-        String candDrb2 = resultSetPickedCandidate.getString(16);
-        String candDrb3 = resultSetPickedCandidate.getString(17);
-        String candAbc1 = resultSetPickedCandidate.getString(12);
-        String candAbc2 = resultSetPickedCandidate.getString(13);
-        String candAbc3 = resultSetPickedCandidate.getString(14);
-        String candDp1 = resultSetPickedCandidate.getString(9);
-        String candDp2 = resultSetPickedCandidate.getString(10);
-        String candDp3 = resultSetPickedCandidate.getString(11);
-        String candBloodType = resultSetPickedCandidate.getString(8);
-        String candOrgan = resultSetPickedCandidate.getString(7);
-        String candEmail = resultSetPickedCandidate.getString(6);
-        String candWeight = resultSetPickedCandidate.getString(5);
-        String candAge = resultSetPickedCandidate.getString(4);
-        String candGender = resultSetPickedCandidate.getString(3);
-        String candLastName = resultSetPickedCandidate.getString(2);
-        String candFirstName = resultSetPickedCandidate.getString(1);
+
 
         ResultSet donorResultSet = null;
         try {
@@ -513,7 +435,6 @@ public class DatabaseDriver {
         statement11 = this.conn2.createStatement();
         int deletedRows2 = statement11.executeUpdate("DELETE FROM TempTable2;");
 
-        // Statement statement8;
         ResultSet tempResultSet = null;
         try {
             statement8 = this.conn2.createStatement();
@@ -654,7 +575,6 @@ public class DatabaseDriver {
 
         statement10 = this.conn2.createStatement();
         int deletedRows = statement10.executeUpdate("DELETE FROM TempTable;");
-
 
         return resultSetPickedCandidate;
     }
