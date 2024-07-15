@@ -18,16 +18,16 @@ public class DatabaseDriver {
     private Connection conn3;
     private Connection conn4;
 
-     String [] micaSourceArray = new String[64];
-     String [] dqSourceArray = new String[64];
-     String [] drbSourceArray = new String[64];
-     String [] abcSourceArray = new String[64];
-     String [] dpSourceArray = new String[64];
-     String [] micaDonorArray = new String[64];
-     String [] dqDonorArray = new String[64];
-     String [] drbDonorArray = new String[64];
-     String [] abcDonorArray = new String[64];
-     String [] dpDonorArray = new String[64];
+    String [] micaSourceArray = new String[64];
+    String [] dqSourceArray = new String[64];
+    String [] drbSourceArray = new String[64];
+    String [] abcSourceArray = new String[64];
+    String [] dpSourceArray = new String[64];
+    String [] micaDonorArray = new String[64];
+    String [] dqDonorArray = new String[64];
+    String [] drbDonorArray = new String[64];
+    String [] abcDonorArray = new String[64];
+    String [] dpDonorArray = new String[64];
 
 
     List <ResultSet> resultSetEpletList = new ArrayList<>();
@@ -150,7 +150,7 @@ public class DatabaseDriver {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-       }
+        }
 
 
         ResultSet resultSetPickedCandidate = null;
@@ -164,7 +164,7 @@ public class DatabaseDriver {
 
         statement9 = this.conn4.createStatement();
         for (int m = 0 ; m < 6 ; m++){
-               resultSetEpletList.add(resultSetEplets = statement9.executeQuery("SELECT * FROM Eplets"));}
+            resultSetEpletList.add(resultSetEplets = statement9.executeQuery("SELECT * FROM Eplets"));}
 
         int j = 0;
         int q = 0;
@@ -181,31 +181,31 @@ public class DatabaseDriver {
         boolean dpAprRequisiteSatisfied = false;
 
 
-                statement4 = this.conn1.createStatement();
-                resultSetPickedCandidate = statement4.executeQuery("SELECT * FROM Candidates Where Email = '" + Model.getInstance().getEmailStore() + "';");
-                String candMica1 = resultSetPickedCandidate.getString(21);
-                String candMica2 = resultSetPickedCandidate.getString(22);
-                String candMica3 = resultSetPickedCandidate.getString(23);
-                String candDq1 = resultSetPickedCandidate.getString(18);
-                String candDq2 = resultSetPickedCandidate.getString(19);
-                String candDq3 = resultSetPickedCandidate.getString(20);
-                String candDrb1 = resultSetPickedCandidate.getString(15);
-                String candDrb2 = resultSetPickedCandidate.getString(16);
-                String candDrb3 = resultSetPickedCandidate.getString(17);
-                String candAbc1 = resultSetPickedCandidate.getString(12);
-                String candAbc2 = resultSetPickedCandidate.getString(13);
-                String candAbc3 = resultSetPickedCandidate.getString(14);
-                String candDp1 = resultSetPickedCandidate.getString(9);
-                String candDp2 = resultSetPickedCandidate.getString(10);
-                String candDp3 = resultSetPickedCandidate.getString(11);
-                String candBloodType = resultSetPickedCandidate.getString(8);
-                String candOrgan = resultSetPickedCandidate.getString(7);
-                String candEmail = resultSetPickedCandidate.getString(6);
-                String candWeight = resultSetPickedCandidate.getString(5);
-                String candAge = resultSetPickedCandidate.getString(4);
-                String candGender = resultSetPickedCandidate.getString(3);
-                String candLastName = resultSetPickedCandidate.getString(2);
-                String candFirstName = resultSetPickedCandidate.getString(1);
+        statement4 = this.conn1.createStatement();
+        resultSetPickedCandidate = statement4.executeQuery("SELECT * FROM Candidates Where Email = '" + Model.getInstance().getEmailStore() + "';");
+        String candMica1 = resultSetPickedCandidate.getString(21);
+        String candMica2 = resultSetPickedCandidate.getString(22);
+        String candMica3 = resultSetPickedCandidate.getString(23);
+        String candDq1 = resultSetPickedCandidate.getString(18);
+        String candDq2 = resultSetPickedCandidate.getString(19);
+        String candDq3 = resultSetPickedCandidate.getString(20);
+        String candDrb1 = resultSetPickedCandidate.getString(15);
+        String candDrb2 = resultSetPickedCandidate.getString(16);
+        String candDrb3 = resultSetPickedCandidate.getString(17);
+        String candAbc1 = resultSetPickedCandidate.getString(12);
+        String candAbc2 = resultSetPickedCandidate.getString(13);
+        String candAbc3 = resultSetPickedCandidate.getString(14);
+        String candDp1 = resultSetPickedCandidate.getString(9);
+        String candDp2 = resultSetPickedCandidate.getString(10);
+        String candDp3 = resultSetPickedCandidate.getString(11);
+        String candBloodType = resultSetPickedCandidate.getString(8);
+        String candOrgan = resultSetPickedCandidate.getString(7);
+        String candEmail = resultSetPickedCandidate.getString(6);
+        String candWeight = resultSetPickedCandidate.getString(5);
+        String candAge = resultSetPickedCandidate.getString(4);
+        String candGender = resultSetPickedCandidate.getString(3);
+        String candLastName = resultSetPickedCandidate.getString(2);
+        String candFirstName = resultSetPickedCandidate.getString(1);
 
         ResultSet donorResultSet = null;
         try {
@@ -510,10 +510,10 @@ public class DatabaseDriver {
         String [] candFirstNameArray = new String[1];
 
 
-        statement10 = this.conn2.createStatement();
-        int deletedRows2 = statement10.executeUpdate("DELETE FROM TempTable2;");
+        statement11 = this.conn2.createStatement();
+        int deletedRows2 = statement11.executeUpdate("DELETE FROM TempTable2;");
 
-       // Statement statement8;
+        // Statement statement8;
         ResultSet tempResultSet = null;
         try {
             statement8 = this.conn2.createStatement();
@@ -595,22 +595,22 @@ public class DatabaseDriver {
 
 
         for (int i = 0; i < filteredDonArraySize; i++) {
-                if (filteredDonMica1Array[i].equals(candMica1Array[0])) {filteredMicaMatchTotal++;}
-                if (filteredDonMica2Array[i].equals(candMica2Array[0])) {filteredMicaMatchTotal++;}
-                if (filteredDonMica3Array[i].equals(candMica3Array[0])) {filteredMicaMatchTotal++;}
-                if (filteredDonDq1Array[i].equals(candDq1Array[0])) {filteredDqMatchTotal++;}
-                if (filteredDonDq2Array[i].equals(candDq2Array[0])) {filteredDqMatchTotal++;}
-                if (filteredDonDq3Array[i].equals(candDq3Array[0])) {filteredDqMatchTotal++;}
-                if (filteredDonDrb1Array[i].equals(candDrb1Array[0])) {filteredDrbMatchTotal++;}
-                if (filteredDonDrb2Array[i].equals(candDrb2Array[0])) {filteredDrbMatchTotal++;}
-                if (filteredDonDrb3Array[i].equals(candDrb3Array[0])) {filteredDrbMatchTotal++;}
-                if (filteredDonAbc1Array[i].equals(candAbc1Array[0])) {filteredAbcMatchTotal++;}
-                if (filteredDonAbc2Array[i].equals(candAbc2Array[0])) {filteredAbcMatchTotal++;}
-                if (filteredDonAbc3Array[i].equals(candAbc3Array[0])) {filteredAbcMatchTotal++;}
-                if (filteredDonDp1Array[i].equals(candDp1Array[0])) {filteredDpMatchTotal++;}
-                if (filteredDonDp2Array[i].equals(candDp2Array[0])) {filteredDpMatchTotal++;}
-                if (filteredDonDp3Array[i].equals(candDp3Array[0])) {filteredDpMatchTotal++;}
-                ////// rest of the remaining lines here
+            if (filteredDonMica1Array[i].equals(candMica1Array[0])) {filteredMicaMatchTotal++;}
+            if (filteredDonMica2Array[i].equals(candMica2Array[0])) {filteredMicaMatchTotal++;}
+            if (filteredDonMica3Array[i].equals(candMica3Array[0])) {filteredMicaMatchTotal++;}
+            if (filteredDonDq1Array[i].equals(candDq1Array[0])) {filteredDqMatchTotal++;}
+            if (filteredDonDq2Array[i].equals(candDq2Array[0])) {filteredDqMatchTotal++;}
+            if (filteredDonDq3Array[i].equals(candDq3Array[0])) {filteredDqMatchTotal++;}
+            if (filteredDonDrb1Array[i].equals(candDrb1Array[0])) {filteredDrbMatchTotal++;}
+            if (filteredDonDrb2Array[i].equals(candDrb2Array[0])) {filteredDrbMatchTotal++;}
+            if (filteredDonDrb3Array[i].equals(candDrb3Array[0])) {filteredDrbMatchTotal++;}
+            if (filteredDonAbc1Array[i].equals(candAbc1Array[0])) {filteredAbcMatchTotal++;}
+            if (filteredDonAbc2Array[i].equals(candAbc2Array[0])) {filteredAbcMatchTotal++;}
+            if (filteredDonAbc3Array[i].equals(candAbc3Array[0])) {filteredAbcMatchTotal++;}
+            if (filteredDonDp1Array[i].equals(candDp1Array[0])) {filteredDpMatchTotal++;}
+            if (filteredDonDp2Array[i].equals(candDp2Array[0])) {filteredDpMatchTotal++;}
+            if (filteredDonDp3Array[i].equals(candDp3Array[0])) {filteredDpMatchTotal++;}
+            ////// rest of the remaining lines here
 
             System.out.println("");
             System.out.println("filteredMicaMatchTotal " + filteredMicaMatchTotal);
@@ -636,26 +636,39 @@ public class DatabaseDriver {
                         "','" + filteredDonDq1Array[i] + "', '" + filteredDonDq2Array[i] + "', '" + filteredDonDq3Array[i] + "', '" + filteredDonMica1Array[i] + "', '" + filteredDonMica2Array[i] + "', '" + filteredDonMica3Array[i] + "');");
             }
 
-          micaRequisiteSatisfied = true;
-          dqRequisiteSatisfied = true;
-          drbRequisiteSatisfied = true;
-          abcRequisiteSatisfied = true;
-          dpRequisiteSatisfied = true;
+            micaRequisiteSatisfied = true;
+            dqRequisiteSatisfied = true;
+            drbRequisiteSatisfied = true;
+            abcRequisiteSatisfied = true;
+            dpRequisiteSatisfied = true;
 
-          filteredMicaMatchTotal = 0;
-          filteredDqMatchTotal = 0;
-          filteredDrbMatchTotal = 0;
-          filteredAbcMatchTotal = 0;
-          filteredDpMatchTotal = 0;
+            filteredMicaMatchTotal = 0;
+            filteredDqMatchTotal = 0;
+            filteredDrbMatchTotal = 0;
+            filteredAbcMatchTotal = 0;
+            filteredDpMatchTotal = 0;
 
 
         }
 
 
-            statement10 = this.conn2.createStatement();
-            int deletedRows = statement10.executeUpdate("DELETE FROM TempTable;");
+        statement10 = this.conn2.createStatement();
+        int deletedRows = statement10.executeUpdate("DELETE FROM TempTable;");
 
 
         return resultSetPickedCandidate;
     }
+
+    public ResultSet getDonors() {
+        Statement statement13;
+        ResultSet tempResultSet2 = null;
+        try {
+            statement13 = this.conn2.createStatement();
+            tempResultSet2 = statement13.executeQuery("SELECT * FROM TempTable2;");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tempResultSet2;
+    }
+
 }
