@@ -255,7 +255,7 @@ public class DatabaseDriver {
             /////////////
 
             System.out.println("=====================");
-            if (micaMatchCount > donMicaRequisite ) {
+            if (micaMatchCount >= donMicaRequisite ) {
                 micaRequisiteSatisfied = true;
                 System.out.println("micaMatchCount " + micaMatchCount);
                 System.out.println("donMicaRequisite " + donMicaRequisite);
@@ -265,7 +265,7 @@ public class DatabaseDriver {
                 System.out.println("donMicaRequisite " + donMicaRequisite);
                 System.out.println("micaRequisiteSatisfied = false");}
             System.out.println("=====================");
-            if (dqMatchCount > donDqRequisite) {
+            if (dqMatchCount >= donDqRequisite) {
                 dqRequisiteSatisfied = true;
                 System.out.println("dqMatchCount " + dqMatchCount);
                 System.out.println("donDqRequisite " + donDqRequisite);
@@ -275,7 +275,7 @@ public class DatabaseDriver {
                 System.out.println("donDqAprRequisite " + donDqRequisite);
                 System.out.println("dqRequisiteSatisfied  = false");}
             System.out.println("=====================");
-            if (drbMatchCount > donDrbRequisite) {
+            if (drbMatchCount >= donDrbRequisite) {
                 drbRequisiteSatisfied = true;
                 System.out.println("drbMatchCount " + drbMatchCount);
                 System.out.println("donDrbRequisite " + donDrbRequisite);
@@ -285,7 +285,7 @@ public class DatabaseDriver {
                 System.out.println("donDrbRequisite " + donDrbRequisite);
                 System.out.println("drbRequisiteSatisfied  = false");}
             System.out.println("=====================");
-            if (abcMatchCount > donAbcRequisite) {
+            if (abcMatchCount >= donAbcRequisite) {
                 abcRequisiteSatisfied = true;
                 System.out.println("abcMatchCount " + abcMatchCount);
                 System.out.println("donAbcRequisite " + donAbcRequisite);
@@ -295,7 +295,7 @@ public class DatabaseDriver {
                 System.out.println("donAbcRequisite " + donAbcRequisite);
                 System.out.println("abcRequisiteSatisfied  = false");}
             System.out.println("=====================");
-            if (dpMatchCount > donDpRequisite) {
+            if (dpMatchCount >= donDpRequisite) {
                 dpRequisiteSatisfied = true;
                 System.out.println("dpMatchCount " + dpMatchCount);
                 System.out.println("donDpRequisite " + donDpRequisite);
@@ -555,11 +555,11 @@ public class DatabaseDriver {
             System.out.println("filteredAbcMatchTotal " + filteredAbcMatchTotal);
             System.out.println("filteredDpMatchTotal " + filteredDpMatchTotal);
 
-            if (filteredMicaMatchTotal == candMicaAprRequisite) {micaAprRequisiteSatisfied = true;}
-            if (filteredDqMatchTotal == candDqAprRequisite) {dqAprRequisiteSatisfied = true;}
-            if (filteredDrbMatchTotal == candDrbAprRequisite) {drbAprRequisiteSatisfied = true;}
-            if (filteredAbcMatchTotal == candAbcAprRequisite) {abcAprRequisiteSatisfied = true;}
-            if (filteredDpMatchTotal == candDpAprRequisite) { dpAprRequisiteSatisfied = true;}
+            if (filteredMicaMatchTotal >= candMicaAprRequisite) {micaAprRequisiteSatisfied = true;}
+            if (filteredDqMatchTotal >= candDqAprRequisite) {dqAprRequisiteSatisfied = true;}
+            if (filteredDrbMatchTotal >= candDrbAprRequisite) {drbAprRequisiteSatisfied = true;}
+            if (filteredAbcMatchTotal >= candAbcAprRequisite) {abcAprRequisiteSatisfied = true;}
+            if (filteredDpMatchTotal >= candDpAprRequisite) { dpAprRequisiteSatisfied = true;}
 
 
             if (micaAprRequisiteSatisfied && dqAprRequisiteSatisfied && drbAprRequisiteSatisfied && abcAprRequisiteSatisfied && dpAprRequisiteSatisfied) {
@@ -571,11 +571,11 @@ public class DatabaseDriver {
                         "','" + filteredDonDq1Array[i] + "', '" + filteredDonDq2Array[i] + "', '" + filteredDonDq3Array[i] + "', '" + filteredDonMica1Array[i] + "', '" + filteredDonMica2Array[i] + "', '" + filteredDonMica3Array[i] + "');");
             }
 
-            micaAprRequisiteSatisfied = true;
-            dqAprRequisiteSatisfied = true;
-            drbAprRequisiteSatisfied = true;
-            abcAprRequisiteSatisfied = true;
-            dpAprRequisiteSatisfied = true;
+            micaAprRequisiteSatisfied = false;
+            dqAprRequisiteSatisfied = false;
+            drbAprRequisiteSatisfied = false;
+            abcAprRequisiteSatisfied = false;
+            dpAprRequisiteSatisfied = false;
 
             filteredMicaMatchTotal = 0;
             filteredDqMatchTotal = 0;
