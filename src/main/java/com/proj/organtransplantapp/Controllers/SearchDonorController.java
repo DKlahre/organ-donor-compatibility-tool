@@ -67,7 +67,8 @@ public class SearchDonorController implements Initializable {
         valueFactory.setMin(0.0);
         valueFactory.setMax(100.00);
         valueFactory.setAmountToStepBy(33.332);
-        valueFactory.increment(1);
+       // valueFactory.increment(1);
+        valueFactory.setValue(0.0);
         dp_spinner.setValueFactory(valueFactory);
         currentDoubValue = dp_spinner.getValue();
         dp_spinner.valueProperty().addListener(new ChangeListener<Double>() {
@@ -89,7 +90,8 @@ public class SearchDonorController implements Initializable {
         valueFactory2.setMin(0.0);
         valueFactory2.setMax(100.00);
         valueFactory2.setAmountToStepBy(33.332);
-        valueFactory2.increment(1);
+       // valueFactory2.increment(1);
+        valueFactory2.setValue(0.0);
         abc_spinner.setValueFactory(valueFactory2);
         currentDoubValue = abc_spinner.getValue();
         abc_spinner.valueProperty().addListener(new ChangeListener<Double>() {
@@ -112,7 +114,8 @@ public class SearchDonorController implements Initializable {
         valueFactory3.setMin(0.0);
         valueFactory3.setMax(100.00);
         valueFactory3.setAmountToStepBy(33.332);
-        valueFactory3.increment(1);
+       // valueFactory3.increment(1);
+        valueFactory3.setValue(0.0);
         drb_spinner.setValueFactory(valueFactory3);
         currentDoubValue = drb_spinner.getValue();
         drb_spinner.valueProperty().addListener(new ChangeListener<Double>() {
@@ -135,7 +138,8 @@ public class SearchDonorController implements Initializable {
         valueFactory4.setMin(0.0);
         valueFactory4.setMax(100.00);
         valueFactory4.setAmountToStepBy(33.332);
-        valueFactory4.increment(1);
+       // valueFactory4.increment(1);
+        valueFactory4.setValue(0.0);
         dq_spinner.setValueFactory(valueFactory4);
         currentDoubValue = dq_spinner.getValue();
         dq_spinner.valueProperty().addListener(new ChangeListener<Double>() {
@@ -155,10 +159,12 @@ public class SearchDonorController implements Initializable {
 
         SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory5 =
                 new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
+
         valueFactory5.setMin(0.0);
         valueFactory5.setMax(100.00);
         valueFactory5.setAmountToStepBy(33.332);
-        valueFactory5.increment(1);
+       // valueFactory5.increment(1);
+        valueFactory5.setValue(0.0);
         mica_spinner.setValueFactory(valueFactory5);
         currentDoubValue = mica_spinner.getValue();
         mica_spinner.valueProperty().addListener(new ChangeListener<Double>() {
@@ -177,7 +183,7 @@ public class SearchDonorController implements Initializable {
         ////////// DPAPR spinner
         SpinnerValueFactory<Integer> valFactory1 =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0,3);
-        valFactory1.setValue(1);
+        valFactory1.setValue(0);
         dpapr_spinner.setValueFactory(valFactory1);
         currentValue = dpapr_spinner.getValue();
         dpapr_spinner.valueProperty().addListener(new ChangeListener<Integer>() {
@@ -190,7 +196,7 @@ public class SearchDonorController implements Initializable {
         ////////// ABCAPR spinner
         SpinnerValueFactory<Integer> valFactory2 =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0,3);
-        valFactory2.setValue(1);
+        valFactory2.setValue(0);
         abcapr_spinner.setValueFactory(valFactory2);
         currentValue = abcapr_spinner.getValue();
         abcapr_spinner.valueProperty().addListener(new ChangeListener<Integer>() {
@@ -203,7 +209,7 @@ public class SearchDonorController implements Initializable {
         ////////// DRBAPR spinner
         SpinnerValueFactory<Integer> valFactory3 =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0,3);
-        valFactory3.setValue(1);
+        valFactory3.setValue(0);
         drbapr_spinner.setValueFactory(valFactory3);
         currentValue = drbapr_spinner.getValue();
 
@@ -217,7 +223,7 @@ public class SearchDonorController implements Initializable {
         ////////// DQAPR spinner
         SpinnerValueFactory<Integer> valFactory4 =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0,3);
-        valFactory4.setValue(1);
+        valFactory4.setValue(0);
         dqapr_spinner.setValueFactory(valFactory4);
         currentValue = dqapr_spinner.getValue();
         dqapr_spinner.valueProperty().addListener(new ChangeListener<Integer>() {
@@ -230,7 +236,7 @@ public class SearchDonorController implements Initializable {
         ////////// MICAAPR spinner
         SpinnerValueFactory<Integer> valFactory5 =
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(0,3);
-        valFactory5.setValue(1);
+        valFactory5.setValue(0);
         micaapr_spinner.setValueFactory(valFactory5);
         currentValue = micaapr_spinner.getValue();
         // micaapr_spinner.setOnTouchReleased(this::setMicaApr);
