@@ -88,12 +88,27 @@
          <Font size="15.0" />
       </font>
    </Label>
-   <Label alignment="TOP_LEFT" layoutX="28.0" layoutY="337.0" prefHeight="28.0" prefWidth="226.0" text="controls below before initiating" textFill="#4429c9">
+   <Label layoutX="28.0" layoutY="329.0" prefHeight="38.0" prefWidth="62.0" text="organ" textFill="RED">
       <font>
          <Font size="15.0" />
       </font>
    </Label>
-   <Label alignment="TOP_LEFT" layoutX="28.0" layoutY="360.0" prefHeight="28.0" prefWidth="214.0" text="organ donor search." textFill="#4429c9">
+   <Label layoutX="72.0" layoutY="336.0" prefHeight="24.0" prefWidth="30.0" text="and" textFill="#4429c9">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Label>
+   <Label layoutX="102.0" layoutY="328.0" prefHeight="38.0" prefWidth="98.0" snapToPixel="false" text="blood type" textFill="RED">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Label>
+   <Label alignment="TOP_LEFT" layoutX="175.0" layoutY="337.0" prefHeight="28.0" prefWidth="79.0" text=" controls " textFill="#4429c9">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </Label>
+   <Label alignment="TOP_LEFT" layoutX="28.0" layoutY="360.0" prefHeight="28.0" prefWidth="226.0" text="correctly before initiating search." textFill="#4429c9">
       <font>
          <Font size="15.0" />
       </font>
