@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="689.0" prefWidth="800.0" stylesheets="@../Styles/SearchCandidate.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proj.organtransplantapp.Controllers.SearchCandidateController">
+<AnchorPane prefHeight="689.0" prefWidth="800.0" stylesheets="@../Styles/SearchCandidate.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proj.organtransplantapp.Controllers.SearchCandidateController">
    <VBox id="title_box" alignment="CENTER" layoutY="13.0" prefHeight="51.0" prefWidth="800.0">
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transplant Candidate Search Panel">
          <font>
@@ -34,6 +34,10 @@
                <ListView fx:id="candidate_listview" prefHeight="400.0" prefWidth="532.0" />
                <VBox alignment="CENTER" prefHeight="201.0" prefWidth="268.0">
                   <children>
+                     <Label fx:id="email_error_message_lbl" prefHeight="22.0" prefWidth="165.0" text="  " textFill="RED">
+                        <font>
+                           <Font size="15.0" />
+                        </font></Label>
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 28;" text="Email Addresses" textAlignment="CENTER" wrappingWidth="221.66858673095703">
                         <font>
                            <Font size="26.0" />
@@ -44,7 +48,16 @@
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="dvenz@gmail.com" />
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="smiller@yahoo.com" />
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="mfarrah@gmail.com" />
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" />
+                     <Label>
+                        <font>
+                           <Font size="3.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="lname_error_message_lbl" prefHeight="22.0" prefWidth="140.0" textFill="RED">
+                        <font>
+                           <Font size="15.0" />
+                        </font>
+                     </Label>
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 27;" text="Last Names">
                         <font>
                            <Font size="26.0" />
@@ -55,6 +68,16 @@
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Montgomery" />
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lefner" />
                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Romanov" />
+                     <Label>
+                        <font>
+                           <Font size="5.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="press_cand_select_btn_lbl" prefHeight="28.0" prefWidth="251.0" textFill="#ff8300">
+                        <font>
+                           <Font size="17.0" />
+                        </font>
+                     </Label>
                   </children>
                </VBox>
             </children>

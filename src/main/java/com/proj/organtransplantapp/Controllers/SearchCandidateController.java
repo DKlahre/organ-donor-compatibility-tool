@@ -18,6 +18,9 @@ public class SearchCandidateController implements Initializable {
     public Button findDonor_btn;
     public Button lastName_btn;
     public TextField lastName_fld;
+    public Label email_error_message_lbl;
+    public Label lname_error_message_lbl;
+    public Label press_cand_select_btn_lbl;
     private Candidate candidate;
     private ObservableList<Candidate> candidates;
 
@@ -30,27 +33,53 @@ public class SearchCandidateController implements Initializable {
     }
 
     private void onEmailSearch() {
-        ObservableList<Candidate> searchResults = Model.getInstance().searchCandEmail(email_fld.getText());
-         candidate_listview.setItems(searchResults);
-        // candidate_listview.setMouseTransparent(true);
-        candidate_listview.setFocusTraversable(false);
-        candidate_listview.setCellFactory(e -> new CandidateCellFactory());
-        candidates = searchResults;
-    }
+
+            ObservableList<Candidate> searchResults = Model.getInstance().searchCandEmail(email_fld.getText());
+            candidate_listview.setItems(searchResults);
+            // candidate_listview.setMouseTransparent(true);
+            candidate_listview.setFocusTraversable(false);
+            candidate_listview.setCellFactory(e -> new CandidateCellFactory());
+            candidates = searchResults;
+
+            if (candidate_listview.getItems().isEmpty()) {
+                email_error_message_lbl.setText("Email address not found");
+                lname_error_message_lbl.setText("");
+                lastName_fld.setText("");
+                press_cand_select_btn_lbl.setText("");
+            } else {
+                lname_error_message_lbl.setText("");
+                email_error_message_lbl.setText("");
+                lastName_fld.setText("");
+                press_cand_select_btn_lbl.setText("Press candidate selection button");
+            }
+        }
 
     private void onLastNameSearch() {
-        ObservableList<Candidate> searchResults = Model.getInstance().searchCandLastName(lastName_fld.getText());
-        candidate_listview.setItems(searchResults);
-        // candidate_listview.setMouseTransparent(true);
-        candidate_listview.setFocusTraversable(false);
-        candidate_listview.setCellFactory(e -> new CandidateCellFactory());
-        candidates = searchResults;
-    }
 
-    private void onFindDonor() {
-        Stage stage = (Stage) emailSearch_btn.getScene().getWindow();
-        Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showSearchDonorController();
-    }
+            ObservableList<Candidate> searchResults = Model.getInstance().searchCandLastName(lastName_fld.getText());
+            candidate_listview.setItems(searchResults);
+            // candidate_listview.setMouseTransparent(true);
+            candidate_listview.setFocusTraversable(false);
+            candidate_listview.setCellFactory(e -> new CandidateCellFactory());
+            candidates = searchResults;
+
+            if (candidate_listview.getItems().isEmpty()) {
+                lname_error_message_lbl.setText("Last name not found");
+                email_error_message_lbl.setText("");
+                email_fld.setText("");
+                press_cand_select_btn_lbl.setText("");
+            } else {
+                lname_error_message_lbl.setText("");
+                email_error_message_lbl.setText("");
+                email_fld.setText("");
+                press_cand_select_btn_lbl.setText("Press candidate selection button");
+            }
+        }
+
+        private void onFindDonor() {
+            Stage stage = (Stage) emailSearch_btn.getScene().getWindow();
+            Model.getInstance().getViewFactory().closeStage(stage);
+            Model.getInstance().getViewFactory().showSearchDonorController();
+            }
 
 }
