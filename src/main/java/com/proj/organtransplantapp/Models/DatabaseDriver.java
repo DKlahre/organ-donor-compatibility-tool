@@ -1,17 +1,11 @@
 package com.proj.organtransplantapp.Models;
 
-import javafx.application.Application;
-import javafx.stage.Stage;
-
-import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-
 public class DatabaseDriver {
-
 
     private Connection conn1;
     private Connection conn2;
@@ -99,10 +93,6 @@ public class DatabaseDriver {
         int donDqRequisite = (int) Double.parseDouble(dq);
         int donMicaRequisite = (int) Double.parseDouble(mica);
 
-        System.out.println("candDpAprRequisite " + candDpAprRequisite);
-        System.out.println("donMicaRequisite " + donMicaRequisite);
-
-
         ResultSet donResultSet = null;
         try {
             statement2 = this.conn2.createStatement();
@@ -133,11 +123,6 @@ public class DatabaseDriver {
         int drbMatchCount = 0;
         int abcMatchCount = 0;
         int dpMatchCount = 0;
-//        boolean micaAprRequisiteSatisfied = false;
-//        boolean dqAprRequisiteSatisfied = false;
-//        boolean drbAprRequisiteSatisfied = false;
-//        boolean abcAprRequisiteSatisfied = false;
-//        boolean dpAprRequisiteSatisfied = false;
 
         boolean micaRequisiteSatisfied = false;
         boolean dqRequisiteSatisfied = false;
@@ -145,10 +130,8 @@ public class DatabaseDriver {
         boolean abcRequisiteSatisfied = false;
         boolean dpRequisiteSatisfied = false;
 
-
         statement4 = this.conn1.createStatement();
         resultSetPickedCandidate = statement4.executeQuery("SELECT * FROM Candidates Where Email = '" + Model.getInstance().getEmailStore() + "';");
-
 
         ResultSet donorResultSet = null;
         try {
@@ -167,7 +150,6 @@ public class DatabaseDriver {
                 drbSourceArray[j] = resultSetEplets.getString(3);
                 abcSourceArray[j] = resultSetEplets.getString(2);
                 dpSourceArray[j] = resultSetEplets.getString(1);
-
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -240,9 +222,6 @@ public class DatabaseDriver {
 
                 if (Objects.equals(micaSourceArray[n], donMica1Array[p]) || Objects.equals(micaSourceArray[n], donMica2Array[p]) || Objects.equals(micaSourceArray[n], donMica3Array[p])) {
                     micaMatchCount++;
-                    System.out.println("micaSourceArray[n] " + micaSourceArray[n] + " donMica1Array[p] " + donMica1Array[p]);
-                    System.out.println("micaSourceArray[n] " + micaSourceArray[n] + " donMica1Array[p] " + donMica2Array[p]);
-                    System.out.println("micaSourceArray[n] " + micaSourceArray[n] + " donMica1Array[p] " + donMica3Array[p]);
                 }
                 if (Objects.equals(dqSourceArray[n], donDq1Array[p]) || Objects.equals(dqSourceArray[n], donDq2Array[p]) || Objects.equals(dqSourceArray[n], donDq3Array[p])) {
                     dqMatchCount++;
@@ -299,12 +278,10 @@ public class DatabaseDriver {
         boolean abcAprRequisiteSatisfied = false;
         boolean dpAprRequisiteSatisfied = false;
 
-
         Statement statement8;
         Statement statement6;
         Statement statement10;
         Statement statement11;
-
 
         if (candMicaAprRequisite >= 99) {
             candMicaAprRequisite = 3;
@@ -533,6 +510,5 @@ public class DatabaseDriver {
 
         return tempResultSet2;
     }
-
 
 }

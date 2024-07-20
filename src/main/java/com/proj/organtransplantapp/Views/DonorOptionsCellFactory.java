@@ -1,9 +1,6 @@
 package com.proj.organtransplantapp.Views;
 
-import com.proj.organtransplantapp.Controllers.CandidateCellController;
-import com.proj.organtransplantapp.Controllers.CandidatePickedCellController;
 import com.proj.organtransplantapp.Controllers.DonorOptionsCellController;
-import com.proj.organtransplantapp.Models.Candidate;
 import com.proj.organtransplantapp.Models.Donor;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListCell;
@@ -13,6 +10,7 @@ public class DonorOptionsCellFactory  extends ListCell<Donor> {
     @Override
     protected void updateItem(Donor donor, boolean empty) {
         super.updateItem(donor, empty);
+
         if(empty) {
             setText(null);
             setGraphic(null);
@@ -21,6 +19,7 @@ public class DonorOptionsCellFactory  extends ListCell<Donor> {
             DonorOptionsCellController controller = new DonorOptionsCellController(donor);
             loader.setController(controller);
             setText(null);
+
             try {
                 setGraphic(loader.load());
             } catch (Exception e) {

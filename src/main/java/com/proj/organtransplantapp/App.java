@@ -9,7 +9,6 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Model.getInstance().getViewFactory().showInitialWindow();
-
         System.out.println("JavaFX Version: " + System.getProperty("javafx.version"));
         System.out.println("JavaFX Runtime Version: " + System.getProperty("javafx.runtime.version"));
 

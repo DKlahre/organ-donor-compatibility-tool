@@ -3,7 +3,6 @@ package com.proj.organtransplantapp.Controllers;
 import com.proj.organtransplantapp.Models.Candidate;
 import com.proj.organtransplantapp.Models.Donor;
 import com.proj.organtransplantapp.Models.Model;
-import com.proj.organtransplantapp.Views.CandidateCellFactory;
 import com.proj.organtransplantapp.Views.CandidatePickedCellFactory;
 import com.proj.organtransplantapp.Views.DonorOptionsCellFactory;
 import javafx.beans.value.ChangeListener;
@@ -12,15 +11,11 @@ import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-
-import java.awt.event.ActionEvent;
 import java.net.URL;
-import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class SearchDonorController implements Initializable {
-    // public ListView candidate_listview;
+
     public ListView donor_listview;
     public Spinner<Double> dp_spinner;
     public Spinner<Double> abc_spinner;
@@ -38,7 +33,6 @@ public class SearchDonorController implements Initializable {
     private ObservableList<Candidate> candidates;
     private ObservableList<Donor> donors;
     public ListView<Candidate> candidate_listview;
-    //    HashMap<String,Integer> myMap.ObservableList=new HashMap<String,Integer>();
     ObservableList strMap;
     public Integer currentValue;
     public Double currentDoubValue;
@@ -51,7 +45,6 @@ public class SearchDonorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
 
         String email = Model.getInstance().getEmailStore();
         ObservableList<Candidate> searchResults = Model.getInstance().searchCandEmail(email);
@@ -108,7 +101,6 @@ public class SearchDonorController implements Initializable {
         });
 
         //////// Eplet3 spinner
-
         SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory3 =
                 new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
         valueFactory3.setMin(0.0);
@@ -132,7 +124,6 @@ public class SearchDonorController implements Initializable {
         });
 
         //////// Eplet4 spinner
-
         SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory4 =
                 new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
         valueFactory4.setMin(0.0);
@@ -156,7 +147,6 @@ public class SearchDonorController implements Initializable {
         });
 
         ////////// Eplet5 spinner
-
         SpinnerValueFactory.DoubleSpinnerValueFactory valueFactory5 =
                 new SpinnerValueFactory.DoubleSpinnerValueFactory(0.00, 100.00);
 
@@ -239,7 +229,6 @@ public class SearchDonorController implements Initializable {
         valFactory5.setValue(0);
         micaapr_spinner.setValueFactory(valFactory5);
         currentValue = micaapr_spinner.getValue();
-        // micaapr_spinner.setOnTouchReleased(this::setMicaApr);
         micaapr_spinner.valueProperty().addListener(new ChangeListener<Integer>() {
             @Override
             public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer t1) {
@@ -258,18 +247,11 @@ public class SearchDonorController implements Initializable {
 
     private void getOrgan(Event event) {
         organ = (String) organ_cb.getValue();
-        System.out.println("organ: " + organ);
     }
 
     private void getBloodType(Event event) {
         bloodType = (String) bloodType_cb.getValue();
-        System.out.println("bloodType: " + bloodType);
     }
-
-//    private void setMicaApr(Event event) {
-//        String strMicaApr = String.valueOf(micaapr_spinner.getValue());
-//    }
-
 
     private void processSearch(Event event)  {
 
@@ -291,9 +273,6 @@ public class SearchDonorController implements Initializable {
         donor_listview.setCellFactory(e -> new DonorOptionsCellFactory());
         donors = searchResults;
 
-
-       // System.out.println("process button pressed");
     }
-
 
 }

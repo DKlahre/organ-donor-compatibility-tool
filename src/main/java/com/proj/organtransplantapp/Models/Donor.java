@@ -28,8 +28,6 @@ public class Donor {
     private final StringProperty MICA2;
     private final StringProperty MICA3;
 
-    ////////
-
     public Donor(String donFirstName, String donLastName, String donGender, String donAge, String donWeight, String donEmail, String donOrgan, String donBloodType,
                      String donDP1, String donDP2, String donDP3, String donABC1, String donABC2, String donABC3, String donDRB1, String donDRB2, String donDRB3,
                      String donDQ1, String donDQ2, String donDQ3, String donMICA1, String donMICA2, String donMICA3) {
@@ -63,7 +61,6 @@ public class Donor {
     }
 
     public  StringProperty firstNameProperty() {return firstName;}
-   // public String strFirstName() {return firstName.get();}
     public StringProperty lastNameProperty() {return lastName;}
    // public String strLastName() {return  lastName.get();}
     public StringProperty genderProperty() {return gender;}
@@ -87,7 +84,5 @@ public class Donor {
     public StringProperty MICA1Property() {return MICA1;}
     public StringProperty MICA2Property() {return MICA2;}
     public StringProperty MICA3Property() {return MICA3;}
-
-
 
 }

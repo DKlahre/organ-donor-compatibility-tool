@@ -10,6 +10,7 @@ public class CandidateCellFactory  extends ListCell<Candidate> {
     @Override
     protected void updateItem(Candidate candidate, boolean empty) {
         super.updateItem(candidate, empty);
+
         if(empty) {
             setText(null);
             setGraphic(null);
@@ -18,6 +19,7 @@ public class CandidateCellFactory  extends ListCell<Candidate> {
             CandidateCellController controller = new CandidateCellController(candidate);
             loader.setController(controller);
             setText(null);
+
             try {
                 setGraphic(loader.load());
             } catch (Exception e) {

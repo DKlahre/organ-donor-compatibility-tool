@@ -1,6 +1,5 @@
 package com.proj.organtransplantapp.Controllers;
 
-import com.proj.organtransplantapp.Models.Candidate;
 import com.proj.organtransplantapp.Models.Donor;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -32,8 +31,6 @@ public class DonorCellController implements Initializable {
     public Label DRB3_lbl;
     public Label DQ3_lbl;
     public Label MICA3_lbl;
-
-    // public final Candidate candidate;
 
     public final Donor donor;
 

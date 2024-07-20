@@ -57,12 +57,14 @@ public class SearchCandidateController implements Initializable {
 
     private void onLastNameSearch() {
 
+
             ObservableList<Candidate> searchResults = Model.getInstance().searchCandLastName(lastName_fld.getText());
             candidate_listview.setItems(searchResults);
             // candidate_listview.setMouseTransparent(true);
             candidate_listview.setFocusTraversable(false);
             candidate_listview.setCellFactory(e -> new CandidateCellFactory());
             candidates = searchResults;
+
 
             if (candidate_listview.getItems().isEmpty()) {
                 lname_error_message_lbl.setText("Last name not found");
@@ -81,6 +83,6 @@ public class SearchCandidateController implements Initializable {
             Stage stage = (Stage) emailSearch_btn.getScene().getWindow();
             Model.getInstance().getViewFactory().closeStage(stage);
             Model.getInstance().getViewFactory().showSearchDonorController();
-            }
+        }
 
 }

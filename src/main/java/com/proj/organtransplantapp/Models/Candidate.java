@@ -28,7 +28,6 @@ public class Candidate {
     private final StringProperty MICA2;
     private final StringProperty MICA3;
 
-    ////////
 
     public Candidate(String candFirstName, String candLastName, String candGender, String candAge, String candWeight, String candEmail, String candOrgan, String candBloodType,
                      String candDP1, String candDP2, String candDP3, String candABC1, String candABC2, String candABC3, String candDRB1, String candDRB2, String candDRB3,
@@ -87,7 +86,5 @@ public class Candidate {
     public StringProperty MICA1Property() {return MICA1;}
     public StringProperty MICA2Property() {return MICA2;}
     public StringProperty MICA3Property() {return MICA3;}
-
-
 
 }
