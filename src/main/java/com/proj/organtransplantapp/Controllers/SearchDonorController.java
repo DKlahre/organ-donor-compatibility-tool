@@ -291,7 +291,8 @@ public class SearchDonorController implements Initializable {
         donor_listview.setCellFactory(e -> new DonorOptionsCellFactory());
         donors = searchResults;
 
-        System.out.println("process button pressed");
+
+       // System.out.println("process button pressed");
     }
 
 

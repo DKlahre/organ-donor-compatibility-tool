@@ -162,6 +162,10 @@ public class Model {
         return viewFactory;
     }
 
+    public DatabaseDriver getDatabaseDriver() {
+        return databaseDriver;
+    }
+
 //    public ObservableList<Donor> getTheDonors(){
 //        ObservableList<Donor> searchResult = FXCollections.observableArrayList();
 //

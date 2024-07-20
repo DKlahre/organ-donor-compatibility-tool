@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -83,19 +84,8 @@
             </font>
         </Label>
     </HBox>
-    <Label alignment="TOP_LEFT" layoutX="27.0" layoutY="314.0" prefHeight="24.0" prefWidth="219.0" text="Transplant candidate picked. Set " textFill="#4429c9">
+    <Button fx:id="printpdf_btn" layoutX="22.0" layoutY="326.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="189.0" styleClass="choose_btn" text="Print PDF document">
         <font>
-            <Font size="15.0" />
-        </font>
-    </Label>
-    <Label alignment="TOP_LEFT" layoutX="28.0" layoutY="337.0" prefHeight="28.0" prefWidth="226.0" text="controls below before initiating" textFill="#4429c9">
-        <font>
-            <Font size="15.0" />
-        </font>
-    </Label>
-    <Label alignment="TOP_LEFT" layoutX="28.0" layoutY="360.0" prefHeight="28.0" prefWidth="214.0" text="organ donor search." textFill="#4429c9">
-        <font>
-            <Font size="15.0" />
-        </font>
-    </Label>
+            <Font size="16.0" />
+        </font></Button>
 </AnchorPane>

@@ -1,9 +1,12 @@
 package com.proj.organtransplantapp.Controllers;
 
 import com.proj.organtransplantapp.Models.Donor;
+import com.proj.organtransplantapp.Models.Model;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 public class DonorOptionsCellController implements Initializable {
@@ -33,6 +36,8 @@ public class DonorOptionsCellController implements Initializable {
     public Label MICA3_lbl;
 
     public final Donor donor;
+
+    public Button printpdf_btn;
 
 
     public DonorOptionsCellController(Donor donor) {
@@ -65,5 +70,12 @@ public class DonorOptionsCellController implements Initializable {
         MICA1_lbl.textProperty().bind(donor.MICA1Property());
         MICA2_lbl.textProperty().bind(donor.MICA2Property());
         MICA3_lbl.textProperty().bind(donor.MICA3Property());
+        printpdf_btn.setOnAction(event -> printPdf());
     }
+
+    private void printPdf() {
+        String email = donor.emailProperty().getValue();
+        ResultSet resultSet = Model.getInstance().getDatabaseDriver().printDonorPdf(email);
+    }
+
 }

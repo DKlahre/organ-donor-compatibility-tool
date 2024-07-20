@@ -39,6 +39,18 @@ public class DatabaseDriver {
         }
     }
 
+    public ResultSet printDonorPdf (String email) {
+        Statement statement15;
+        ResultSet resultSet = null;
+        try {
+            statement15 = this.conn2.createStatement();
+            resultSet = statement15.executeQuery("SELECT * FROM TempTable2;");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
     public ResultSet searchCandEmail(String email) {
         Statement statement;
         ResultSet resultSet = null;
