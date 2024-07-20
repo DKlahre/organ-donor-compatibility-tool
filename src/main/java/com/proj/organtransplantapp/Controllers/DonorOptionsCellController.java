@@ -2,9 +2,16 @@ package com.proj.organtransplantapp.Controllers;
 
 import com.proj.organtransplantapp.Models.Donor;
 import com.proj.organtransplantapp.Models.Model;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
+import javafx.print.PrinterJob;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
 import java.net.URL;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
@@ -36,6 +43,8 @@ public class DonorOptionsCellController implements Initializable {
     public Label MICA3_lbl;
 
     public final Donor donor;
+
+    public AnchorPane donor_options_anchor_pane;
 
     public Button printpdf_btn;
 
@@ -70,12 +79,26 @@ public class DonorOptionsCellController implements Initializable {
         MICA1_lbl.textProperty().bind(donor.MICA1Property());
         MICA2_lbl.textProperty().bind(donor.MICA2Property());
         MICA3_lbl.textProperty().bind(donor.MICA3Property());
-        printpdf_btn.setOnAction(event -> printPdf());
+        printpdf_btn.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("To Printer!");
+                PrinterJob job = PrinterJob.createPrinterJob();
+                if(job != null){
+                    job.showPrintDialog((Stage)printpdf_btn.getScene().getWindow());
+                    job.printPage(donor_options_anchor_pane);
+                    job.endJob();
+                }
+            }
+        });
     }
 
     private void printPdf() {
         String email = donor.emailProperty().getValue();
         ResultSet resultSet = Model.getInstance().getDatabaseDriver().printDonorPdf(email);
+        System.out.println("from within printPdf()");
+
     }
 
 }
