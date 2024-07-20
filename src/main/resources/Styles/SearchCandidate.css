@@ -35,8 +35,8 @@ TextField {
     -fx-text-fill: #FFFFFF;
     -fx-font-family: "Arial Black";
     -fx-pref-width: 150;
-
 }
+
 
 .choose_btn {
     -fx-background-color: #6AA1E7;

@@ -52,6 +52,7 @@ public class SearchCandidateController implements Initializable {
                 lastName_fld.setText("");
                 press_cand_select_btn_lbl.setText("Press candidate selection button");
             }
+
         }
 
     private void onLastNameSearch() {
